@@ -4,7 +4,8 @@
   "description": "Qeetrix Design System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier:write": "npx prettier . --write",
+    "prettier:check": "npx prettier . --check"
   },
   "repository": {
     "type": "git",
