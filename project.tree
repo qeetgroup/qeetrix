@@ -1,0 +1,18 @@
+├── .github
+│  └── workflows
+│    └── ci.yml
+├── .gitignore
+├── .npmrc
+├── .prettierignore
+├── .prettierrc
+├── .vscode
+│  └── extensions.json
+├── nx.json
+├── package.json
+├── packages
+│  └── .gitkeep
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+├── tsconfig.base.json
+└── tsconfig.json
