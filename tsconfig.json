@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./packages/icons"
+    },
+    {
+      "path": "./packages/icons"
     }
   ]
 }
