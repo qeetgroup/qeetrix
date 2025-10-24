@@ -1,52 +1,61 @@
+├── .DS_Store
 ├── .gitignore
 ├── apps
 │  └── .gitkeep
 ├── LICENSE
 ├── package.json
 ├── packages
+│  ├── .DS_Store
 │  ├── .gitkeep
 │  ├── qeetrix-angular
 │  ├── qeetrix-react
 │  ├── qeetrix-svg
+│  │  ├── .DS_Store
 │  │  ├── dist
-│  │  │  ├── index.d.ts
 │  │  │  ├── index.d.ts.map
 │  │  │  ├── index.js
 │  │  │  └── index.js.map
 │  │  ├── package.json
 │  │  ├── src
-│  │  │  ├── filled
-│  │  │  │  ├── actions
-│  │  │  │  └── arrows
-│  │  │  │    ├── arrow-down.svg
-│  │  │  │    ├── arrow-left.svg
-│  │  │  │    ├── arrow-right.svg
-│  │  │  │    └── arrow-up.svg
+│  │  │  ├── .DS_Store
+│  │  │  ├── icons
+│  │  │  │  ├── filled
+│  │  │  │  │  ├── actions
+│  │  │  │  │  └── arrows
+│  │  │  │  │    ├── arrow-down.svg
+│  │  │  │  │    ├── arrow-left.svg
+│  │  │  │  │    ├── arrow-right.svg
+│  │  │  │  │    └── arrow-up.svg
+│  │  │  │  ├── outlined
+│  │  │  │  │  ├── .DS_Store
+│  │  │  │  │  ├── actions
+│  │  │  │  │  └── arrows
+│  │  │  │  │    ├── arrow-down.svg
+│  │  │  │  │    ├── arrow-left.svg
+│  │  │  │  │    ├── arrow-right.svg
+│  │  │  │  │    └── arrow-up.svg
+│  │  │  │  ├── rounded
+│  │  │  │  │  ├── actions
+│  │  │  │  │  └── arrows
+│  │  │  │  │    ├── arrow-down.svg
+│  │  │  │  │    ├── arrow-left.svg
+│  │  │  │  │    ├── arrow-right.svg
+│  │  │  │  │    └── arrow-up.svg
+│  │  │  │  ├── sharp
+│  │  │  │  │  ├── actions
+│  │  │  │  │  └── arrows
+│  │  │  │  │    ├── arrow-down.svg
+│  │  │  │  │    ├── arrow-left.svg
+│  │  │  │  │    ├── arrow-right.svg
+│  │  │  │  │    └── arrow-up.svg
+│  │  │  │  └── twotone
+│  │  │  │    ├── actions
+│  │  │  │    └── arrows
 │  │  │  ├── index.ts
-│  │  │  ├── outlined
-│  │  │  │  ├── actions
-│  │  │  │  └── arrows
-│  │  │  │    ├── arrow-down.svg
-│  │  │  │    ├── arrow-left.svg
-│  │  │  │    ├── arrow-right.svg
-│  │  │  │    └── arrow-up.svg
-│  │  │  ├── rounded
-│  │  │  │  ├── actions
-│  │  │  │  └── arrows
-│  │  │  │    ├── arrow-down.svg
-│  │  │  │    ├── arrow-left.svg
-│  │  │  │    ├── arrow-right.svg
-│  │  │  │    └── arrow-up.svg
-│  │  │  ├── sharp
-│  │  │  │  ├── actions
-│  │  │  │  └── arrows
-│  │  │  │    ├── arrow-down.svg
-│  │  │  │    ├── arrow-left.svg
-│  │  │  │    ├── arrow-right.svg
-│  │  │  │    └── arrow-up.svg
-│  │  │  └── twotone
-│  │  │    ├── actions
-│  │  │    └── arrows
+│  │  │  ├── scripts
+│  │  │  │  └── generate.ts
+│  │  │  └── types
+│  │  │    └── svg.d.ts
 │  │  └── tsconfig.json
 │  └── qeetrix-vue
 ├── pnpm-lock.yaml

@@ -1,13 +1,14 @@
 {
   "name": "@qeetrix/svg",
   "version": "0.0.1",
-  "description": "",
+  "description": "SVG Icons",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "generate": "tsx src/scripts/generate.ts",
+    "build": "tsc && pnpm run generate"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.15.0"
 }
