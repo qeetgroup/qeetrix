@@ -1,10 +1,10 @@
 {
-  "name": "@qeetrix/source",
+  "name": "@qeetrix/root",
   "version": "0.0.0",
   "description": "Qeetrix Design System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate:tree": "struct -o project.tree"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/qeetgroup/qeetrix#readme",
   "devDependencies": {
+    "@structure-codes/cli": "^0.0.6",
+    "@types/node": "^24.9.1",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.2"
   },
   "packageManager": "pnpm@10.15.0"
