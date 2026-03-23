@@ -1,0 +1,26 @@
+{
+  "name": "@qeetrix/root",
+  "version": "0.0.1",
+  "description": "Qeetrix Design System",
+  "keywords": [
+    "qeetrix"
+  ],
+  "homepage": "https://github.com/qeetgroup/qeetrix#readme",
+  "bugs": {
+    "url": "https://github.com/qeetgroup/qeetrix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qeetgroup/qeetrix.git"
+  },
+  "license": "MIT",
+  "author": "Qeet Group",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
