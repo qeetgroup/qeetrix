@@ -1,7 +1,5 @@
-
 {
   "compilerOptions": {
-    // === Type Checking ===
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
@@ -11,8 +9,6 @@
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
@@ -23,23 +19,17 @@
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
 
-    // === Modules ===
     "allowArbitraryExtensions": true,
     "allowImportingTsExtensions": false,
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "resolvePackageJsonExports": true,
-    "resolvePackageJsonImports": true,
 
-    // === JavaScript Support ===
     "allowJs": false,
     "checkJs": false,
     "skipLibCheck": true,
 
-    // === Interop Constraints ===
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
+    "forceConsistentCasingInFileNames": true
   }
 }
