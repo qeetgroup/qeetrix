@@ -57,6 +57,63 @@
 │  │  └── tsconfig.tsbuildinfo
 │  ├── qeetrix-playground
 │  └── qeetrix-storybook
+│    ├── .gitignore
+│    ├── .storybook
+│    │  ├── main.ts
+│    │  └── preview.ts
+│    ├── AGENTS.md
+│    ├── CLAUDE.md
+│    ├── eslint.config.mjs
+│    ├── next-env.d.ts
+│    ├── next.config.ts
+│    ├── package.json
+│    ├── pnpm-lock.yaml
+│    ├── pnpm-workspace.yaml
+│    ├── postcss.config.mjs
+│    ├── public
+│    │  ├── file.svg
+│    │  ├── globe.svg
+│    │  ├── next.svg
+│    │  ├── vercel.svg
+│    │  └── window.svg
+│    ├── README.md
+│    ├── src
+│    │  ├── app
+│    │  │  ├── favicon.ico
+│    │  │  ├── globals.css
+│    │  │  ├── layout.tsx
+│    │  │  └── page.tsx
+│    │  └── stories
+│    │    ├── assets
+│    │    │  ├── accessibility.png
+│    │    │  ├── accessibility.svg
+│    │    │  ├── addon-library.png
+│    │    │  ├── assets.png
+│    │    │  ├── avif-test-image.avif
+│    │    │  ├── context.png
+│    │    │  ├── discord.svg
+│    │    │  ├── docs.png
+│    │    │  ├── figma-plugin.png
+│    │    │  ├── github.svg
+│    │    │  ├── share.png
+│    │    │  ├── styling.png
+│    │    │  ├── testing.png
+│    │    │  ├── theming.png
+│    │    │  ├── tutorials.svg
+│    │    │  └── youtube.svg
+│    │    ├── button.css
+│    │    ├── Button.stories.ts
+│    │    ├── Button.tsx
+│    │    ├── Configure.mdx
+│    │    ├── header.css
+│    │    ├── Header.stories.ts
+│    │    ├── Header.tsx
+│    │    ├── page.css
+│    │    ├── Page.stories.ts
+│    │    └── Page.tsx
+│    ├── tsconfig.json
+│    ├── vitest.config.ts
+│    └── vitest.shims.d.ts
 ├── LICENSE
 ├── package.json
 ├── packages
