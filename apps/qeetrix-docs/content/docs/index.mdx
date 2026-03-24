@@ -1,13 +1,82 @@
 ---
-title: Hello World
-description: Your first document
+title: Overview
+description: What the current Qeetrix React design system includes today.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+Qeetrix docs now track the source in `@qeetrix/react`, not the default
+starter template. The current package ships a compact foundation: semantic
+tokens, theme orchestration, two UI primitives, and a small utility layer.
 
-## What is Next?
+<Callout title="Current scope">
+  The package currently exports `ThemeProvider`, `useTheme`, `Button`,
+  `buttonVariants`, `Accordion`, `AccordionItem`, `AccordionTrigger`,
+  `AccordionContent`, and `cn`.
+</Callout>
+
+## Start here
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+  <Card
+    title="Getting started"
+    description="Install the package, add the provider, and understand the current contract."
+    href="/docs/getting-started"
+  />
+  <Card
+    title="Tokens"
+    description="Review the semantic color, radius, and layout tokens exposed by the stylesheet."
+    href="/docs/foundations/tokens"
+  />
+  <Card
+    title="Theming"
+    description="See how light, dark, and system mode are managed in the current provider."
+    href="/docs/foundations/theming"
+  />
+  <Card
+    title="Button"
+    description="Explore the shipped button variants and size options."
+    href="/docs/components/button"
+  />
+  <Card
+    title="Accordion"
+    description="Document the current disclosure pattern built on Base UI."
+    href="/docs/components/accordion"
+  />
+  <Card
+    title="cn"
+    description="Use the shared utility for conditional classes and Tailwind conflict resolution."
+    href="/docs/utilities/cn"
+  />
+</Cards>
+
+## Package priorities
+
+- Keep semantic tokens consistent across light, dark, and system themes.
+- Ship composable React primitives built on top of Base UI.
+- Stay aligned with Tailwind 4 and shared utility-based styling.
+- Keep the docs grounded in what exists in source today.
+
+## Current surface area
+
+| Area | What ships now |
+| --- | --- |
+| Foundations | Semantic color tokens, radius scale, typography defaults, dark-mode class strategy |
+| Theming | `ThemeProvider`, `useTheme`, local storage persistence, system preference sync, cross-tab updates |
+| Components | `Button`, `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent` |
+| Utilities | `buttonVariants`, `cn` |
+
+## Where to go next
+
+<Cards>
+  <Card
+    title="Read the package README"
+    description="Compare the docs site with the package-level usage guidance."
+    href="https://github.com/qeetgroup/qeetrix/tree/main/packages/qeetrix-react#readme"
+    external
+  />
+  <Card
+    title="Inspect the source exports"
+    description="See the public API that the docs are describing."
+    href="https://github.com/qeetgroup/qeetrix/blob/main/packages/qeetrix-react/src/index.ts"
+    external
+  />
 </Cards>

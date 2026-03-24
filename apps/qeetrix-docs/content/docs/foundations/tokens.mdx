@@ -1,0 +1,58 @@
+---
+title: Tokens
+description: Semantic tokens exposed by the current Qeetrix stylesheet.
+---
+
+`@qeetrix/react` ships a neutral semantic token set in its shared stylesheet.
+Components consume semantic roles instead of hard-coded values, which keeps the
+system adaptable across light and dark themes.
+
+## Color tokens
+
+| Group | Tokens |
+| --- | --- |
+| Surfaces | `--background`, `--foreground`, `--card`, `--card-foreground`, `--popover`, `--popover-foreground` |
+| Actions | `--primary`, `--primary-foreground`, `--secondary`, `--secondary-foreground`, `--accent`, `--accent-foreground`, `--destructive` |
+| UI chrome | `--border`, `--input`, `--ring`, `--muted`, `--muted-foreground` |
+| Data and navigation | `--chart-1` through `--chart-5`, plus the `--sidebar-*` token family |
+
+## Radius scale
+
+The system uses `--radius` as the base token, then derives the rest of the
+scale from it.
+
+| Token | Definition |
+| --- | --- |
+| `--radius-sm` | `calc(var(--radius) * 0.6)` |
+| `--radius-md` | `calc(var(--radius) * 0.8)` |
+| `--radius-lg` | `var(--radius)` |
+| `--radius-xl` | `calc(var(--radius) * 1.4)` |
+| `--radius-2xl` | `calc(var(--radius) * 1.8)` |
+| `--radius-3xl` | `calc(var(--radius) * 2.2)` |
+| `--radius-4xl` | `calc(var(--radius) * 2.6)` |
+
+## Typography
+
+The current package sets `Inter Variable` as the primary sans-serif family and
+maps `--font-heading` to the same stack. That keeps headings and body copy
+aligned until a dedicated heading family is introduced.
+
+## Theme override example
+
+```css
+:root {
+  --primary: oklch(0.24 0 0);
+  --primary-foreground: oklch(0.98 0 0);
+  --radius: 0.75rem;
+}
+
+.dark {
+  --primary: oklch(0.92 0 0);
+  --primary-foreground: oklch(0.2 0 0);
+}
+```
+
+<Callout title="How dark mode is applied">
+  The dark token values live under the `.dark` class. `ThemeProvider` is
+  responsible for adding and removing that class from the document root.
+</Callout>

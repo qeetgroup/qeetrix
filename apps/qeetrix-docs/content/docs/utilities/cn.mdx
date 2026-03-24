@@ -1,0 +1,31 @@
+---
+title: cn
+description: Merge conditional class names with Tailwind conflict resolution.
+---
+
+`cn` combines `clsx` with `tailwind-merge`. Use it anywhere you want
+conditional classes and safe Tailwind overrides in one small helper.
+
+## Example
+
+```ts
+import { cn } from "@qeetrix/react";
+
+const className = cn(
+  "rounded-lg px-4 py-2 text-sm",
+  isActive && "bg-primary text-primary-foreground",
+  disabled && "pointer-events-none opacity-50",
+  classNameFromProps,
+);
+```
+
+## When to use it
+
+- Merge conditional classes without hand-building strings.
+- Let later Tailwind utilities override earlier conflicting ones.
+- Keep component APIs simple when you expose `className`.
+
+<Callout title="What it wraps">
+  The helper is a thin wrapper around `clsx` and `tailwind-merge`, so behavior
+  stays familiar if you already use those libraries elsewhere.
+</Callout>

@@ -1,0 +1,56 @@
+---
+title: Accordion
+description: Composable disclosure content built on the current Base UI wrapper.
+---
+
+`Accordion` is a thin Qeetrix wrapper around `@base-ui/react/accordion`. It
+adds the design system classes, trigger icons, and the open-close motion used
+across the package.
+
+## Example
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@qeetrix/react";
+
+export function FAQ() {
+  return (
+    <Accordion defaultValue={["tokens"]} className="max-w-xl">
+      <AccordionItem value="tokens">
+        <AccordionTrigger>How are tokens themed?</AccordionTrigger>
+        <AccordionContent>
+          Tokens resolve through the current light, dark, or system theme.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="components">
+        <AccordionTrigger>What components ship today?</AccordionTrigger>
+        <AccordionContent>
+          The current package exports Button and Accordion primitives.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+## Usage notes
+
+- `defaultValue` and `value` use arrays because the underlying root API models open items as a list.
+- Set `multiple` when more than one accordion item should remain open at the same time.
+- Give `AccordionItem` a `value` whenever you want predictable controlled or default-open behavior.
+- `AccordionTrigger` already includes the up and down chevrons and swaps them with `aria-expanded`.
+- `AccordionContent` animates with the shared accordion motion classes from the stylesheet.
+
+## Exported parts
+
+| Export | Role |
+| --- | --- |
+| `Accordion` | Root wrapper for the full disclosure group |
+| `AccordionItem` | Groups a trigger and a content panel |
+| `AccordionTrigger` | Interactive control that opens and closes the item |
+| `AccordionContent` | Animated panel container for the item body |

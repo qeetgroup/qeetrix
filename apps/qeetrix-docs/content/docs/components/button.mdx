@@ -1,0 +1,68 @@
+---
+title: Button
+description: Variants, sizes, and usage guidance for the Qeetrix button.
+---
+
+`Button` wraps `@base-ui/react/button` and layers the current Qeetrix variants
+and sizing rules on top.
+
+## Example
+
+```tsx
+import { Button } from "@qeetrix/react";
+
+export function Actions() {
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Button>Save changes</Button>
+      <Button variant="outline">Cancel</Button>
+      <Button variant="secondary">Duplicate</Button>
+    </div>
+  );
+}
+```
+
+## Variants
+
+| Variant | When to use it |
+| --- | --- |
+| `default` | Primary actions that should carry the most visual weight |
+| `outline` | Secondary actions on standard surfaces |
+| `secondary` | Lower-emphasis filled actions |
+| `ghost` | Quiet actions inside dense interfaces |
+| `destructive` | Dangerous or irreversible actions |
+| `link` | Inline actions that should read like text links |
+
+## Sizes
+
+| Size | Use case |
+| --- | --- |
+| `default` | Standard action buttons |
+| `xs` | Tight spaces or compact tables |
+| `sm` | Dense toolbars and supporting actions |
+| `lg` | Hero or page-level actions |
+| `icon` | Square icon-only buttons |
+| `icon-xs` | Compact icon buttons |
+| `icon-sm` | Small icon buttons |
+| `icon-lg` | Large icon buttons |
+
+## Notes
+
+- The component forwards native button props from Base UI.
+- Focus styles use the shared `--ring` token.
+- Disabled and `aria-invalid` states are styled out of the box.
+- Inline SVG icons are supported. Add `data-icon="inline-start"` or `data-icon="inline-end"` to fine-tune padding when needed.
+
+## Styling API
+
+If you need the variant classes without rendering the component, use
+`buttonVariants`.
+
+```tsx
+import { buttonVariants } from "@qeetrix/react";
+
+const className = buttonVariants({
+  variant: "outline",
+  size: "sm",
+});
+```

@@ -1,0 +1,71 @@
+---
+title: Getting Started
+description: Install @qeetrix/react and wire it into a React application.
+---
+
+`@qeetrix/react` is currently a small but production-oriented package. It
+ships shared styles, a theme provider, and the first UI primitives that define
+the Qeetrix component contract.
+
+## Install
+
+```bash
+pnpm add @qeetrix/react react react-dom
+```
+
+## Wrap your app
+
+```tsx
+import { Button, ThemeProvider } from "@qeetrix/react";
+
+function App() {
+  return (
+    <ThemeProvider>
+      <main className="p-6">
+        <Button>Launch</Button>
+      </main>
+    </ThemeProvider>
+  );
+}
+```
+
+The package entry imports its generated stylesheet automatically. If your app
+prefers an explicit stylesheet import, you can also use:
+
+```tsx
+import "@qeetrix/react/styles.css";
+```
+
+## What ThemeProvider does for you
+
+- Applies `light` or `dark` to `document.documentElement`.
+- Resolves `system` from the current `prefers-color-scheme` value.
+- Persists the selected theme in local storage with the key `theme` by default.
+- Syncs theme changes across tabs with the `storage` event.
+- Listens for operating-system theme changes while `theme` is set to `system`.
+- Lets users press `d` to toggle light and dark mode unless focus is inside an editable field.
+
+<Callout type="warn" title="Current package scope">
+  The current public surface is intentionally focused. Start with the provider,
+  tokens, `Button`, and `Accordion`, then expand the docs as new components land.
+</Callout>
+
+## Recommended reading order
+
+<Cards>
+  <Card
+    title="Tokens"
+    description="Understand the semantic token contract before customizing surfaces or colors."
+    href="/docs/foundations/tokens"
+  />
+  <Card
+    title="Theming"
+    description="See the provider API and the behaviors baked into the current implementation."
+    href="/docs/foundations/theming"
+  />
+  <Card
+    title="Components"
+    description="Review the currently shipped primitives before adding new docs pages."
+    href="/docs/components/button"
+  />
+</Cards>
