@@ -80,43 +80,31 @@ importers:
       '@fontsource-variable/inter':
         specifier: ^5.2.8
         version: 5.2.8
-      '@qeetrix/icons':
-        specifier: workspace:*
-        version: link:../qeetrix-icons
-      '@tailwindcss/vite':
-        specifier: ^4.2.1
-        version: 4.2.2(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(lightningcss@1.32.0))
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      react:
-        specifier: ^19.2.4
-        version: 19.2.4
-      react-dom:
-        specifier: ^19.2.4
-        version: 19.2.4(react@19.2.4)
       shadcn:
         specifier: ^4.1.0
         version: 4.1.0(@types/node@24.12.0)(typescript@5.9.3)
       tailwind-merge:
         specifier: ^3.5.0
         version: 3.5.0
-      tailwindcss:
-        specifier: ^4.2.1
-        version: 4.2.2
-      tw-animate-css:
-        specifier: ^1.4.0
-        version: 1.4.0
     devDependencies:
       '@qeetrix/eslint':
         specifier: workspace:*
         version: link:../qeetrix-eslint
+      '@qeetrix/icons':
+        specifier: workspace:*
+        version: link:../qeetrix-icons
       '@qeetrix/tsconfig':
         specifier: workspace:*
         version: link:../qeetrix-tsconfig
+      '@tailwindcss/vite':
+        specifier: ^4.2.1
+        version: 4.2.2(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(lightningcss@1.32.0))
       '@types/node':
         specifier: ^24.12.0
         version: 24.12.0
@@ -138,6 +126,18 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.7.2
         version: 0.7.2(prettier@3.8.1)
+      react:
+        specifier: ^19.2.4
+        version: 19.2.4
+      react-dom:
+        specifier: ^19.2.4
+        version: 19.2.4(react@19.2.4)
+      tailwindcss:
+        specifier: ^4.2.1
+        version: 4.2.2
+      tw-animate-css:
+        specifier: ^1.4.0
+        version: 1.4.0
       typescript:
         specifier: ~5.9.3
         version: 5.9.3

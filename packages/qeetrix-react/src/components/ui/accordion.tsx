@@ -1,6 +1,11 @@
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
+
+type AccordionProps = AccordionPrimitive.Root.Props
+type AccordionItemProps = AccordionPrimitive.Item.Props
+type AccordionTriggerProps = AccordionPrimitive.Trigger.Props
+type AccordionContentProps = AccordionPrimitive.Panel.Props
 
 function ChevronDown(props: React.ComponentProps<"svg">) {
   return (
@@ -42,7 +47,7 @@ function ChevronUp(props: React.ComponentProps<"svg">) {
   )
 }
 
-function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+function Accordion({ className, ...props }: AccordionProps) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
@@ -52,7 +57,7 @@ function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   )
 }
 
-function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
+function AccordionItem({ className, ...props }: AccordionItemProps) {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
@@ -66,7 +71,7 @@ function AccordionTrigger({
   className,
   children,
   ...props
-}: AccordionPrimitive.Trigger.Props) {
+}: AccordionTriggerProps) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
@@ -95,7 +100,7 @@ function AccordionContent({
   className,
   children,
   ...props
-}: AccordionPrimitive.Panel.Props) {
+}: AccordionContentProps) {
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
@@ -115,3 +120,9 @@ function AccordionContent({
 }
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+export type {
+  AccordionContentProps,
+  AccordionItemProps,
+  AccordionProps,
+  AccordionTriggerProps,
+}
