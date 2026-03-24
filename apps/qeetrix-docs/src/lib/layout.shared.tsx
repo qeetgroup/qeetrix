@@ -9,6 +9,7 @@ export const gitConfig = {
 
 export function baseOptions(): BaseLayoutProps {
   return {
+    links: [],
     nav: {
       title: 'My App',
     },
