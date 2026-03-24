@@ -22,7 +22,7 @@
     "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check",
     "dev": "pnpm -r --parallel --if-present run dev",
     "generate:icons": "pnpm --filter @qeetrix/icons run generate",
-    "generate:tree": "struct -i .next -i dist -o project.tree",
+    "generate:tree": "struct -i .next -i dist -i svgs -o project.tree",
     "lint": "pnpm -r --if-present run lint",
     "format:write": "prettier --write .",
     "format:check": "prettier --check .",
