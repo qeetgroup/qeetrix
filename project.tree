@@ -4,14 +4,88 @@
 ├── .prettierrc
 ├── apps
 │  ├── qeetrix-docs
+│  │  ├── .gitignore
+│  │  ├── .source
+│  │  │  ├── browser.ts
+│  │  │  ├── dynamic.ts
+│  │  │  ├── server.ts
+│  │  │  └── source.config.mjs
+│  │  ├── content
+│  │  │  └── docs
+│  │  │    ├── index.mdx
+│  │  │    └── test.mdx
+│  │  ├── eslint.config.mjs
+│  │  ├── next-env.d.ts
+│  │  ├── next.config.mjs
+│  │  ├── package.json
+│  │  ├── postcss.config.mjs
+│  │  ├── README.md
+│  │  ├── source.config.ts
+│  │  ├── src
+│  │  │  ├── app
+│  │  │  │  ├── (home)
+│  │  │  │  │  ├── layout.tsx
+│  │  │  │  │  └── page.tsx
+│  │  │  │  ├── api
+│  │  │  │  │  └── search
+│  │  │  │  │    └── route.ts
+│  │  │  │  ├── docs
+│  │  │  │  │  ├── [[...slug]]
+│  │  │  │  │  │  └── page.tsx
+│  │  │  │  │  └── layout.tsx
+│  │  │  │  ├── global.css
+│  │  │  │  ├── layout.tsx
+│  │  │  │  ├── llms-full.txt
+│  │  │  │  │  └── route.ts
+│  │  │  │  ├── llms.mdx
+│  │  │  │  │  └── docs
+│  │  │  │  │    └── [[...slug]]
+│  │  │  │  │      └── route.ts
+│  │  │  │  ├── llms.txt
+│  │  │  │  │  └── route.ts
+│  │  │  │  └── og
+│  │  │  │    └── docs
+│  │  │  │      └── [...slug]
+│  │  │  │        └── route.tsx
+│  │  │  ├── components
+│  │  │  │  └── mdx.tsx
+│  │  │  └── lib
+│  │  │    ├── cn.ts
+│  │  │    ├── layout.shared.tsx
+│  │  │    └── source.ts
+│  │  ├── tsconfig.json
+│  │  └── tsconfig.tsbuildinfo
 │  ├── qeetrix-playground
 │  └── qeetrix-storybook
 ├── LICENSE
 ├── package.json
 ├── packages
+│  ├── .DS_Store
 │  ├── qeetrix-cli
 │  ├── qeetrix-eslint
+│  │  ├── base.js
+│  │  ├── index.js
+│  │  ├── package.json
+│  │  └── react.js
 │  ├── qeetrix-icons
+│  │  ├── .DS_Store
+│  │  ├── eslint.config.js
+│  │  ├── package.json
+│  │  ├── scripts
+│  │  │  └── generate-icons.mjs
+│  │  ├── src
+│  │  │  ├── generated
+│  │  │  │  ├── bold.tsx
+│  │  │  │  ├── broken.tsx
+│  │  │  │  ├── bulk.tsx
+│  │  │  │  ├── index.ts
+│  │  │  │  ├── linear.tsx
+│  │  │  │  ├── outline.tsx
+│  │  │  │  └── twotone.tsx
+│  │  │  ├── index.ts
+│  │  │  └── types.ts
+│  │  ├── tsconfig.build.json
+│  │  └── tsconfig.json
 │  ├── qeetrix-react
 │  │  ├── .gitignore
 │  │  ├── .prettierignore
@@ -20,7 +94,6 @@
 │  │  ├── eslint.config.js
 │  │  ├── index.html
 │  │  ├── package.json
-│  │  ├── pnpm-lock.yaml
 │  │  ├── public
 │  │  │  └── vite.svg
 │  │  ├── README.md
@@ -35,17 +108,25 @@
 │  │  │  │    ├── button-variants.ts
 │  │  │  │    └── button.tsx
 │  │  │  ├── index.css
+│  │  │  ├── index.ts
 │  │  │  ├── lib
 │  │  │  │  └── utils.ts
 │  │  │  └── main.tsx
 │  │  ├── tsconfig.app.json
+│  │  ├── tsconfig.build.json
 │  │  ├── tsconfig.json
+│  │  ├── tsconfig.lib.json
 │  │  ├── tsconfig.node.json
+│  │  ├── vite.config.lib.ts
 │  │  └── vite.config.ts
 │  └── qeetrix-tsconfig
+│    ├── base.json
+│    ├── node.json
+│    ├── package.json
+│    ├── react-library.json
+│    └── react-vite.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── project.tree
 ├── README.md
-├── tsconfig.base.json
 └── tsconfig.json
