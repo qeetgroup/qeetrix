@@ -1,21 +1,40 @@
-# React + TypeScript + Vite + shadcn/ui
+# @qeetrix/react
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+Qeetrix React components packaged for npm consumption.
 
-## Adding components
-
-To add components to your app, run the following command:
+## Install
 
 ```bash
-npx shadcn@latest add button
+pnpm add @qeetrix/react react react-dom
 ```
 
-This will place the ui components in the `src/components` directory.
-
-## Using components
-
-To use the components in your app, import them as follows:
+## Use
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button, ThemeProvider } from "@qeetrix/react"
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Button>Button</Button>
+    </ThemeProvider>
+  )
+}
 ```
+
+The package entry imports its generated stylesheet automatically. If your app prefers an explicit style import, you can also use:
+
+```tsx
+import "@qeetrix/react/styles.css"
+```
+
+## Scripts
+
+```bash
+pnpm --filter @qeetrix/react run dev
+pnpm --filter @qeetrix/react run build
+pnpm --filter @qeetrix/react run build:demo
+pnpm --filter @qeetrix/react run pack
+```
+
+`build` creates the publishable `dist` folder, while `build:demo` builds the local Vite showcase app.
