@@ -1,0 +1,67 @@
+---
+title: Theming
+description: How ThemeProvider and useTheme work in the current package.
+---
+
+Qeetrix theming is centered around `ThemeProvider`. It controls the root theme
+class, resolves `system` mode, and keeps theme changes synchronized across the
+browser environment.
+
+## Add the provider
+
+```tsx
+import { ThemeProvider } from "@qeetrix/react";
+
+export function Root({ children }: { children: React.ReactNode }) {
+  return <ThemeProvider>{children}</ThemeProvider>;
+}
+```
+
+## Theme modes
+
+- `light`
+- `dark`
+- `system`
+
+## Provider props
+
+| Prop | Default | Purpose |
+| --- | --- | --- |
+| `defaultTheme` | `system` | Chooses the starting theme when local storage has no saved value |
+| `storageKey` | `theme` | Controls where the selected theme is persisted in local storage |
+| `disableTransitionOnChange` | `true` | Temporarily removes CSS transitions while the theme class flips |
+
+## Using `useTheme`
+
+```tsx
+"use client";
+
+import { useTheme } from "@qeetrix/react";
+
+export function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <div className="flex gap-2">
+      <button onClick={() => setTheme("light")}>Light</button>
+      <button onClick={() => setTheme("dark")}>Dark</button>
+      <button onClick={() => setTheme("system")}>System</button>
+      <span>{theme}</span>
+    </div>
+  );
+}
+```
+
+## Built-in behavior
+
+- Applies the resolved theme to `document.documentElement`.
+- Watches `prefers-color-scheme` while the current theme is `system`.
+- Writes theme changes to local storage immediately.
+- Syncs updates across tabs through the browser `storage` event.
+- Ignores modifier-key shortcuts and editable inputs before handling the theme shortcut.
+- Toggles between light and dark when the user presses `d`.
+
+<Callout type="idea" title="Why the keyboard shortcut is documented">
+  The shortcut is part of the current provider implementation, so it belongs in
+  the public docs until the behavior changes.
+</Callout>
