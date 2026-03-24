@@ -18,22 +18,21 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "build": "pnpm -r --if-present run build",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check",
+    "dev": "pnpm -r --parallel --if-present run dev",
+    "generate:icons": "pnpm --filter @qeetrix/icons run generate",
     "generate:tree": "struct -i .next -i dist -o project.tree",
+    "lint": "pnpm -r --if-present run lint",
     "format:write": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r --if-present run typecheck"
   },
   "devDependencies": {
-    "@eslint/css": "^1.0.0",
-    "@eslint/js": "^10.0.1",
-    "@eslint/json": "^1.2.0",
-    "@eslint/markdown": "^7.5.1",
+    "@qeetrix/tsconfig": "workspace:*",
     "@structure-codes/cli": "^0.0.6",
-    "eslint": "^10.1.0",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^17.4.0",
-    "jiti": "^2.6.1",
     "prettier": "3.8.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1"
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "typescript": "^5.9.3"
   }
 }

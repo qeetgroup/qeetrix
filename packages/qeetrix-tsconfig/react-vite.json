@@ -1,0 +1,10 @@
+{
+  "extends": "./react-library.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true
+  }
+}

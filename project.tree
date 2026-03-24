@@ -1,3 +1,4 @@
+├── .DS_Store
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc
@@ -5,15 +6,46 @@
 │  ├── qeetrix-docs
 │  ├── qeetrix-playground
 │  └── qeetrix-storybook
-├── eslint.config.ts
 ├── LICENSE
 ├── package.json
 ├── packages
 │  ├── qeetrix-cli
+│  ├── qeetrix-eslint
 │  ├── qeetrix-icons
-│  └── qeetrix-react
+│  ├── qeetrix-react
+│  │  ├── .gitignore
+│  │  ├── .prettierignore
+│  │  ├── .prettierrc
+│  │  ├── components.json
+│  │  ├── eslint.config.js
+│  │  ├── index.html
+│  │  ├── package.json
+│  │  ├── pnpm-lock.yaml
+│  │  ├── public
+│  │  │  └── vite.svg
+│  │  ├── README.md
+│  │  ├── src
+│  │  │  ├── App.tsx
+│  │  │  ├── assets
+│  │  │  │  └── react.svg
+│  │  │  ├── components
+│  │  │  │  ├── theme-provider.tsx
+│  │  │  │  └── ui
+│  │  │  │    ├── accordion.tsx
+│  │  │  │    ├── button-variants.ts
+│  │  │  │    └── button.tsx
+│  │  │  ├── index.css
+│  │  │  ├── lib
+│  │  │  │  └── utils.ts
+│  │  │  └── main.tsx
+│  │  ├── tsconfig.app.json
+│  │  ├── tsconfig.json
+│  │  ├── tsconfig.node.json
+│  │  └── vite.config.ts
+│  └── qeetrix-tsconfig
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
+├── project.tree
 ├── README.md
 ├── tsconfig.base.json
 └── tsconfig.json

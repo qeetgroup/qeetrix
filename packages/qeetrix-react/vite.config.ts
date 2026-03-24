@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
+      "@qeetrix/icons": path.resolve(__dirname, "../qeetrix-icons/src/index.ts"),
       "@": path.resolve(__dirname, "./src"),
     },
   },

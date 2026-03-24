@@ -1,0 +1,37 @@
+{
+  "name": "@qeetrix/icons",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run generate && tsc -p tsconfig.build.json",
+    "generate": "node ./scripts/generate-icons.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write \"{src,scripts}/**/*.{ts,tsx,mjs}\"",
+    "typecheck": "pnpm run generate && tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "react": "^19.2.4"
+  },
+  "devDependencies": {
+    "@qeetrix/eslint": "workspace:*",
+    "@qeetrix/tsconfig": "workspace:*",
+    "@types/react": "^19.2.14",
+    "eslint": "^9.39.4",
+    "prettier": "^3.8.1",
+    "react": "^19.2.4",
+    "typescript": "~5.9.3"
+  }
+}

@@ -7,7 +7,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@qeetrix/icons": ["../qeetrix-icons/src/index.ts"],
+      "@qeetrix/icons/*": ["../qeetrix-icons/src/*"]
     }
   }
 }
