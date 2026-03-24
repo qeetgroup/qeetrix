@@ -18,9 +18,21 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm -r --if-present run build",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check",
+    "dev": "pnpm -r --parallel --if-present run dev",
+    "generate:icons": "pnpm --filter @qeetrix/icons run generate",
+    "generate:tree": "struct -i .next -i dist -o project.tree",
+    "lint": "pnpm -r --if-present run lint",
+    "format:write": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r --if-present run typecheck"
   },
   "devDependencies": {
+    "@qeetrix/tsconfig": "workspace:*",
+    "@structure-codes/cli": "^0.0.6",
+    "prettier": "3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.9.3"
   }
 }
