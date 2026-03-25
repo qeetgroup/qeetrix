@@ -12,8 +12,20 @@
 │  │  │  └── source.config.mjs
 │  │  ├── content
 │  │  │  └── docs
+│  │  │    ├── components
+│  │  │    │  ├── accordion.mdx
+│  │  │    │  ├── button.mdx
+│  │  │    │  └── meta.json
+│  │  │    ├── foundations
+│  │  │    │  ├── meta.json
+│  │  │    │  ├── theming.mdx
+│  │  │    │  └── tokens.mdx
+│  │  │    ├── getting-started.mdx
 │  │  │    ├── index.mdx
-│  │  │    └── test.mdx
+│  │  │    ├── meta.json
+│  │  │    └── utilities
+│  │  │      ├── cn.mdx
+│  │  │      └── meta.json
 │  │  ├── eslint.config.mjs
 │  │  ├── next-env.d.ts
 │  │  ├── next.config.mjs
@@ -53,9 +65,7 @@
 │  │  │    ├── cn.ts
 │  │  │    ├── layout.shared.tsx
 │  │  │    └── source.ts
-│  │  ├── tsconfig.json
-│  │  └── tsconfig.tsbuildinfo
-│  ├── qeetrix-playground
+│  │  └── tsconfig.json
 │  └── qeetrix-storybook
 │    ├── .gitignore
 │    ├── .storybook
