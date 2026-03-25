@@ -1,0 +1,102 @@
+---
+title: Icons
+description: Installation, usage, variants, and accessibility guidance for the Qeetrix icon library.
+---
+
+`@qeetrix/icons` ships the generated Qeetrix icon set as React components with a
+single, searchable API. Every base icon accepts a `variant` prop so you can
+switch between `bold`, `broken`, `bulk`, `linear`, `outline`, and `twotone`
+without changing the import.
+
+<Callout title="Generated from source SVGs">
+  The library is generated from `packages/qeetrix-icons/svgs`, then re-exported
+  through the package index. That keeps the docs explorer, import paths, and
+  shipped components aligned.
+</Callout>
+
+## Installation
+
+```bash
+pnpm add @qeetrix/icons
+```
+
+## Basic usage
+
+```tsx
+import { Activity, ArrowRight, SearchNormal } from "@qeetrix/icons";
+
+export function Toolbar() {
+  return (
+    <div className="flex items-center gap-3">
+      <SearchNormal size={18} aria-hidden="true" />
+      <Activity variant="linear" size={20} aria-label="Activity" />
+      <ArrowRight variant="bold" size={20} aria-hidden="true" />
+    </div>
+  );
+}
+```
+
+## Variants
+
+| Variant   | Best for                                                          |
+| --------- | ----------------------------------------------------------------- |
+| `linear`  | Default interface iconography with balanced visual weight         |
+| `outline` | Crisp strokes on airy layouts and lighter surfaces                |
+| `bold`    | High-emphasis actions, hero UI, and compact surfaces              |
+| `broken`  | Expressive, editorial, or feature-driven interfaces               |
+| `bulk`    | Filled icon treatments with stronger shape contrast               |
+| `twotone` | Richer hierarchy where a softer secondary layer helps readability |
+
+## Size prop
+
+All icons accept a `size` prop. Use a number for pixel sizing or a string for
+custom CSS units.
+
+```tsx
+import { Activity } from "@qeetrix/icons";
+
+export function Sizes() {
+  return (
+    <div className="flex items-center gap-4">
+      <Activity size={16} />
+      <Activity size={24} />
+      <Activity size="2rem" />
+    </div>
+  );
+}
+```
+
+## Fixed-variant imports
+
+If you know the exact style you want up front, the generated variant exports are
+still available.
+
+```tsx
+import { ActivityLinear, ActivityBold } from "@qeetrix/icons";
+
+export function Comparison() {
+  return (
+    <div className="flex items-center gap-4">
+      <ActivityLinear size={24} />
+      <ActivityBold size={24} />
+    </div>
+  );
+}
+```
+
+## Accessibility
+
+- Icons are decorative by default and render with `aria-hidden` unless you pass an `aria-label`.
+- Add an `aria-label` when the icon communicates meaning on its own.
+- Prefer pairing icons with visible text for critical actions and navigation.
+- Keep interactive targets larger than the icon itself, especially on touch devices.
+
+## Explore the full set
+
+<Cards>
+  <Card
+    title="Icon gallery"
+    description="Search the full set, switch variants, and copy import, JSX, or SVG snippets."
+    href="/docs/icons/gallery"
+  />
+</Cards>

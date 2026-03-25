@@ -4,13 +4,15 @@ description: What the current Qeetrix React design system includes today.
 ---
 
 Qeetrix docs now track the source in `@qeetrix/react`, not the default
-starter template. The current package ships a compact foundation: semantic
-tokens, theme orchestration, two UI primitives, and a small utility layer.
+starter template. The current workspace now documents both the React package
+and the shared `@qeetrix/icons` icon library: semantic tokens, theme
+orchestration, primitives, utilities, and a generated icon set.
 
 <Callout title="Current scope">
   The package currently exports `ThemeProvider`, `useTheme`, `Button`,
   `buttonVariants`, `Accordion`, `AccordionItem`, `AccordionTrigger`,
-  `AccordionContent`, and `cn`.
+  `AccordionContent`, `cn`, and the generated `@qeetrix/icons` library with base
+  icon components and style variants.
 </Callout>
 
 ## Start here
@@ -42,6 +44,11 @@ tokens, theme orchestration, two UI primitives, and a small utility layer.
     href="/docs/components/accordion"
   />
   <Card
+    title="Icons"
+    description="Search the full icon set, switch variants, and copy ready-to-use snippets."
+    href="/docs/icons"
+  />
+  <Card
     title="cn"
     description="Use the shared utility for conditional classes and Tailwind conflict resolution."
     href="/docs/utilities/cn"
@@ -52,17 +59,19 @@ tokens, theme orchestration, two UI primitives, and a small utility layer.
 
 - Keep semantic tokens consistent across light, dark, and system themes.
 - Ship composable React primitives built on top of Base UI.
+- Provide a searchable icon system with consistent variant naming and copyable usage.
 - Stay aligned with Tailwind 4 and shared utility-based styling.
 - Keep the docs grounded in what exists in source today.
 
 ## Current surface area
 
-| Area | What ships now |
-| --- | --- |
-| Foundations | Semantic color tokens, radius scale, typography defaults, dark-mode class strategy |
-| Theming | `ThemeProvider`, `useTheme`, local storage persistence, system preference sync, cross-tab updates |
-| Components | `Button`, `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent` |
-| Utilities | `buttonVariants`, `cn` |
+| Area        | What ships now                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| Foundations | Semantic color tokens, radius scale, typography defaults, dark-mode class strategy                                  |
+| Theming     | `ThemeProvider`, `useTheme`, local storage persistence, system preference sync, cross-tab updates                   |
+| Components  | `Button`, `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent`                                      |
+| Icons       | Base icon exports, variant switching (`bold`, `broken`, `bulk`, `linear`, `outline`, `twotone`), generated registry |
+| Utilities   | `buttonVariants`, `cn`                                                                                              |
 
 ## Where to go next
 
