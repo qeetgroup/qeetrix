@@ -26,6 +26,22 @@ function toPascalCase(value) {
     .join("")
 }
 
+function toComponentName(iconName, styleSuffix, usedNames = new Set()) {
+  const baseName = toPascalCase(iconName)
+  const safeBaseName = /^[A-Za-z_$]/.test(baseName) ? baseName : `Icon${baseName}`
+  let componentName = `${safeBaseName}${styleSuffix}`
+  let duplicateIndex = 2
+
+  while (usedNames.has(componentName)) {
+    componentName = `${safeBaseName}${duplicateIndex}${styleSuffix}`
+    duplicateIndex += 1
+  }
+
+  usedNames.add(componentName)
+
+  return componentName
+}
+
 function jsxAttributeName(name) {
   if (name === "class") {
     return "className"
@@ -137,6 +153,7 @@ function main() {
     const styleSuffix = styleNames[style] ?? toPascalCase(style)
     const styleFileName = styleFileNames[style] ?? style
     const styleDir = path.join(svgRoot, style)
+    const usedNames = new Set()
     const svgFiles = fs
       .readdirSync(styleDir)
       .filter((file) => file.endsWith(".svg"))
@@ -144,8 +161,7 @@ function main() {
 
     const components = svgFiles.map((file) => {
       const iconName = file.replace(/\.svg$/, "")
-      const baseName = toPascalCase(iconName)
-      const componentName = `${baseName}${styleSuffix}`
+      const componentName = toComponentName(iconName, styleSuffix, usedNames)
       const svg = fs.readFileSync(path.join(styleDir, file), "utf8")
 
       return {
