@@ -1,4 +1,11 @@
 {
   "title": "Qeetrix Docs",
-  "pages": ["index", "getting-started", "foundations", "components", "utilities"]
+  "pages": [
+    "index",
+    "getting-started",
+    "foundations",
+    "components",
+    "icons",
+    "utilities"
+  ]
 }

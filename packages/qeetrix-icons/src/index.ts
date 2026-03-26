@@ -1,3 +1,11 @@
-export * from "./generated"
+export * from "./generated";
 
-export type { IconProps } from "./types"
+export { iconVariants } from "./types";
+
+export type {
+  BaseIconProps,
+  IconComponent,
+  IconProps,
+  IconRegistry,
+  IconVariant,
+} from "./types";
