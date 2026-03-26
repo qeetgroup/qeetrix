@@ -1,4 +1,7 @@
 {
   "title": "Components",
+  "description": "Composable React primitives and their APIs.",
+  "icon": "Component",
+  "root": true,
   "pages": ["button", "accordion"]
 }

@@ -1,4 +1,7 @@
 {
   "title": "Icons",
+  "description": "Generated icon variants, browsing, and usage patterns.",
+  "icon": "Shapes",
+  "root": true,
   "pages": ["index", "gallery"]
 }

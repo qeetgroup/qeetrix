@@ -1,4 +1,7 @@
 {
   "title": "Foundations",
+  "description": "Tokens, theming, and the base design language.",
+  "icon": "Palette",
+  "root": true,
   "pages": ["tokens", "theming"]
 }
