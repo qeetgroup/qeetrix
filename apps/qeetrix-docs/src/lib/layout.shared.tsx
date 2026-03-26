@@ -8,28 +8,7 @@ export const gitConfig = {
 
 export function baseOptions(): BaseLayoutProps {
   return {
-    links: [
-      {
-        text: "Docs",
-        url: "/docs",
-        active: "nested-url",
-      },
-      {
-        text: "Getting Started",
-        url: "/docs/getting-started",
-        active: "nested-url",
-      },
-      {
-        text: "Components",
-        url: "/docs/components/button",
-        active: "nested-url",
-      },
-      {
-        text: "Icons",
-        url: "/docs/icons",
-        active: "nested-url",
-      },
-    ],
+    links: [],
     nav: {
       title: (
         <span className="flex items-center gap-3">
