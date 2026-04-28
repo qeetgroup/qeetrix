@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Qeetrix Icons — Preview</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --card: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --border: #e5e5e5;
+    --hover: #f0f0f0;
+    --icon-size: 24px;
+  }
+  body.dark {
+    --bg: #0d0d0d;
+    --card: #1a1a1a;
+    --text: #e5e5e5;
+    --muted: #888888;
+    --border: #2a2a2a;
+    --hover: #222222;
+  }
+  body.dark img { filter: invert(1); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  .subtitle { color: var(--muted); margin: 0 0 24px; font-size: 13px; }
+  .controls {
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    padding: 12px 16px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; margin-bottom: 24px;
+    position: sticky; top: 16px; z-index: 10;
+  }
+  .controls label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .group { display: flex; gap: 4px; }
+  button {
+    padding: 6px 12px; border: 1px solid var(--border); background: var(--bg);
+    color: var(--text); border-radius: 6px; cursor: pointer; font-size: 13px;
+  }
+  button:hover { background: var(--hover); }
+  button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  h2 {
+    font-size: 12px; margin: 28px 0 10px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--muted); font-weight: 600;
+  }
+  table {
+    width: 100%; border-collapse: collapse; background: var(--card);
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  }
+  th, td { padding: 12px; text-align: center; border-bottom: 1px solid var(--border); }
+  th {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--muted); font-weight: 600; background: var(--bg);
+  }
+  th:first-child, td:first-child {
+    text-align: left;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px; padding-left: 20px; width: 180px;
+  }
+  td img { width: var(--icon-size); height: var(--icon-size); display: block; margin: 0 auto; }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--hover); }
+  .empty { color: #ccc; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Qeetrix Icons</h1>
+<p class="subtitle">Visual verification preview. Open directly in a browser — no server required.</p>
+
+<div class="controls">
+  <label>Size</label>
+  <div class="group">
+    <button data-size="20">20</button>
+    <button data-size="24" class="active">24</button>
+    <button data-size="32">32</button>
+    <button data-size="48">48</button>
+  </div>
+  <label>Theme</label>
+  <div class="group">
+    <button data-theme="light" class="active">Light</button>
+    <button data-theme="dark">Dark</button>
+  </div>
+</div>
+
+<div id="content"></div>
+
+<script>
+  const STYLES = ['outline', 'filled', 'duotone', 'rounded', 'sharp'];
+
+  // Add new categories here as they are generated.
+  const CATEGORIES = {
+    arrows: [
+      'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right',
+      'arrow-up-right', 'arrow-up-left', 'arrow-down-right', 'arrow-down-left',
+      'arrow-left-right', 'arrow-up-down',
+      'arrows-expand', 'arrows-collapse',
+      'refresh', 'rotate-cw', 'rotate-ccw', 'sync',
+      'arrow-uturn-up', 'arrow-uturn-down',
+      'arrow-up-to-line', 'arrow-down-to-line', 'arrow-left-to-line', 'arrow-right-to-line',
+      'arrow-up-from-line', 'arrow-down-from-line', 'arrow-left-from-line', 'arrow-right-from-line',
+      'corner-up-right', 'corner-up-left', 'corner-down-right', 'corner-down-left',
+      'corner-left-up', 'corner-left-down',
+      'arrow-up-circle', 'arrow-down-circle', 'arrow-left-circle', 'arrow-right-circle',
+      'caret-up', 'caret-down', 'caret-left', 'caret-right',
+      'triangle-up', 'triangle-down', 'triangle-left', 'triangle-right',
+      'reply', 'forward', 'send', 'external-link',
+      'chevrons-up', 'chevrons-down', 'chevrons-left', 'chevrons-right',
+      'chevrons-up-down', 'chevrons-left-right',
+      'arrow-up-square', 'arrow-down-square', 'arrow-left-square', 'arrow-right-square',
+      'replay', 'repeat',
+      'arrow-up-left-down-right', 'arrow-up-right-down-left',
+      'fast-forward', 'rewind', 'skip-forward', 'skip-back', 'eject',
+      'flip-horizontal', 'flip-vertical',
+      'merge', 'split',
+      'shuffle', 'enter', 'exit',
+      'trending-up', 'trending-down', 'move',
+    ],
+  };
+
+  const root = document.getElementById('content');
+  for (const [category, icons] of Object.entries(CATEGORIES)) {
+    const h2 = document.createElement('h2');
+    h2.textContent = category + ' — ' + icons.length + ' icons × 5 styles';
+    root.appendChild(h2);
+
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    thead.innerHTML = '<tr><th>Icon</th>' + STYLES.map(s => '<th>' + s + '</th>').join('') + '</tr>';
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    for (const icon of icons) {
+      const tr = document.createElement('tr');
+      const cells = STYLES.map(style =>
+        '<td><img src="svgs/' + category + '/' + style + '/' + icon + '.svg" alt="' + icon + ' ' + style + '" loading="lazy"></td>'
+      ).join('');
+      tr.innerHTML = '<td>' + icon + '</td>' + cells;
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    root.appendChild(table);
+  }
+
+  document.querySelectorAll('button[data-size]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.documentElement.style.setProperty('--icon-size', btn.dataset.size + 'px');
+      document.querySelectorAll('button[data-size]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('button[data-theme]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark', btn.dataset.theme === 'dark');
+      document.querySelectorAll('button[data-theme]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
