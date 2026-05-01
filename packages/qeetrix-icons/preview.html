@@ -12,6 +12,7 @@
     --border: #e5e5e5;
     --hover: #f0f0f0;
     --icon-size: 24px;
+    --icon-color: #111111;
   }
   body.dark {
     --bg: #0d0d0d;
@@ -20,8 +21,8 @@
     --muted: #888888;
     --border: #2a2a2a;
     --hover: #222222;
+    --icon-color: #e5e5e5;
   }
-  body.dark img { filter: invert(1); }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -32,6 +33,7 @@
   }
   h1 { margin: 0 0 4px; font-size: 22px; }
   .subtitle { color: var(--muted); margin: 0 0 24px; font-size: 13px; }
+  .subtitle code { background: var(--card); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
   .controls {
     display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
     padding: 12px 16px; background: var(--card); border: 1px solid var(--border);
@@ -46,6 +48,15 @@
   }
   button:hover { background: var(--hover); }
   button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  input[type="color"] {
+    width: 36px; height: 28px; padding: 0; border: 1px solid var(--border);
+    border-radius: 6px; cursor: pointer; background: transparent;
+  }
+  .swatches { display: flex; gap: 4px; }
+  .swatch {
+    width: 20px; height: 20px; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--border);
+  }
   h2 {
     font-size: 12px; margin: 28px 0 10px; text-transform: uppercase;
     letter-spacing: .08em; color: var(--muted); font-weight: 600;
@@ -62,18 +73,34 @@
   th:first-child, td:first-child {
     text-align: left;
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 13px; padding-left: 20px; width: 180px;
+    font-size: 13px; padding-left: 20px; width: 160px;
   }
-  td img { width: var(--icon-size); height: var(--icon-size); display: block; margin: 0 auto; }
+  th .corner { display: block; font-weight: 400; font-size: 9px; opacity: 0.6; margin-top: 2px; }
+  .icon-slot {
+    display: inline-block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    color: var(--icon-color);
+    vertical-align: middle;
+  }
+  .icon-slot svg, .icon-slot img { width: 100%; height: 100%; display: block; }
+  body.dark .icon-slot img { filter: invert(1); }
   tr:last-child td { border-bottom: none; }
   tbody tr:hover td { background: var(--hover); }
-  .empty { color: #ccc; font-size: 12px; }
+  .notice {
+    padding: 10px 14px; background: #fef3c7; color: #78350f;
+    border: 1px solid #fcd34d; border-radius: 6px; margin-bottom: 16px;
+    font-size: 13px; display: none;
+  }
+  body.dark .notice { background: #422006; color: #fde68a; border-color: #78350f; }
 </style>
 </head>
 <body>
 
 <h1>Qeetrix Icons</h1>
-<p class="subtitle">Visual verification preview. Open directly in a browser — no server required.</p>
+<p class="subtitle">Live color preview. For full color reactivity, serve via <code>python3 -m http.server</code> or open in Firefox (Chrome blocks file:// fetch).</p>
+
+<div id="notice" class="notice">⚠️ Live color change is disabled — your browser blocks file:// fetch. Run a local server or use Firefox.</div>
 
 <div class="controls">
   <label>Size</label>
@@ -83,6 +110,18 @@
     <button data-size="32">32</button>
     <button data-size="48">48</button>
   </div>
+  <label>Color</label>
+  <input type="color" id="iconColor" value="#111111">
+  <div class="swatches">
+    <span class="swatch" data-color="#111111" style="background:#111111"></span>
+    <span class="swatch" data-color="#3b82f6" style="background:#3b82f6"></span>
+    <span class="swatch" data-color="#10b981" style="background:#10b981"></span>
+    <span class="swatch" data-color="#f59e0b" style="background:#f59e0b"></span>
+    <span class="swatch" data-color="#ef4444" style="background:#ef4444"></span>
+    <span class="swatch" data-color="#8b5cf6" style="background:#8b5cf6"></span>
+  </div>
+  <label>Background</label>
+  <input type="color" id="bgColor" value="#fafafa">
   <label>Theme</label>
   <div class="group">
     <button data-theme="light" class="active">Light</button>
@@ -93,9 +132,10 @@
 <div id="content"></div>
 
 <script>
-  const STYLES = ['outline', 'filled', 'duotone', 'rounded', 'sharp'];
+  const STYLES = ['outline', 'filled', 'duotone'];
+  const CORNERS = ['rounded', 'sharp'];
+  const VARIANTS = STYLES.flatMap(s => CORNERS.map(c => ({ style: s, corner: c })));
 
-  // Add new categories here as they are generated.
   const CATEGORIES = {
     arrow: [
       'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right',
@@ -145,20 +185,24 @@
   const root = document.getElementById('content');
   for (const [category, icons] of Object.entries(CATEGORIES)) {
     const h2 = document.createElement('h2');
-    h2.textContent = category + ' — ' + icons.length + ' icons × 5 styles';
+    h2.textContent = category + ' — ' + icons.length + ' icons × ' + VARIANTS.length + ' variants';
     root.appendChild(h2);
 
     const table = document.createElement('table');
     const thead = document.createElement('thead');
-    thead.innerHTML = '<tr><th>Icon</th>' + STYLES.map(s => '<th>' + s + '</th>').join('') + '</tr>';
+    thead.innerHTML = '<tr><th>Icon</th>' + VARIANTS.map(v =>
+      '<th>' + v.style + '<span class="corner">' + v.corner + '</span></th>'
+    ).join('') + '</tr>';
     table.appendChild(thead);
 
     const tbody = document.createElement('tbody');
     for (const icon of icons) {
       const tr = document.createElement('tr');
-      const cells = STYLES.map(style =>
-        '<td><img src="svgs/' + category + '/' + style + '/' + icon + '.svg" alt="' + icon + ' ' + style + '" loading="lazy"></td>'
-      ).join('');
+      const cells = VARIANTS.map(v => {
+        const src = 'svgs/' + category + '/' + v.style + '/' + v.corner + '/' + icon + '.svg';
+        const alt = icon + ' ' + v.style + ' ' + v.corner;
+        return '<td><span class="icon-slot" data-src="' + src + '" data-alt="' + alt + '"></span></td>';
+      }).join('');
       tr.innerHTML = '<td>' + icon + '</td>' + cells;
       tbody.appendChild(tr);
     }
@@ -166,6 +210,32 @@
     root.appendChild(table);
   }
 
+  // Lazy-load SVGs inline so currentColor responds to CSS
+  let fetchFailed = false;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(async (entry) => {
+      if (!entry.isIntersecting) return;
+      const slot = entry.target;
+      observer.unobserve(slot);
+      try {
+        const res = await fetch(slot.dataset.src);
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        slot.innerHTML = text;
+      } catch (e) {
+        // Fallback: <img> — color picker won't affect these
+        slot.innerHTML = '<img src="' + slot.dataset.src + '" alt="' + (slot.dataset.alt || '') + '" loading="lazy">';
+        if (!fetchFailed) {
+          fetchFailed = true;
+          document.getElementById('notice').style.display = 'block';
+        }
+      }
+    });
+  }, { rootMargin: '400px' });
+
+  document.querySelectorAll('.icon-slot').forEach(slot => observer.observe(slot));
+
+  // Size selector
   document.querySelectorAll('button[data-size]').forEach(btn => {
     btn.addEventListener('click', () => {
       document.documentElement.style.setProperty('--icon-size', btn.dataset.size + 'px');
@@ -174,11 +244,35 @@
     });
   });
 
+  // Theme toggle
   document.querySelectorAll('button[data-theme]').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.body.classList.toggle('dark', btn.dataset.theme === 'dark');
+      const isDark = btn.dataset.theme === 'dark';
+      document.body.classList.toggle('dark', isDark);
       document.querySelectorAll('button[data-theme]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      // Reset user color overrides so theme defaults take effect
+      document.body.style.removeProperty('--icon-color');
+      document.body.style.removeProperty('--bg');
+      document.getElementById('iconColor').value = isDark ? '#e5e5e5' : '#111111';
+      document.getElementById('bgColor').value = isDark ? '#0d0d0d' : '#fafafa';
+    });
+  });
+
+  // Color picker — set on body (inline) so it overrides body.dark CSS rule via specificity
+  document.getElementById('iconColor').addEventListener('input', e => {
+    document.body.style.setProperty('--icon-color', e.target.value);
+  });
+  document.getElementById('bgColor').addEventListener('input', e => {
+    document.body.style.setProperty('--bg', e.target.value);
+  });
+
+  // Color swatches — quick-pick
+  document.querySelectorAll('.swatch').forEach(sw => {
+    sw.addEventListener('click', () => {
+      const color = sw.dataset.color;
+      document.body.style.setProperty('--icon-color', color);
+      document.getElementById('iconColor').value = color;
     });
   });
 </script>
