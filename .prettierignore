@@ -1,0 +1,16 @@
+node_modules/
+coverage/
+.pnpm-store/
+.turbo/
+.next/
+dist/
+build/
+storybook-static/
+
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Generated token artifacts
+packages/tokens/build/
+packages/tokens/dist/

@@ -1,0 +1,15 @@
+{
+  "name": "@qeetix/tsconfig",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Shared TypeScript configs for Qeetix packages and apps.",
+  "license": "UNLICENSED",
+  "files": ["base.json", "react-vite.json", "next.json", "node.json"],
+  "exports": {
+    "./base.json": "./base.json",
+    "./react-vite.json": "./react-vite.json",
+    "./next.json": "./next.json",
+    "./node.json": "./node.json"
+  },
+  "publishConfig": { "access": "public" }
+}

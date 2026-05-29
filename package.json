@@ -1,0 +1,40 @@
+{
+  "name": "qeetrix",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Qeetix — the shared design system for Qeet Group products.",
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "check": "turbo run check",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mjs,cjs,json,jsonc,css,html,mdx,yml,yaml}\"",
+    "tokens:build": "turbo run build --filter=@qeetix/tokens",
+    "tokens:validate": "turbo run validate --filter=@qeetix/tokens",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish",
+    "clean": "rm -rf node_modules .turbo packages/*/node_modules packages/*/.turbo packages/*/dist packages/*/build apps/*/node_modules apps/*/.turbo apps/*/storybook-static"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@qeetix/eslint-config": "workspace:*",
+    "eslint": "^9.39.4",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "turbo": "^2.9.14",
+    "typescript": "catalog:"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "unrs-resolver"
+    ]
+  }
+}

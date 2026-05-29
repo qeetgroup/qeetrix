@@ -1,0 +1,99 @@
+{
+  "color": {
+    "neutral": {
+      "0": { "$value": "oklch(1 0 0)", "$type": "color" },
+      "50": { "$value": "oklch(0.985 0 0)", "$type": "color" },
+      "100": { "$value": "oklch(0.97 0 0)", "$type": "color" },
+      "200": { "$value": "oklch(0.922 0 0)", "$type": "color" },
+      "300": { "$value": "oklch(0.87 0 0)", "$type": "color" },
+      "400": { "$value": "oklch(0.708 0 0)", "$type": "color" },
+      "500": { "$value": "oklch(0.556 0 0)", "$type": "color" },
+      "600": { "$value": "oklch(0.439 0 0)", "$type": "color" },
+      "700": { "$value": "oklch(0.371 0 0)", "$type": "color" },
+      "800": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+      "850": { "$value": "oklch(0.205 0 0)", "$type": "color" },
+      "900": { "$value": "oklch(0.145 0 0)", "$type": "color" },
+      "950": { "$value": "oklch(0.106 0 0)", "$type": "color" },
+      "1000": { "$value": "oklch(0 0 0)", "$type": "color" }
+    },
+
+    "alpha": {
+      "white-10": { "$value": "oklch(1 0 0 / 10%)", "$type": "color" },
+      "white-15": { "$value": "oklch(1 0 0 / 15%)", "$type": "color" }
+    },
+
+    "danger": {
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "200": { "$value": "{color.neutral.200}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "400": { "$value": "oklch(0.704 0.191 22.216)", "$type": "color" },
+      "500": { "$value": "oklch(0.577 0.245 27.325)", "$type": "color" },
+      "600": { "$value": "{color.neutral.600}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "800": { "$value": "{color.neutral.800}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+
+    "accent-blue": {
+      "500": { "$value": "oklch(0.488 0.243 264.376)", "$type": "color" }
+    },
+
+    "brand": {
+      "$description": "PLACEHOLDER — aliases neutral until the Qeet brand palette is ratified (OD-DS-03). Replace these values only; semantic/component tokens need no change.",
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "200": { "$value": "{color.neutral.200}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "400": { "$value": "{color.neutral.400}", "$type": "color" },
+      "500": { "$value": "{color.neutral.500}", "$type": "color" },
+      "600": { "$value": "{color.neutral.600}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "800": { "$value": "{color.neutral.800}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+
+    "accent": {
+      "$description": "PLACEHOLDER — aliases neutral until brand palette is ratified (OD-DS-03).",
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "500": { "$value": "{color.neutral.500}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+
+    "success": {
+      "$description": "PLACEHOLDER — aliases neutral until status palette is ratified (OD-DS-03).",
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "500": { "$value": "{color.neutral.500}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+
+    "warning": {
+      "$description": "PLACEHOLDER — aliases neutral until status palette is ratified (OD-DS-03).",
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "500": { "$value": "{color.neutral.500}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+
+    "info": {
+      "$description": "PLACEHOLDER — aliases neutral until status palette is ratified (OD-DS-03).",
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "500": { "$value": "{color.neutral.500}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+
+    "passkey": {
+      "$description": "PLACEHOLDER — aliases neutral until passkey affordance palette is ratified (OD-DS-03).",
+      "100": { "$value": "{color.neutral.100}", "$type": "color" },
+      "300": { "$value": "{color.neutral.300}", "$type": "color" },
+      "500": { "$value": "{color.neutral.500}", "$type": "color" },
+      "700": { "$value": "{color.neutral.700}", "$type": "color" },
+      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@qeetix/eslint-config",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Shared ESLint flat config for Qeetix packages and apps (base + react presets).",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "index.js",
+  "files": ["index.js"],
+  "exports": {
+    ".": "./index.js"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "typescript-eslint": "^8.59.4"
+  },
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@qeetix/brand",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Qeetix brand — Qeet logos (theme-adaptive) and custom Qeet icons.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./assets/*": "./dist/assets/*"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-logos.mjs",
+    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "lint": "eslint .",
+    "clean": "rm -rf dist .turbo"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "devDependencies": {
+    "@qeetix/eslint-config": "workspace:*",
+    "@qeetix/tsconfig": "workspace:*",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "tsc-alias": "catalog:",
+    "typescript": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

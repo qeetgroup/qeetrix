@@ -1,0 +1,9 @@
+{
+  "extends": "@qeetix/tsconfig/react-vite.json",
+  "compilerOptions": {
+    "types": [],
+    "jsx": "react-jsx",
+    "noEmit": true
+  },
+  "include": [".storybook", "stories"]
+}
