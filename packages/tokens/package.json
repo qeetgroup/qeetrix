@@ -1,6 +1,6 @@
 {
   "name": "@qeetrix/tokens",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Qeetrix design tokens — single W3C source built to CSS + JSON via Style Dictionary.",
   "license": "UNLICENSED",

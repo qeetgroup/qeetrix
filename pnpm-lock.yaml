@@ -220,7 +220,7 @@ importers:
         specifier: 'catalog:'
         version: 1.5.0(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@qeetrix/tokens':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../tokens
       class-variance-authority:
         specifier: 'catalog:'
