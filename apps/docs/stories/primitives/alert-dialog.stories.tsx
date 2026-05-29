@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta<typeof AlertDialog> = {
   title: "Primitives/AlertDialog",

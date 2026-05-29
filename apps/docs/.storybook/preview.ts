@@ -4,7 +4,7 @@ import "./styles.css";
 
 /**
  * Drives light/dark via the `.dark` class on <html> — the same class strategy
- * the Qeetix ThemeProvider uses in production, so stories look identical to apps.
+ * the Qeetrix ThemeProvider uses in production, so stories look identical to apps.
  */
 const preview: Preview = {
   parameters: {

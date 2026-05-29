@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "@qeetix/ui";
+import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "@qeetrix/ui";
 
 const meta: Meta<typeof Avatar> = {
   title: "Primitives/Avatar",

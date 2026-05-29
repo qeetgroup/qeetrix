@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CopyableSecret } from "@qeetix/ui";
+import { CopyableSecret } from "@qeetrix/ui";
 
 const meta: Meta<typeof CopyableSecret> = {
   title: "Primitives/CopyableSecret",

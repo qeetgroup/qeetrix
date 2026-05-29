@@ -1,4 +1,4 @@
-# Implementation Prompt — Build the **Qeetix** Design System (`qeetrix/`)
+# Implementation Prompt — Build the **Qeetrix** Design System (`qeetrix/`)
 
 > Paste this whole file to Claude Code (or an agent) from inside `/Users/a3097640/Desktop/QG`.
 > Work **phase by phase**. After each phase, run the phase's acceptance checks and stop if they fail.
@@ -7,14 +7,14 @@
 
 ## 0. Mission & guardrails
 
-Build **Qeetix** — the shared, npm-publishable design system for **Qeet Group** products
+Build **Qeetrix** — the shared, npm-publishable design system for **Qeet Group** products
 (Qeet ID, and future apps). It is created by **copying** the existing `@qeetid/ui` package
 into a new standalone monorepo at `/Users/a3097640/Desktop/QG/qeetrix/`, then expanding it
 with a real token pipeline, a brand/logo package, docs, and a release setup.
 
 > **Scope of "qeetrix implementation" = Phases 0–6 only.** All work happens **inside `qeetrix/`**.
 > `qeet-identity` is **NOT** modified during this effort — it is touched only later, in a
-> **separate, approval-gated** step (Phase 7) that runs **only after Qeetix is fully implemented
+> **separate, approval-gated** step (Phase 7) that runs **only after Qeetrix is fully implemented
 > and the user explicitly approves**. Do not start Phase 7 as part of this build.
 
 **Hard constraints — do not violate:**
@@ -31,7 +31,7 @@ with a real token pipeline, a brand/logo package, docs, and a release setup.
    pulls Base UI variants.
 4. **Preserve component behaviour and public API.** This is a copy + repackage, not a rewrite.
    Keep dependency versions identical to today's `@qeetid/ui` (use the catalog).
-5. **npm scope is `@qeetix/*`.** Publishable packages are public scoped (`publishConfig.access: "public"`).
+5. **npm scope is `@qeetrix/*`.** Publishable packages are public scoped (`publishConfig.access: "public"`).
 
 **Source-of-truth references (read these first, do not edit them):**
 
@@ -46,11 +46,11 @@ with a real token pipeline, a brand/logo package, docs, and a release setup.
 
 | Topic | Decision |
 | --- | --- |
-| NPM scope | `@qeetix/*` (e.g. `@qeetix/ui`, `@qeetix/tokens`, `@qeetix/brand`) |
+| NPM scope | `@qeetrix/*` (e.g. `@qeetrix/ui`, `@qeetrix/tokens`, `@qeetrix/brand`) |
 | Structure | Full design-system **pnpm + Turbo monorepo** with multiple packages + a docs app |
 | Brand colour | **Keep neutral/greyscale now**; wire brand/accent/status semantic slots that default to neutral so a palette drops in later with zero component changes |
 | Tokens | **W3C Design Tokens JSON → Style Dictionary** build to CSS + JSON (Flutter target stubbed for later) |
-| CSS var prefix | Raw token export uses **`--qx-`** (Qeetix). The shadcn/Base-UI runtime vars stay **unprefixed** (`--background`, `--primary`, …) and are generated from the same token source — see §4.3. (Note: the Foundations doc says `--qf-`; we standardise on `--qx-` for the Qeetix brand and treat the doc's `--qf-` as historical.) |
+| CSS var prefix | Raw token export uses **`--qx-`** (Qeetrix). The shadcn/Base-UI runtime vars stay **unprefixed** (`--background`, `--primary`, …) and are generated from the same token source — see §4.3. (Note: the Foundations doc says `--qf-`; we standardise on `--qx-` for the Qeetrix brand and treat the doc's `--qf-` as historical.) |
 | Package manager | pnpm 9.x, Node ≥ 20, TypeScript, ESM-only output |
 
 ---
@@ -68,17 +68,17 @@ qeetrix/
 ├─ .prettierrc  .prettierignore
 ├─ .gitignore
 ├─ .changeset/config.json       # changesets release config
-├─ README.md                    # what Qeetix is + install/usage
+├─ README.md                    # what Qeetrix is + install/usage
 ├─ CONTRIBUTING.md              # how to add a component / token, release flow
 ├─ .github/workflows/
 │   ├─ ci.yml                   # install, lint, typecheck, build, token-validate
 │   └─ release.yml              # changesets → npm publish on main
 ├─ packages/
-│  ├─ tokens/                   # @qeetix/tokens   (PUBLISHED)
-│  ├─ ui/                       # @qeetix/ui       (PUBLISHED) — migrated qeetid-ui
-│  ├─ brand/                    # @qeetix/brand    (PUBLISHED) — logos + custom icons
-│  ├─ tsconfig/                 # @qeetix/tsconfig (PUBLISHED, config only)
-│  └─ eslint-config/            # @qeetix/eslint-config (PUBLISHED, config only)
+│  ├─ tokens/                   # @qeetrix/tokens   (PUBLISHED)
+│  ├─ ui/                       # @qeetrix/ui       (PUBLISHED) — migrated qeetid-ui
+│  ├─ brand/                    # @qeetrix/brand    (PUBLISHED) — logos + custom icons
+│  ├─ tsconfig/                 # @qeetrix/tsconfig (PUBLISHED, config only)
+│  └─ eslint-config/            # @qeetrix/eslint-config (PUBLISHED, config only)
 └─ apps/
    └─ docs/                     # Storybook workshop for the DS (private, not published)
 ```
@@ -89,7 +89,7 @@ cva, clsx, tailwind-merge, recharts, zod, next, etc.) and add any new shared dep
 `style-dictionary`, `tsup`, `@changesets/cli`, `storybook`) to the catalog so versions stay single-sourced.
 
 `turbo.json`: copy from qeet-identity and add a `tokens#build` (or generic `build`) pipeline so
-`@qeetix/tokens` builds before `@qeetix/ui` (`"build": { "dependsOn": ["^build"] }` already covers this
+`@qeetrix/tokens` builds before `@qeetrix/ui` (`"build": { "dependsOn": ["^build"] }` already covers this
 via workspace deps).
 
 ---
@@ -107,7 +107,7 @@ via workspace deps).
 
 ---
 
-## 4. Phase 1 — `@qeetix/tokens` (the foundation)
+## 4. Phase 1 — `@qeetrix/tokens` (the foundation)
 
 Implement the 3-tier token system from the Foundations doc, authored as **W3C Design Tokens
 JSON** and built with **Style Dictionary v4**.
@@ -115,7 +115,7 @@ JSON** and built with **Style Dictionary v4**.
 ### 4.1 Package layout
 ```
 packages/tokens/
-├─ package.json                 # name @qeetix/tokens
+├─ package.json                 # name @qeetrix/tokens
 ├─ style-dictionary.config.mjs
 ├─ tokens/
 │  ├─ primitive/                # raw values, neutral palette real; brand/accent/status = greyscale placeholders
@@ -149,29 +149,29 @@ packages/tokens/
 ### 4.3 Style Dictionary outputs (critical integration)
 Produce **three** outputs from the single source:
 
-1. **`dist/qeetix.css`** — the **shadcn/Base-UI bridge**. Emit `:root { … }` (light) and `.dark { … }`
+1. **`dist/qeetrix.css`** — the **shadcn/Base-UI bridge**. Emit `:root { … }` (light) and `.dark { … }`
    blocks using the **exact unprefixed variable names the components already consume**:
    `--background --foreground --card(-foreground) --popover(-foreground) --primary(-foreground)
    --secondary(-foreground) --muted(-foreground) --accent(-foreground) --destructive --border
    --input --ring --chart-1..5 --radius --sidebar*`. Values come from the **semantic** tokens.
    This file replaces the hand-written `:root/.dark` blocks in `ui/src/index.css`. **The generated
    output for the neutral theme must be visually identical to today's `index.css`** (diff-check the OKLCH values).
-2. **`dist/qeetix.tokens.css`** — full raw token export with **`--qx-`** prefix
+2. **`dist/qeetrix.tokens.css`** — full raw token export with **`--qx-`** prefix
    (`--qx-color-text-primary`, `--qx-space-gutter`, `--qx-radius-m`, …) for advanced/white-label consumers.
-3. **`dist/qeetix.tokens.json`** — flattened JSON for cross-platform (marketing, future Flutter SDK).
+3. **`dist/qeetrix.tokens.json`** — flattened JSON for cross-platform (marketing, future Flutter SDK).
    Add a `flutter` Style Dictionary target as a **stub/TODO** (don't fully build Dart now).
 
 ### 4.4 package.json (tokens)
 ```jsonc
 {
-  "name": "@qeetix/tokens",
+  "name": "@qeetrix/tokens",
   "version": "0.0.1",
   "type": "module",
   "files": ["dist"],
   "exports": {
-    "./qeetix.css": "./dist/qeetix.css",
-    "./tokens.css": "./dist/qeetix.tokens.css",
-    "./tokens.json": "./dist/qeetix.tokens.json"
+    "./qeetrix.css": "./dist/qeetrix.css",
+    "./tokens.css": "./dist/qeetrix.tokens.css",
+    "./tokens.json": "./dist/qeetrix.tokens.json"
   },
   "scripts": {
     "build": "style-dictionary build --config style-dictionary.config.mjs",
@@ -188,20 +188,20 @@ generated semantic pairs; fail the build on violation. Wire into `pnpm validate`
 greyscale placeholder palette this should pass trivially; it guards future brand colours.)
 
 **Acceptance:**
-- `pnpm --filter @qeetix/tokens build` emits the three `dist/` files.
-- `dist/qeetix.css` neutral `:root/.dark` values match current `qeetid-ui/src/index.css` (within rounding).
-- `pnpm --filter @qeetix/tokens validate` passes.
+- `pnpm --filter @qeetrix/tokens build` emits the three `dist/` files.
+- `dist/qeetrix.css` neutral `:root/.dark` values match current `qeetid-ui/src/index.css` (within rounding).
+- `pnpm --filter @qeetrix/tokens validate` passes.
 
 ---
 
-## 5. Phase 2 — `@qeetix/ui` (migrate `qeetid-ui`, make it publishable)
+## 5. Phase 2 — `@qeetrix/ui` (migrate `qeetid-ui`, make it publishable)
 
 ### 5.1 Migrate
 - Copy `qeet-identity/frontend/packages/qeetid-ui/src/**` → `packages/ui/src/**` **unchanged**
   (all 36 `components/ui/*`, `components/theme-provider.tsx`, `hooks/use-mobile.ts`, `lib/utils.ts`,
   `fonts/*`, `stories/*`, `index.ts`).
 - Copy `components.json` (keep `style: base-nova`, lucide, base color neutral, aliases) and `.storybook/`.
-- Rename package `@qeetid/ui` → `@qeetix/ui`. Update internal `@qeetid/tsconfig` → `@qeetix/tsconfig`.
+- Rename package `@qeetid/ui` → `@qeetrix/ui`. Update internal `@qeetid/tsconfig` → `@qeetrix/tsconfig`.
 - Keep the `@/` path alias (`@/*` → `./src/*`).
 
 ### 5.2 Wire tokens into the stylesheet
@@ -210,14 +210,14 @@ Rework `src/index.css` so it **imports the generated bridge** instead of hand-de
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@qeetix/tokens/qeetix.css";     /* generated :root + .dark semantic vars */
+@import "@qeetrix/tokens/qeetrix.css";     /* generated :root + .dark semantic vars */
 @source "./**/*.{ts,tsx}";
 /* keep: @font-face Cal Sans (Display/Text/UI), @theme inline mapping, @layer base */
 ```
 Keep the `@theme inline { --color-*: var(--*) … --font-* … --radius-* }` block and `@layer base`
 exactly as today (font wiring, `border-border`, heading font, button cursor). Remove only the
 now-generated `:root{}` and `.dark{}` value blocks.
-Add `@qeetix/tokens` as a dependency.
+Add `@qeetrix/tokens` as a dependency.
 
 ### 5.3 Make it npm-publishable (build with tsup)
 The current package ships raw `src` via `workspace:*` — that won't work off-monorepo. Add a real build:
@@ -230,7 +230,7 @@ The current package ships raw `src` via `workspace:*` — that won't work off-mo
 - `package.json`:
 ```jsonc
 {
-  "name": "@qeetix/ui",
+  "name": "@qeetrix/ui",
   "version": "0.0.1",
   "type": "module",
   "sideEffects": ["**/*.css"],
@@ -245,33 +245,33 @@ The current package ships raw `src` via `workspace:*` — that won't work off-mo
   "scripts": { "build": "tsup", "storybook": "storybook dev -p 6006", "build-storybook": "storybook build" },
   "peerDependencies": { "react": ">=19", "react-dom": ">=19" },
   "dependencies": {
-    "@qeetix/tokens": "workspace:*",
+    "@qeetrix/tokens": "workspace:*",
     "@base-ui/react": "...", "class-variance-authority": "...", "clsx": "...",
     "lucide-react": "...", "recharts": "...", "tailwind-merge": "...", "tw-animate-css": "..."
     /* keep exact versions from current qeetid-ui via catalog */
   },
-  "devDependencies": { "tailwindcss": "catalog:", "@tailwindcss/vite": "catalog:", "shadcn": "...", "tsup": "catalog:", "typescript": "catalog:", "@qeetix/tsconfig": "workspace:*" },
+  "devDependencies": { "tailwindcss": "catalog:", "@tailwindcss/vite": "catalog:", "shadcn": "...", "tsup": "catalog:", "typescript": "catalog:", "@qeetrix/tsconfig": "workspace:*" },
   "publishConfig": { "access": "public" }
 }
 ```
 - **Tailwind v4 consumer note** (put in README): consumers must run Tailwind v4, then add
-  `@import "@qeetix/ui/styles.css";` and `@source "../../node_modules/@qeetix/ui/dist/**/*.js";`
-  to their global css so utility classes used by Qeetix components are generated.
+  `@import "@qeetrix/ui/styles.css";` and `@source "../../node_modules/@qeetrix/ui/dist/**/*.js";`
+  to their global css so utility classes used by Qeetrix components are generated.
 
 ### 5.4 Keep `shadcn add` working
 Update `components.json` `aliases`/`tailwind.css` paths for the new location so contributors can still
 `npx shadcn@latest add <component>` and get Base-UI variants dropped into `src/components/ui/`.
 
 **Acceptance:**
-- `pnpm --filter @qeetix/ui build` produces `dist/` with `index.js`, `index.d.ts`, per-component files,
+- `pnpm --filter @qeetrix/ui build` produces `dist/` with `index.js`, `index.d.ts`, per-component files,
   `index.css`, `fonts/`.
-- `pnpm --filter @qeetix/ui typecheck` and `lint` pass.
+- `pnpm --filter @qeetrix/ui typecheck` and `lint` pass.
 - `"use client"` is preserved in client components (grep `dist/`).
 - `npm pack --dry-run` in `packages/ui` lists only `dist/**` and is reasonably sized.
 
 ---
 
-## 6. Phase 3 — `@qeetix/brand` (logos + custom icons)
+## 6. Phase 3 — `@qeetrix/brand` (logos + custom icons)
 
 Centralise Qeet brand assets (the dark/light logos in `assets/`) as a small, tree-shakeable package.
 
@@ -288,7 +288,7 @@ packages/brand/
 │  │                            #   1.5px stroke, 24×24, mirror metadata for RTL (§14)
 │  └─ index.ts
 ├─ assets/                      # raw svg + the 8k PNGs (for marketing/download)
-└─ package.json                 # @qeetix/brand
+└─ package.json                 # @qeetrix/brand
 ```
 - Convert `assets/qeet-logo-on-dark.svg` / `qeet-logo-on-light.svg` into React components (follow the
   `@thesvg/react` ergonomics already used in the apps: accept `className`, `size`, `aria-label`).
@@ -296,38 +296,38 @@ packages/brand/
   with an explicit `variant?: "light" | "dark"` override.
 - Custom icons: scaffold the §12.3 set as stroke-1.5/24×24 components; if a real drawing isn't available,
   create a clean placeholder and mark `// TODO: final art` so they're API-stable now.
-- Same npm build treatment as `@qeetix/ui` (tsup, ESM, dts, `files: ["dist","assets"]`, public).
+- Same npm build treatment as `@qeetrix/ui` (tsup, ESM, dts, `files: ["dist","assets"]`, public).
 
-**Acceptance:** `import { QeetLogo, QeetLogoMark, IconPasskey } from "@qeetix/brand"` builds & renders;
-logo swaps with theme; `pnpm --filter @qeetix/brand build` clean.
+**Acceptance:** `import { QeetLogo, QeetLogoMark, IconPasskey } from "@qeetrix/brand"` builds & renders;
+logo swaps with theme; `pnpm --filter @qeetrix/brand build` clean.
 
 ---
 
 ## 7. Phase 4 — Shared configs
 
-- `@qeetix/tsconfig`: copy `qeet-identity/frontend/packages/qeetid-tsconfig/*` (base/next/node/react-vite),
+- `@qeetrix/tsconfig`: copy `qeet-identity/frontend/packages/qeetid-tsconfig/*` (base/next/node/react-vite),
   rename scope. Publishable (config-only, `files` lists the json).
-- `@qeetix/eslint-config`: the current `qeetid-eslint` package is **empty** — create a real flat-config
+- `@qeetrix/eslint-config`: the current `qeetid-eslint` package is **empty** — create a real flat-config
   package from `qeet-identity/frontend/eslint.config.mjs` (react-hooks, react-refresh, typescript-eslint,
   prettier-compatible). Export a base config the other packages and `apps/docs` extend. Publishable.
 
-**Acceptance:** all packages reference `@qeetix/tsconfig` and `@qeetix/eslint-config`; `pnpm turbo run lint typecheck` green.
+**Acceptance:** all packages reference `@qeetrix/tsconfig` and `@qeetrix/eslint-config`; `pnpm turbo run lint typecheck` green.
 
 ---
 
 ## 8. Phase 5 — `apps/docs` (Storybook workshop)
 
 - Stand up the Storybook already scaffolded in `qeetid-ui/.storybook/` as a private `apps/docs` workspace
-  (`@qeetix/docs`, `private: true`, **not published**). Install the storybook deps the scaffold lists
+  (`@qeetrix/docs`, `private: true`, **not published**). Install the storybook deps the scaffold lists
   (`storybook`, `@storybook/react-vite`, `@storybook/addon-essentials`, `addon-themes`, `addon-a11y`,
   `@storybook/test`) via the catalog.
-- Import `@qeetix/ui/styles.css` in `preview`; keep the light/dark `class` decorator.
+- Import `@qeetrix/ui/styles.css` in `preview`; keep the light/dark `class` decorator.
 - Write stories for **every** exported component (start from the existing `button`/`status-pill` stories;
   cover variants/sizes/states). Add MDX "Foundations" pages that render the tokens (colour swatches from
-  `@qeetix/tokens`, type scale, spacing, radius, shadow, motion) — this is the human-readable token reference.
+  `@qeetrix/tokens`, type scale, spacing, radius, shadow, motion) — this is the human-readable token reference.
 - Add an a11y check pass (addon-a11y) as part of `build-storybook`.
 
-**Acceptance:** `pnpm --filter @qeetix/docs storybook` runs; `build-storybook` succeeds; every exported
+**Acceptance:** `pnpm --filter @qeetrix/docs storybook` runs; `build-storybook` succeeds; every exported
 component has at least one story.
 
 ---
@@ -338,10 +338,10 @@ component has at least one story.
   `pnpm release` scripts. `.changeset/config.json`: independent or fixed versioning — use **independent**
   (`linked: []`) so `tokens`/`ui`/`brand` can version separately; `access: "public"`, base branch `main`.
 - `ci.yml`: on PR/push → `pnpm install --frozen-lockfile`, `turbo run lint typecheck build`,
-  `@qeetix/tokens validate` (contrast), `build-storybook`.
+  `@qeetrix/tokens validate` (contrast), `build-storybook`.
 - `release.yml`: on `main` → changesets action publishes changed public packages to npm
   (needs `NPM_TOKEN` secret; document this in README/CONTRIBUTING).
-- README: install (`pnpm add @qeetix/ui @qeetix/tokens @qeetix/brand`), the Tailwind v4 `@import` +
+- README: install (`pnpm add @qeetrix/ui @qeetrix/tokens @qeetrix/brand`), the Tailwind v4 `@import` +
   `@source` consumer setup, ThemeProvider usage, and a components/tokens overview.
 
 **Acceptance:** `pnpm changeset` works; a dry-run (`pnpm release -- --dry-run` or `npm publish --dry-run`
@@ -349,31 +349,31 @@ per package) shows correct files/versions; CI workflow lints clean.
 
 ---
 
-## 10. Phase 7 — Cut `qeet-identity` over to `@qeetix/ui` — ⛔ DEFERRED / SEPARATE EFFORT
+## 10. Phase 7 — Cut `qeet-identity` over to `@qeetrix/ui` — ⛔ DEFERRED / SEPARATE EFFORT
 
-> **DO NOT run this as part of building Qeetix.** This phase is **out of scope** for the qeetrix
+> **DO NOT run this as part of building Qeetrix.** This phase is **out of scope** for the qeetrix
 > implementation (Phases 0–6). It is the **first thing in `qeet-identity` that may ever be touched**,
-> and it runs **only after** (a) Qeetix is fully implemented and verified, **and** (b) the user
+> and it runs **only after** (a) Qeetrix is fully implemented and verified, **and** (b) the user
 > **explicitly says to proceed**. Until then, `qeet-identity` stays exactly as-is. The steps below
 > are documented now so the future cutover is unambiguous — they are not instructions for this build.
 
-Goal (future): `qeet-identity` apps use Qeetix; the old local package is removed.
+Goal (future): `qeet-identity` apps use Qeetrix; the old local package is removed.
 
 1. **Dev linking:** in `qeet-identity/frontend`, replace the `@qeetid/ui` workspace dep in
-   `@qeetid/web`, `@qeetid/admin`, `@qeetid/docs` with `@qeetix/ui` (and add `@qeetix/brand`,
-   `@qeetix/tokens` where used). For local dev before the first npm publish, point at the sibling repo
+   `@qeetid/web`, `@qeetid/admin`, `@qeetid/docs` with `@qeetrix/ui` (and add `@qeetrix/brand`,
+   `@qeetrix/tokens` where used). For local dev before the first npm publish, point at the sibling repo
    via pnpm `link:`/`file:` or a pnpm workspace overlay — pick whichever keeps installs reproducible;
    document the choice. After first publish, switch to the published `^` range.
-2. **Codemod imports:** `@qeetid/ui` → `@qeetix/ui` across `apps/*/src/**`. The export surface is identical
+2. **Codemod imports:** `@qeetid/ui` → `@qeetrix/ui` across `apps/*/src/**`. The export surface is identical
    (you migrated `index.ts` unchanged), so this is a string swap. Update `globals.css`
-   `@import "@qeetid/ui/styles.css"` → `@import "@qeetix/ui/styles.css"` and add the `@source` line for
-   `node_modules/@qeetix/ui/dist`.
+   `@import "@qeetid/ui/styles.css"` → `@import "@qeetrix/ui/styles.css"` and add the `@source` line for
+   `node_modules/@qeetrix/ui/dist`.
 3. **Remove the old package:** delete `qeet-identity/frontend/packages/qeetid-ui` and its
    `pnpm-workspace`/turbo references; clean lockfile (`pnpm install`).
 4. **Verify qeet-identity still runs:** `pnpm --filter @qeetid/web dev` (port 3001),
-   `@qeetid/admin`, `@qeetid/docs` build and render with Qeetix; theme toggle works; no missing styles/fonts.
+   `@qeetid/admin`, `@qeetid/docs` build and render with Qeetrix; theme toggle works; no missing styles/fonts.
 5. **Leave `@qeetid/tsconfig`/`@qeetid/eslint` in qeet-identity as-is** (or optionally switch to
-   `@qeetix/*` later — out of scope, don't block on it).
+   `@qeetrix/*` later — out of scope, don't block on it).
 
 **Acceptance:**
 - No remaining `@qeetid/ui` references in `qeet-identity` (`grep -r "@qeetid/ui" qeet-identity` empty).
@@ -382,10 +382,10 @@ Goal (future): `qeet-identity` apps use Qeetix; the old local package is removed
 
 ---
 
-## 11. Definition of done — "Qeetix fully implemented" = Phases 0–6 (NOT Phase 7)
+## 11. Definition of done — "Qeetrix fully implemented" = Phases 0–6 (NOT Phase 7)
 
 - [ ] `qeetrix/` is a self-contained pnpm+turbo monorepo; `pnpm install && pnpm turbo run build` green from scratch.
-- [ ] `@qeetix/tokens`, `@qeetix/ui`, `@qeetix/brand`, `@qeetix/tsconfig`, `@qeetix/eslint-config` all
+- [ ] `@qeetrix/tokens`, `@qeetrix/ui`, `@qeetrix/brand`, `@qeetrix/tsconfig`, `@qeetrix/eslint-config` all
       build, lint, typecheck, and `npm publish --dry-run` cleanly with `dist`-only payloads.
 - [ ] Tokens are single-sourced (W3C JSON → Style Dictionary); neutral theme is visually identical to the
       old `qeetid-ui`; brand/accent/status slots exist as neutral placeholders; contrast validation passes.
@@ -395,18 +395,18 @@ Goal (future): `qeet-identity` apps use Qeetix; the old local package is removed
       `@qeetid/ui` still present and intact).
 - [ ] **`qeet.in` has zero changes.**
 
-> Phase 7 (cutover of `qeet-identity` to `@qeetix/*` + removal of the old package) is a **separate,
+> Phase 7 (cutover of `qeet-identity` to `@qeetrix/*` + removal of the old package) is a **separate,
 > later, approval-gated** effort and is **explicitly excluded** from this definition of done.
 
 ## 12. Suggested commit/PR sequence (all inside `qeetrix/`)
 1. `chore(qeetrix): scaffold monorepo` (Phase 0)
-2. `feat(tokens): @qeetix/tokens W3C + style-dictionary` (Phase 1)
-3. `feat(ui): copy qeetid-ui → @qeetix/ui, add tsup build` (Phase 2)
-4. `feat(brand): @qeetix/brand logos + icons` (Phase 3)
+2. `feat(tokens): @qeetrix/tokens W3C + style-dictionary` (Phase 1)
+3. `feat(ui): copy qeetid-ui → @qeetrix/ui, add tsup build` (Phase 2)
+4. `feat(brand): @qeetrix/brand logos + icons` (Phase 3)
 5. `chore(config): shared tsconfig + eslint-config` (Phase 4)
-6. `docs(storybook): @qeetix/docs` (Phase 5)
-7. `ci: changesets + publish workflows` (Phase 6) ← **Qeetix is "fully implemented" here**
+6. `docs(storybook): @qeetrix/docs` (Phase 5)
+7. `ci: changesets + publish workflows` (Phase 6) ← **Qeetrix is "fully implemented" here**
 
 — STOP. Get explicit user approval before anything below. —
 
-8. *(Deferred, separate PR in `qeet-identity`)* `refactor(qeetid): consume @qeetix/ui, remove local package` (Phase 7)
+8. *(Deferred, separate PR in `qeet-identity`)* `refactor(qeetid): consume @qeetrix/ui, remove local package` (Phase 7)

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { DataState } from "@qeetix/ui";
+import { DataState } from "@qeetrix/ui";
 
 const meta: Meta<typeof DataState> = {
   title: "Primitives/DataState",

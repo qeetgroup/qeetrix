@@ -1,7 +1,7 @@
 # Changesets
 
 This directory holds [Changesets](https://github.com/changesets/changesets), which drive
-versioning and npm publishing for the public Qeetix packages.
+versioning and npm publishing for the public Qeetrix packages.
 
 To record a change, run:
 
@@ -13,6 +13,6 @@ Pick the affected packages and a bump (patch / minor / major), then commit the g
 with your PR. On merge to `main`, the release workflow opens a **Version Packages** PR; merging
 that PR publishes the changed packages to npm.
 
-Versioning is **independent** per package — `@qeetix/tokens`, `@qeetix/ui`, `@qeetix/brand`,
-`@qeetix/tsconfig` and `@qeetix/eslint-config` each version on their own. `@qeetix/docs` is
+Versioning is **independent** per package — `@qeetrix/tokens`, `@qeetrix/ui`, `@qeetrix/brand`,
+`@qeetrix/tsconfig` and `@qeetrix/eslint-config` each version on their own. `@qeetrix/docs` is
 private and never published.

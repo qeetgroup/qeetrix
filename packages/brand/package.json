@@ -1,8 +1,8 @@
 {
-  "name": "@qeetix/brand",
+  "name": "@qeetrix/brand",
   "version": "0.0.1",
   "private": false,
-  "description": "Qeetix brand — Qeet logos (theme-adaptive) and custom Qeet icons.",
+  "description": "Qeetrix brand — Qeet logos (theme-adaptive) and custom Qeet icons.",
   "license": "UNLICENSED",
   "type": "module",
   "files": ["dist"],
@@ -27,8 +27,8 @@
     "react-dom": ">=19"
   },
   "devDependencies": {
-    "@qeetix/eslint-config": "workspace:*",
-    "@qeetix/tsconfig": "workspace:*",
+    "@qeetrix/eslint-config": "workspace:*",
+    "@qeetrix/tsconfig": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "tsc-alias": "catalog:",

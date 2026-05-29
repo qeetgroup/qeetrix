@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta<typeof DropdownMenu> = {
   title: "Primitives/DropdownMenu",

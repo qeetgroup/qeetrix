@@ -8,7 +8,7 @@ import {
   FieldLegend,
   FieldSet,
   Input,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta<typeof Field> = {
   title: "Primitives/Field",

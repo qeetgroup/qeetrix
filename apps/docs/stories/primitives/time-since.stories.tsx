@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TimeSince } from "@qeetix/ui";
+import { TimeSince } from "@qeetrix/ui";
 
 const meta: Meta<typeof TimeSince> = {
   title: "Primitives/TimeSince",

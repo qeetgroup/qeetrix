@@ -1,8 +1,8 @@
 {
-  "name": "@qeetix/eslint-config",
+  "name": "@qeetrix/eslint-config",
   "version": "0.0.1",
   "private": false,
-  "description": "Shared ESLint flat config for Qeetix packages and apps (base + react presets).",
+  "description": "Shared ESLint flat config for Qeetrix packages and apps (base + react presets).",
   "license": "UNLICENSED",
   "type": "module",
   "main": "index.js",

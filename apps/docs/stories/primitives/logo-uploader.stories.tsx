@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { LogoUploader } from "@qeetix/ui";
+import { LogoUploader } from "@qeetrix/ui";
 
 const meta: Meta<typeof LogoUploader> = {
   title: "Primitives/LogoUploader",

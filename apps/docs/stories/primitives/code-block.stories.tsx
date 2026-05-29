@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CodeBlock } from "@qeetix/ui";
+import { CodeBlock } from "@qeetrix/ui";
 
 const meta: Meta<typeof CodeBlock> = {
   title: "Primitives/CodeBlock",

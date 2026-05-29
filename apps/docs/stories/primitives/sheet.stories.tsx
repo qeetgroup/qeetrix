@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta<typeof Sheet> = {
   title: "Primitives/Sheet",

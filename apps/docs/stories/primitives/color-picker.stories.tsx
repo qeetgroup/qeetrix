@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ColorPicker } from "@qeetix/ui";
+import { ColorPicker } from "@qeetrix/ui";
 
 const meta: Meta<typeof ColorPicker> = {
   title: "Primitives/ColorPicker",

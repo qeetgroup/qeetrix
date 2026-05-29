@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PasswordStrengthMeter } from "@qeetix/ui";
+import { PasswordStrengthMeter } from "@qeetrix/ui";
 
 const meta: Meta<typeof PasswordStrengthMeter> = {
   title: "Primitives/PasswordStrengthMeter",

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@qeetix/ui";
+import { Button, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@qeetrix/ui";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Primitives/Tooltip",

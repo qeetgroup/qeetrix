@@ -9,8 +9,8 @@ export interface QeetLogoProps extends QeetLogoVariantProps {
   /**
    * Which mark to render:
    *  - "auto" (default): the light-surface mark in light theme, the dark-surface
-   *    mark in dark theme. Relies on the `.dark` class strategy + the Qeetix
-   *    Tailwind `dark:` variant (import `@qeetix/ui/styles.css`).
+   *    mark in dark theme. Relies on the `.dark` class strategy + the Qeetrix
+   *    Tailwind `dark:` variant (import `@qeetrix/ui/styles.css`).
    *  - "on-light": force the dark artwork (for light backgrounds).
    *  - "on-dark": force the light artwork (for dark backgrounds).
    */

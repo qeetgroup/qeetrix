@@ -7,7 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta<typeof Breadcrumb> = {
   title: "Primitives/Breadcrumb",

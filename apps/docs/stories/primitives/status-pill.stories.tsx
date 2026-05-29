@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { StatusPill } from "@qeetix/ui";
+import { StatusPill } from "@qeetrix/ui";
 
 const meta: Meta<typeof StatusPill> = {
   title: "Primitives/StatusPill",

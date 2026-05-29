@@ -2,7 +2,7 @@
  * Ship the non-TS assets alongside the compiled output:
  *  - dist/index.css  — the Tailwind v4 entry. @source is rewritten to scan the
  *    COMPILED js (dist has no .tsx), so a consumer's Tailwind picks up the
- *    utility classes used by Qeetix components.
+ *    utility classes used by Qeetrix components.
  *  - dist/fonts/**   — self-hosted Cal Sans, referenced by @font-face in index.css.
  */
 import { cpSync, readFileSync, writeFileSync } from "node:fs";

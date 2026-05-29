@@ -38,7 +38,7 @@ catalog:
   # Next
   next: 16.2.6
 
-  # Design-system tooling (Qeetix)
+  # Design-system tooling (Qeetrix)
   "style-dictionary": ^5.4.1
   "culori": ^4.0.1
   "tsc-alias": ^1.8.17

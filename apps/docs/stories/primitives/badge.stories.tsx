@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Badge } from "@qeetix/ui";
+import { Badge } from "@qeetrix/ui";
 
 const meta: Meta<typeof Badge> = {
   title: "Primitives/Badge",

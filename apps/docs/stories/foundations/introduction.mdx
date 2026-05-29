@@ -2,24 +2,24 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Foundations/Introduction" />
 
-# Qeetix
+# Qeetrix
 
-**Qeetix** is the shared design system for **Qeet Group** products. It is built on
+**Qeetrix** is the shared design system for **Qeet Group** products. It is built on
 **Tailwind CSS v4** and **shadcn/ui with the Base UI registry**, and themed by a single,
 token-driven source of truth.
 
 ## Packages
 
-- **`@qeetix/tokens`** — design tokens (W3C JSON → Style Dictionary → CSS + JSON). Generates the
+- **`@qeetrix/tokens`** — design tokens (W3C JSON → Style Dictionary → CSS + JSON). Generates the
   `:root` / `.dark` runtime variables and a `--qx-`-prefixed raw export.
-- **`@qeetix/ui`** — the React component library (this workshop).
-- **`@qeetix/brand`** — the Qeet logo (theme-adaptive) and custom icons.
+- **`@qeetrix/ui`** — the React component library (this workshop).
+- **`@qeetrix/brand`** — the Qeet logo (theme-adaptive) and custom icons.
 
 ## Using it
 
 ```tsx
-import { ThemeProvider, Button } from "@qeetix/ui";
-import "@qeetix/ui/styles.css";
+import { ThemeProvider, Button } from "@qeetrix/ui";
+import "@qeetrix/ui/styles.css";
 
 <ThemeProvider defaultTheme="system">
   <Button>Authenticate with Qeet</Button>
@@ -31,7 +31,7 @@ import "@qeetix/ui/styles.css";
 Light and dark are first-class and driven by the `.dark` class on the root element — flip the
 **Theme** toolbar above to preview either. Colours are currently a neutral/greyscale ramp; the
 brand palette is a documented open decision (OD-DS-03) and drops in by editing only the primitive
-ramps in `@qeetix/tokens`.
+ramps in `@qeetrix/tokens`.
 
 See **Foundations → Colors / Typography / Spacing & Radius** for the token galleries, and
 **Primitives** / **Brand** for components.

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { OTPInput } from "@qeetix/ui";
+import { OTPInput } from "@qeetrix/ui";
 
 const meta: Meta<typeof OTPInput> = {
   title: "Primitives/OTPInput",

@@ -1,4 +1,4 @@
-# Contributing to Qeetix
+# Contributing to Qeetrix
 
 ## Setup
 
@@ -15,14 +15,14 @@ Tokens live in [`packages/tokens/tokens`](packages/tokens/tokens) as W3C Design 
 (`primitive/` → `theme/{light,dark}/{semantic,bridge}.json`). Edit those, then:
 
 ```bash
-pnpm --filter @qeetix/tokens build      # regenerates dist/qeetix.css + raw + json
-pnpm --filter @qeetix/tokens validate   # WCAG-AA contrast guard
+pnpm --filter @qeetrix/tokens build      # regenerates dist/qeetrix.css + raw + json
+pnpm --filter @qeetrix/tokens validate   # WCAG-AA contrast guard
 ```
 
 - The neutral ramp is real; **brand / accent / status ramps are placeholders that alias neutral**
   until the palette is ratified (OD-DS-03). To introduce the real palette, edit only the primitive
   ramps in `primitive/color.json` — semantic, bridge and component layers are untouched.
-- Never hand-edit `:root` / `.dark` in `@qeetix/ui` — those come from `@qeetix/tokens/qeetix.css`.
+- Never hand-edit `:root` / `.dark` in `@qeetrix/ui` — those come from `@qeetrix/tokens/qeetrix.css`.
 
 ## Add a component
 
@@ -31,8 +31,8 @@ cd packages/ui
 npx shadcn@latest add <component>   # drops Base UI variants into src/components/ui
 ```
 
-Then export it from `src/index.ts`, build (`pnpm --filter @qeetix/ui build`), and add a story in
-`apps/docs/stories/primitives/<component>.stories.tsx` importing from `@qeetix/ui`.
+Then export it from `src/index.ts`, build (`pnpm --filter @qeetrix/ui build`), and add a story in
+`apps/docs/stories/primitives/<component>.stories.tsx` importing from `@qeetrix/ui`.
 
 - Components must stay **Base UI only** (no Radix). Client components keep their `"use client"`
   directive — the `tsc` build preserves it.
@@ -41,8 +41,8 @@ Then export it from `src/index.ts`, build (`pnpm --filter @qeetix/ui build`), an
 
 ```bash
 pnpm turbo run lint typecheck build
-pnpm --filter @qeetix/tokens validate
-pnpm --filter @qeetix/docs build-storybook
+pnpm --filter @qeetrix/tokens validate
+pnpm --filter @qeetrix/docs build-storybook
 ```
 
 ## Releasing

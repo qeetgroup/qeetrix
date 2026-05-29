@@ -14,7 +14,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta = {
   title: "Primitives/Sidebar",

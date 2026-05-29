@@ -31,7 +31,7 @@ jobs:
         run: pnpm turbo run lint typecheck build
 
       - name: Validate token contrast (WCAG AA)
-        run: pnpm --filter @qeetix/tokens validate
+        run: pnpm --filter @qeetrix/tokens validate
 
       - name: Build Storybook
-        run: pnpm --filter @qeetix/docs build-storybook
+        run: pnpm --filter @qeetrix/docs build-storybook

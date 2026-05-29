@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Separator } from "@qeetix/ui";
+import { Separator } from "@qeetrix/ui";
 
 const meta: Meta<typeof Separator> = {
   title: "Primitives/Separator",

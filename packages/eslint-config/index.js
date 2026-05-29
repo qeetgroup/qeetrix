@@ -4,7 +4,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-/** Shared ignore globs for every Qeetix package/app. */
+/** Shared ignore globs for every Qeetrix package/app. */
 export const ignores = {
   ignores: [
     "**/node_modules/**",

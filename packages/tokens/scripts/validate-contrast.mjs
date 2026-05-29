@@ -12,13 +12,13 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const tokensPath = join(ROOT, "../dist/qeetix.tokens.json");
+const tokensPath = join(ROOT, "../dist/qeetrix.tokens.json");
 
 let tokens;
 try {
   tokens = JSON.parse(readFileSync(tokensPath, "utf8"));
 } catch {
-  console.error(`✗ ${tokensPath} not found. Run \`pnpm --filter @qeetix/tokens build\` first.`);
+  console.error(`✗ ${tokensPath} not found. Run \`pnpm --filter @qeetrix/tokens build\` first.`);
   process.exit(1);
 }
 

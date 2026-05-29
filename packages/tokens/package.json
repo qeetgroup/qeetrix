@@ -1,16 +1,16 @@
 {
-  "name": "@qeetix/tokens",
+  "name": "@qeetrix/tokens",
   "version": "0.0.1",
   "private": false,
-  "description": "Qeetix design tokens — single W3C source built to CSS + JSON via Style Dictionary.",
+  "description": "Qeetrix design tokens — single W3C source built to CSS + JSON via Style Dictionary.",
   "license": "UNLICENSED",
   "type": "module",
   "sideEffects": ["*.css"],
   "files": ["dist"],
   "exports": {
-    "./qeetix.css": "./dist/qeetix.css",
-    "./tokens.css": "./dist/qeetix.tokens.css",
-    "./tokens.json": "./dist/qeetix.tokens.json"
+    "./qeetrix.css": "./dist/qeetrix.css",
+    "./tokens.css": "./dist/qeetrix.tokens.css",
+    "./tokens.json": "./dist/qeetrix.tokens.json"
   },
   "scripts": {
     "build": "node build.mjs",
@@ -19,7 +19,7 @@
     "clean": "rm -rf dist build"
   },
   "devDependencies": {
-    "@qeetix/eslint-config": "workspace:*",
+    "@qeetrix/eslint-config": "workspace:*",
     "style-dictionary": "catalog:",
     "culori": "catalog:"
   },

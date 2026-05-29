@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, CommandPalette, type CommandPaletteItem } from "@qeetix/ui";
+import { Button, CommandPalette, type CommandPaletteItem } from "@qeetrix/ui";
 
 const meta: Meta<typeof CommandPalette> = {
   title: "Primitives/CommandPalette",

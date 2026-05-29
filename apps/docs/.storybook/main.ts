@@ -2,7 +2,7 @@ import tailwindcss from "@tailwindcss/vite";
 import type { StorybookConfig } from "@storybook/react-vite";
 
 /**
- * Storybook 10 workshop for the Qeetix design system.
+ * Storybook 10 workshop for the Qeetrix design system.
  * Controls / actions / viewport / docs are built into core in SB10, so only
  * a11y and themes are added explicitly. Tailwind v4 is wired via its Vite plugin.
  */

@@ -7,7 +7,7 @@
  * The shared mask id ("qBowlHole") is suffixed per variant to avoid collisions
  * when both variants render on the same page (adaptive <QeetLogo/>).
  *
- * Re-run with: pnpm --filter @qeetix/brand generate
+ * Re-run with: pnpm --filter @qeetrix/brand generate
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";

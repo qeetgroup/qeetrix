@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@qeetix/ui";
+import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@qeetrix/ui";
 
 const meta: Meta<typeof Collapsible> = {
   title: "Primitives/Collapsible",

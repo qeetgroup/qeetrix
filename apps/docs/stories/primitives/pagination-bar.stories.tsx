@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PaginationBar } from "@qeetix/ui";
+import { PaginationBar } from "@qeetrix/ui";
 
 const meta: Meta<typeof PaginationBar> = {
   title: "Primitives/PaginationBar",

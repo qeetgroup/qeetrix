@@ -6,7 +6,7 @@ import {
   type ChartConfig,
   ChartTooltip,
   ChartTooltipContent,
-} from "@qeetix/ui";
+} from "@qeetrix/ui";
 
 const meta: Meta = {
   title: "Primitives/Chart",

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "@qeetix/ui";
+import { Button } from "@qeetrix/ui";
 
 // Sample story — copy this file when adding coverage for a new
 // primitive. The argTypes block doubles as a usage cheat-sheet.

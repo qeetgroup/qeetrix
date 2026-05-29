@@ -1,5 +1,5 @@
-/* Pulls in the full Qeetix layer (tokens, fonts, base) exactly as a real app
- * would. The imported stylesheet already @sources the compiled @qeetix/ui
+/* Pulls in the full Qeetrix layer (tokens, fonts, base) exactly as a real app
+ * would. The imported stylesheet already @sources the compiled @qeetrix/ui
  * classes; we add the stories so their own Tailwind utilities are generated. */
-@import "@qeetix/ui/styles.css";
+@import "@qeetrix/ui/styles.css";
 @source "../stories";

@@ -1,5 +1,5 @@
 {
-  "extends": "@qeetix/tsconfig/react-vite.json",
+  "extends": "@qeetrix/tsconfig/react-vite.json",
   "compilerOptions": {
     "types": [],
     "jsx": "react-jsx",

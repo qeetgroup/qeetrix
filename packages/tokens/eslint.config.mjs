@@ -1,2 +1,2 @@
-import { base } from "@qeetix/eslint-config";
+import { base } from "@qeetrix/eslint-config";
 export default base;

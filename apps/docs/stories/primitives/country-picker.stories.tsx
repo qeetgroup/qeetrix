@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { CountryPicker } from "@qeetix/ui";
+import { CountryPicker } from "@qeetrix/ui";
 
 const meta: Meta<typeof CountryPicker> = {
   title: "Primitives/CountryPicker",

@@ -1,4 +1,4 @@
-import { react } from "@qeetix/eslint-config";
+import { react } from "@qeetrix/eslint-config";
 
 export default [
   ...react,

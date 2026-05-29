@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { JSONTree } from "@qeetix/ui";
+import { JSONTree } from "@qeetrix/ui";
 
 const meta: Meta<typeof JSONTree> = {
   title: "Primitives/JSONTree",

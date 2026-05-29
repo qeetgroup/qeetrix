@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TimezonePicker } from "@qeetix/ui";
+import { TimezonePicker } from "@qeetrix/ui";
 
 const meta: Meta<typeof TimezonePicker> = {
   title: "Primitives/TimezonePicker",
