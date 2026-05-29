@@ -1,6 +1,6 @@
 {
   "name": "@qeetrix/ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Qeetrix UI — the Qeet Group React component library (shadcn + Base UI, Tailwind v4).",
   "license": "UNLICENSED",
@@ -39,7 +39,7 @@
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
-    "@qeetrix/tokens": "workspace:*",
+    "@qeetrix/tokens": "workspace:^",
     "@base-ui/react": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
