@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Select>;
 export const Default: Story = {
   render: () => (
     <Select>
-      <SelectTrigger className="w-56">
+      <SelectTrigger className="w-56" aria-label="Region">
         <SelectValue placeholder="Select a region" />
       </SelectTrigger>
       <SelectContent>

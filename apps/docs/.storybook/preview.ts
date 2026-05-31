@@ -11,6 +11,14 @@ const preview: Preview = {
     controls: { expanded: true },
     backgrounds: { disable: true },
     layout: "centered",
+    a11y: {
+      // A story renders a single component into #storybook-root — not a full
+      // document — so axe's "region" rule (every bit of page content must sit
+      // inside a landmark like <main>/<nav>) is a false positive here: that's
+      // the app shell's responsibility, not a primitive's. Left on, it flags
+      // ~85 violations across nearly every story and drowns out the real ones.
+      options: { rules: { region: { enabled: false } } },
+    },
   },
   globalTypes: {
     theme: {

@@ -149,6 +149,7 @@ function LogoUploader({
         type="file"
         accept={accept}
         disabled={disabled}
+        aria-label="Upload a logo file"
         className="sr-only"
         onChange={(e) => {
           const f = e.target.files?.[0]

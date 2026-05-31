@@ -1,5 +1,11 @@
 export { ThemeProvider, useTheme } from "./components/theme-provider"
 export {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components/ui/accordion"
+export {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
@@ -47,6 +53,7 @@ export {
   ChartTooltipContent,
   type ChartConfig,
 } from "./components/ui/chart"
+export { Checkbox, CheckboxGroup } from "./components/ui/checkbox"
 export { CodeBlock } from "./components/ui/code-block"
 export type { CodeBlockProps, CodeLanguage } from "./components/ui/code-block"
 export {
@@ -115,6 +122,17 @@ export type {
   PasswordStrengthScore,
 } from "./components/ui/password-strength-meter"
 export {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverDescription,
+  PopoverTitle,
+  PopoverTrigger,
+} from "./components/ui/popover"
+export { Progress } from "./components/ui/progress"
+export { Radio, RadioGroup } from "./components/ui/radio-group"
+export { ScrollArea, ScrollBar } from "./components/ui/scroll-area"
+export {
   Select,
   SelectContent,
   SelectGroup,
@@ -178,11 +196,18 @@ export {
   TableHeader,
   TableRow,
 } from "./components/ui/table"
+export {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "./components/ui/tabs"
 export { Textarea } from "./components/ui/textarea"
 export { TimeSince } from "./components/ui/time-since"
 export type { TimeSinceProps } from "./components/ui/time-since"
 export { getTimezones, TimezonePicker } from "./components/ui/timezone-picker"
 export type { TimezonePickerProps } from "./components/ui/timezone-picker"
+export { Toggle, ToggleGroup, toggleVariants } from "./components/ui/toggle"
 export {
   Tooltip,
   TooltipContent,

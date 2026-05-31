@@ -2,4 +2,9 @@
  * would. The imported stylesheet already @sources the compiled @qeetrix/ui
  * classes; we add the stories so their own Tailwind utilities are generated. */
 @import "@qeetrix/ui/styles.css";
+/* @qeetrix/ui ships only the *semantic* runtime tokens (--background, …). The
+ * Foundations/Colors story also documents the raw primitive ramp (--qx-color-*),
+ * which lives in a separate token file apps don't normally load — pull it in
+ * here so those swatches resolve instead of rendering empty/white. */
+@import "@qeetrix/tokens/tokens.css";
 @source "../stories";
