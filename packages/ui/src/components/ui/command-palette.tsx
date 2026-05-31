@@ -162,7 +162,7 @@ function CommandPalette({
             className="h-12 w-full border-0 bg-transparent px-4 text-base outline-none placeholder:text-muted-foreground"
           />
         </div>
-        <div className="max-h-96 overflow-y-auto p-1">
+        <div role="listbox" aria-label="Results" className="max-h-96 overflow-y-auto p-1">
           {filtered.length === 0 ? (
             <div className="p-6 text-center text-sm text-muted-foreground">{emptyMessage}</div>
           ) : (

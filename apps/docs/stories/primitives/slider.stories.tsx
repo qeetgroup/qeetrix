@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Slider>;
 export const Default: Story = {
   render: () => (
     <div className="w-72">
-      <Slider defaultValue={40} max={100} step={1} />
+      <Slider aria-label="Volume" defaultValue={40} max={100} step={1} />
     </div>
   ),
 };

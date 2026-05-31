@@ -11,7 +11,7 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
-export const Default: Story = { args: { defaultChecked: true } };
+export const Default: Story = { args: { defaultChecked: true, "aria-label": "Enable setting" } };
 
 export const WithLabel: Story = {
   render: () => (
