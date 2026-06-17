@@ -11,7 +11,13 @@
     "noEmit": false
   },
   "include": ["src"],
-  "exclude": ["src/stories/**", "**/*.stories.tsx"],
+  "exclude": [
+    "src/stories/**",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/test/**"
+  ],
   "tsc-alias": {
     "resolveFullPaths": true,
     "verbose": false
