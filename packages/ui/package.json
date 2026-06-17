@@ -45,9 +45,12 @@
   "dependencies": {
     "@qeetrix/tokens": "workspace:^",
     "@base-ui/react": "catalog:",
+    "@tanstack/react-table": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "lucide-react": "catalog:",
+    "react-day-picker": "catalog:",
+    "react-resizable-panels": "catalog:",
     "recharts": "catalog:",
     "shadcn": "catalog:",
     "tailwind-merge": "catalog:",
