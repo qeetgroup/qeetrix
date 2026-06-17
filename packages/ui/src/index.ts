@@ -28,6 +28,8 @@ export {
   AppShellHeader,
   AppShellMain,
 } from "./components/ui/app-shell"
+export { AspectRatio } from "./components/ui/aspect-ratio"
+export type { AspectRatioProps } from "./components/ui/aspect-ratio"
 export {
   Avatar,
   AvatarBadge,
@@ -60,6 +62,15 @@ export {
   CardTitle,
 } from "./components/ui/card"
 export {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  useCarousel,
+} from "./components/ui/carousel"
+export type { CarouselApi } from "./components/ui/carousel"
+export {
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
@@ -68,6 +79,19 @@ export {
   ChartTooltipContent,
   type ChartConfig,
 } from "./components/ui/chart"
+export {
+  AreaChart,
+  BarChart,
+  DonutChart,
+  LineChart,
+  RadialChart,
+  Sparkline,
+} from "./components/ui/chart-presets"
+export type {
+  CartesianChartProps,
+  RadialOrPieProps,
+  SparklineProps,
+} from "./components/ui/chart-presets"
 export { Checkbox, CheckboxGroup } from "./components/ui/checkbox"
 export { CodeBlock } from "./components/ui/code-block"
 export type { CodeBlockProps, CodeLanguage } from "./components/ui/code-block"
@@ -121,6 +145,8 @@ export type {
   DateRangePickerProps,
 } from "./components/ui/date-picker"
 export type { DateRange } from "react-day-picker"
+export { DateTimePicker } from "./components/ui/date-time-picker"
+export type { DateTimePickerProps } from "./components/ui/date-time-picker"
 export {
   DescriptionDetails,
   DescriptionList,
@@ -164,6 +190,20 @@ export {
   DropdownMenuTrigger,
 } from "./components/ui/dropdown-menu"
 export { EmptyState } from "./components/ui/empty-state"
+export {
+  Dropzone,
+  FileList,
+  FileUploadItem,
+  formatBytes,
+  isFileAccepted,
+} from "./components/ui/file-upload"
+export type {
+  DropzoneProps,
+  FileRejection,
+  FileRejectionReason,
+  FileUploadItemProps,
+  FileUploadStatus,
+} from "./components/ui/file-upload"
 export type { EmptyStateProps } from "./components/ui/empty-state"
 export {
   Field,
@@ -248,11 +288,15 @@ export {
 } from "./components/ui/popover"
 export { Progress } from "./components/ui/progress"
 export { Radio, RadioGroup } from "./components/ui/radio-group"
+export { Rating } from "./components/ui/rating"
+export type { RatingProps } from "./components/ui/rating"
 export {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "./components/ui/resizable"
+export { RichTextEditor } from "./components/ui/rich-text-editor"
+export type { RichTextEditorProps } from "./components/ui/rich-text-editor"
 export { ScrollArea, ScrollBar } from "./components/ui/scroll-area"
 export {
   Select,
@@ -329,6 +373,8 @@ export {
   TabsList,
   TabsTrigger,
 } from "./components/ui/tabs"
+export { TagInput } from "./components/ui/tag-input"
+export type { TagInputProps } from "./components/ui/tag-input"
 export { Textarea } from "./components/ui/textarea"
 export {
   Timeline,
@@ -339,6 +385,8 @@ export {
   TimelineTime,
   TimelineTitle,
 } from "./components/ui/timeline"
+export { parseTime, TimePicker } from "./components/ui/time-picker"
+export type { TimePickerProps } from "./components/ui/time-picker"
 export { TimeSince } from "./components/ui/time-since"
 export type { TimeSinceProps } from "./components/ui/time-since"
 export { getTimezones, TimezonePicker } from "./components/ui/timezone-picker"
@@ -361,5 +409,15 @@ export {
 } from "./components/ui/tooltip"
 export { TreeView } from "./components/ui/tree-view"
 export type { TreeNode, TreeViewProps } from "./components/ui/tree-view"
+export {
+  Prose,
+  proseClassName,
+  Typography,
+  typographyVariants,
+} from "./components/ui/typography"
+export type {
+  TypographyProps,
+  TypographyVariant,
+} from "./components/ui/typography"
 export { useIsMobile } from "./hooks/use-mobile"
 export { cn } from "./lib/utils"

@@ -90,3 +90,108 @@ export const WithSelectionAndActions: Story = {
 export const Empty: Story = {
   render: () => <DataTable columns={columns} data={[]} />,
 };
+
+// Faceted filters require the column to filter on an array of values.
+const facetColumns: ColumnDef<Member>[] = [
+  { accessorKey: "name", header: "Name" },
+  { accessorKey: "email", header: "Email" },
+  { accessorKey: "role", header: "Role", filterFn: "arrIncludesSome" },
+  {
+    accessorKey: "status",
+    header: "Status",
+    filterFn: "arrIncludesSome",
+    cell: ({ row }) => <StatusPill status={row.getValue("status")} />,
+  },
+];
+
+export const ResizableAndPinnable: Story = {
+  render: () => (
+    <DataTable
+      columns={columns}
+      data={data}
+      pageSize={0}
+      maxHeight={320}
+      enableColumnResizing
+      enablePinning
+    />
+  ),
+};
+
+export const FacetedFilters: Story = {
+  render: () => (
+    <DataTable
+      columns={facetColumns}
+      data={data}
+      pageSize={8}
+      facetedFilters={[
+        {
+          columnId: "role",
+          title: "Role",
+          options: [
+            { label: "Owner", value: "Owner" },
+            { label: "Admin", value: "Admin" },
+            { label: "Member", value: "Member" },
+          ],
+        },
+        { columnId: "status", title: "Status" },
+      ]}
+    />
+  ),
+};
+
+export const Expandable: Story = {
+  render: () => (
+    <DataTable
+      columns={columns}
+      data={data}
+      pageSize={6}
+      enableExpanding
+      getRowCanExpand={() => true}
+      renderSubComponent={(row) => (
+        <div className="p-4 text-sm">
+          <p className="font-medium">{row.original.name}</p>
+          <p className="text-muted-foreground">
+            {row.original.email} · {row.original.role} ·{" "}
+            {row.original.logins.toLocaleString()} logins
+          </p>
+        </div>
+      )}
+    />
+  ),
+};
+
+export const DensityAndExport: Story = {
+  render: () => (
+    <DataTable
+      columns={columns}
+      data={data}
+      pageSize={8}
+      enableDensity
+      defaultDensity="compact"
+      enableExport
+      exportFilename="members.csv"
+      persistKey="members-demo"
+    />
+  ),
+};
+
+const bigData: Member[] = Array.from({ length: 5000 }, (_, i) => ({
+  id: String(i + 1),
+  name: `User ${i + 1}`,
+  email: `user${i + 1}@acme.com`,
+  role: i % 7 === 0 ? "Admin" : "Member",
+  status: ["active", "pending", "suspended"][i % 3],
+  logins: (i * 37) % 2000,
+}));
+
+export const Virtualized: Story = {
+  render: () => (
+    <DataTable
+      columns={columns}
+      data={bigData}
+      enableVirtualization
+      maxHeight={420}
+      searchPlaceholder="Search 5,000 rows…"
+    />
+  ),
+};

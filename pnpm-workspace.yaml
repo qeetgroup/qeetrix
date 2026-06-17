@@ -35,8 +35,13 @@ catalog:
   "zod": ^4.4.3
   "recharts": ^3.8.1
   "@tanstack/react-table": ^8.21.3
+  "@tanstack/react-virtual": ^3.14.3
   "react-day-picker": ^9.9.0
   "react-resizable-panels": ^4.11.2
+  "embla-carousel-react": ^8.6.0
+  "@tiptap/react": ^3.27.0
+  "@tiptap/starter-kit": ^3.27.0
+  "@tiptap/pm": ^3.27.0
 
   # Next
   next: 16.2.6
