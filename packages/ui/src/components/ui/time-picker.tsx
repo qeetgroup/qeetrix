@@ -30,7 +30,10 @@ interface TimeParts {
 /** Parse a canonical `"HH:mm"` / `"HH:mm:ss"` (24h) string. */
 function parseTime(value?: string): TimeParts | null {
   if (!value) return null
-  const [h, m, s] = value.split(":").map((x) => Number.parseInt(x, 10))
+  const parts = value.split(":")
+  const h = Number.parseInt(parts[0], 10)
+  const m = Number.parseInt(parts[1], 10)
+  const s = Number.parseInt(parts[2], 10)
   if (Number.isNaN(h) || Number.isNaN(m)) return null
   return { h, m, s: Number.isNaN(s) ? 0 : s }
 }

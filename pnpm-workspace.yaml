@@ -46,6 +46,14 @@ catalog:
   # Next
   next: 16.2.6
 
+  # Testing
+  "vitest": ^4.1.9
+  "@vitejs/plugin-react": ^6.0.2
+  "jsdom": ^29.1.1
+  "@testing-library/react": ^16.3.2
+  "@testing-library/user-event": ^14.6.1
+  "@testing-library/jest-dom": ^6.9.1
+
   # Design-system tooling (Qeetrix)
   "style-dictionary": ^5.4.1
   "culori": ^4.0.1
