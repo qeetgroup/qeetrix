@@ -4,7 +4,7 @@
 
 Add Batch 4 date & time components (additive):
 
-- **Calendar** — token-styled wrapper over react-day-picker (v9) supporting all modes (`single`, `multiple`, `range`); styled entirely through design tokens + `buttonVariants` (no external CSS import), with lucide chevrons.
+- **Calendar** — the canonical shadcn Calendar component (built on react-day-picker v9), restyled to the qeetrix design tokens; supports all modes (`single` / `multiple` / `range`) and dropdown caption layouts. Also exports `CalendarDayButton`.
 - **DatePicker** — single-date picker: an outline trigger button opening a `Calendar` in a `Popover`; controlled or uncontrolled, formats via `Intl.DateTimeFormat`.
 - **DateRangePicker** — two-month range picker for log windows / billing periods; re-exports the `DateRange` type.
 
