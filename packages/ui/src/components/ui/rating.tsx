@@ -94,8 +94,6 @@ function Rating({
       aria-valuenow={interactive ? value : undefined}
       aria-valuemin={interactive ? 0 : undefined}
       aria-valuemax={interactive ? max : undefined}
-      aria-readonly={readOnly || undefined}
-      aria-disabled={disabled || undefined}
       tabIndex={interactive ? 0 : undefined}
       onKeyDown={handleKeyDown}
       onMouseLeave={() => setHover(null)}

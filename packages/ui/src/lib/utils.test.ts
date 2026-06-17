@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils"
 
 describe("cn", () => {
   it("merges conditional classes and drops falsy values", () => {
-    expect(cn("text-sm", false && "hidden", undefined, "font-bold")).toBe(
+    const hidden = false
+    expect(cn("text-sm", hidden && "hidden", undefined, "font-bold")).toBe(
       "text-sm font-bold",
     )
   })

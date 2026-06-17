@@ -88,11 +88,13 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
+    "axe-core": "catalog:",
     "jsdom": "catalog:",
     "tailwindcss": "catalog:",
     "tsc-alias": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "vitest-axe": "catalog:"
   },
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,13 @@
 export { ThemeProvider, useTheme } from "./components/theme-provider"
 export {
+  DirectionProvider,
+  useDirection,
+} from "./components/direction-provider"
+export type {
+  Direction,
+  DirectionProviderProps,
+} from "./components/direction-provider"
+export {
   Accordion,
   AccordionContent,
   AccordionItem,
