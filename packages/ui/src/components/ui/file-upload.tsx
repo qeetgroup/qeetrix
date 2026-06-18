@@ -205,9 +205,7 @@ interface FileUploadItemProps extends Omit<React.ComponentProps<"li">, "onError"
 const statusIcon: Record<FileUploadStatus, React.ReactNode> = {
   pending: null,
   uploading: <Loader2Icon className="size-4 animate-spin text-muted-foreground" />,
-  success: (
-    <CheckCircle2Icon className="size-4 text-emerald-600 dark:text-emerald-400" />
-  ),
+  success: <CheckCircle2Icon className="size-4 text-success" />,
   error: <AlertCircleIcon className="size-4 text-destructive" />,
 }
 

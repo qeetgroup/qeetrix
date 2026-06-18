@@ -13,8 +13,8 @@ const statDeltaVariants = cva(
   {
     variants: {
       trend: {
-        up: "text-emerald-600 dark:text-emerald-400",
-        down: "text-rose-600 dark:text-rose-400",
+        up: "text-success",
+        down: "text-destructive",
         neutral: "text-muted-foreground",
       },
     },

@@ -18,10 +18,10 @@ const KIND_TO_BADGE: Record<StatusKind, BadgeProps["variant"]> = {
 }
 
 const KIND_TO_DOT: Record<StatusKind, string> = {
-  success: "bg-emerald-500",
-  warning: "bg-amber-500",
-  danger: "bg-rose-500",
-  info: "bg-sky-500",
+  success: "bg-success",
+  warning: "bg-warning",
+  danger: "bg-destructive",
+  info: "bg-info",
   muted: "bg-muted-foreground/60",
   neutral: "bg-muted-foreground/60",
 }

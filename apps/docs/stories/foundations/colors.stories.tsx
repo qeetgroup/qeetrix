@@ -23,10 +23,18 @@ const SEMANTIC: Array<[string, string]> = [
   ["--secondary", "secondary"],
   ["--muted", "muted"],
   ["--accent", "accent"],
-  ["--destructive", "destructive"],
   ["--border", "border"],
   ["--ring", "ring"],
 ];
+
+const STATUS: Array<[string, string]> = [
+  ["--success", "success"],
+  ["--warning", "warning"],
+  ["--info", "info"],
+  ["--destructive", "destructive"],
+];
+
+const STATUS_STEPS = [100, 300, 500, 700, 900];
 
 const NEUTRAL_STEPS = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 850, 900, 950, 1000];
 
@@ -40,6 +48,26 @@ export const All: Story = {
           ))}
         </Grid>
       </Section>
+      <Section title="Status (semantic runtime vars — theme-aware)">
+        <Grid>
+          {STATUS.map(([v, n]) => (
+            <Swatch key={v} varName={v} name={n} />
+          ))}
+        </Grid>
+      </Section>
+      <Section title="Status ramps (primitive)">
+        {(["success", "warning", "info", "danger"] as const).map((ramp) => (
+          <Grid key={ramp}>
+            {STATUS_STEPS.map((s) => (
+              <Swatch
+                key={`${ramp}-${s}`}
+                varName={`--qx-color-${ramp}-${s}`}
+                name={`${ramp}-${s}`}
+              />
+            ))}
+          </Grid>
+        ))}
+      </Section>
       <Section title="Neutral ramp (primitive)">
         <Grid>
           {NEUTRAL_STEPS.map((s) => (
@@ -47,9 +75,9 @@ export const All: Story = {
           ))}
         </Grid>
       </Section>
-      <Section title="Brand / status (placeholders — alias neutral until OD-DS-03)">
+      <Section title="Brand (placeholder — aliases neutral until OD-DS-03)">
         <Grid>
-          {["brand", "accent", "success", "warning", "danger", "info", "passkey"].map((ramp) => (
+          {["brand", "accent", "passkey"].map((ramp) => (
             <Swatch key={ramp} varName={`--qx-color-${ramp}-500`} name={`${ramp}-500`} />
           ))}
         </Grid>

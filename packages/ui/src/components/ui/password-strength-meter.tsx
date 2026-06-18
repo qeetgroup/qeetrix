@@ -36,18 +36,18 @@ const DEFAULT_LABELS: [string, string, string, string, string] = [
 // visually distinct even when the user only glances at the bar.
 const SEGMENT_COLORS: Record<PasswordStrengthScore, string> = {
   0: "bg-muted",
-  1: "bg-rose-500",
-  2: "bg-amber-500",
-  3: "bg-sky-500",
-  4: "bg-emerald-500",
+  1: "bg-destructive",
+  2: "bg-warning",
+  3: "bg-info",
+  4: "bg-success",
 }
 
 const LABEL_COLORS: Record<PasswordStrengthScore, string> = {
   0: "text-muted-foreground",
-  1: "text-rose-600 dark:text-rose-400",
-  2: "text-amber-600 dark:text-amber-500",
-  3: "text-sky-600 dark:text-sky-400",
-  4: "text-emerald-600 dark:text-emerald-400",
+  1: "text-destructive",
+  2: "text-warning",
+  3: "text-info",
+  4: "text-success",
 }
 
 /**

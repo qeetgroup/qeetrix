@@ -61,30 +61,36 @@
     },
 
     "success": {
-      "$description": "PLACEHOLDER — aliases neutral until status palette is ratified (OD-DS-03).",
-      "100": { "$value": "{color.neutral.100}", "$type": "color" },
-      "300": { "$value": "{color.neutral.300}", "$type": "color" },
-      "500": { "$value": "{color.neutral.500}", "$type": "color" },
-      "700": { "$value": "{color.neutral.700}", "$type": "color" },
-      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+      "$description": "Status — success (emerald). oklch, aligned to the Tailwind v4 emerald ramp.",
+      "100": { "$value": "oklch(0.95 0.052 163)", "$type": "color" },
+      "300": { "$value": "oklch(0.845 0.143 164.978)", "$type": "color" },
+      "400": { "$value": "oklch(0.765 0.177 163.223)", "$type": "color" },
+      "500": { "$value": "oklch(0.696 0.17 162.48)", "$type": "color" },
+      "600": { "$value": "oklch(0.596 0.145 163.225)", "$type": "color" },
+      "700": { "$value": "oklch(0.508 0.118 165.612)", "$type": "color" },
+      "900": { "$value": "oklch(0.378 0.077 168.94)", "$type": "color" }
     },
 
     "warning": {
-      "$description": "PLACEHOLDER — aliases neutral until status palette is ratified (OD-DS-03).",
-      "100": { "$value": "{color.neutral.100}", "$type": "color" },
-      "300": { "$value": "{color.neutral.300}", "$type": "color" },
-      "500": { "$value": "{color.neutral.500}", "$type": "color" },
-      "700": { "$value": "{color.neutral.700}", "$type": "color" },
-      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+      "$description": "Status — warning (amber). oklch, aligned to the Tailwind v4 amber ramp.",
+      "100": { "$value": "oklch(0.962 0.059 95.617)", "$type": "color" },
+      "300": { "$value": "oklch(0.879 0.169 91.605)", "$type": "color" },
+      "400": { "$value": "oklch(0.828 0.189 84.429)", "$type": "color" },
+      "500": { "$value": "oklch(0.769 0.188 70.08)", "$type": "color" },
+      "600": { "$value": "oklch(0.666 0.179 58.318)", "$type": "color" },
+      "700": { "$value": "oklch(0.555 0.163 48.998)", "$type": "color" },
+      "900": { "$value": "oklch(0.414 0.112 45.904)", "$type": "color" }
     },
 
     "info": {
-      "$description": "PLACEHOLDER — aliases neutral until status palette is ratified (OD-DS-03).",
-      "100": { "$value": "{color.neutral.100}", "$type": "color" },
-      "300": { "$value": "{color.neutral.300}", "$type": "color" },
-      "500": { "$value": "{color.neutral.500}", "$type": "color" },
-      "700": { "$value": "{color.neutral.700}", "$type": "color" },
-      "900": { "$value": "{color.neutral.900}", "$type": "color" }
+      "$description": "Status — info (sky). oklch, aligned to the Tailwind v4 sky ramp.",
+      "100": { "$value": "oklch(0.951 0.026 236.824)", "$type": "color" },
+      "300": { "$value": "oklch(0.828 0.111 230.318)", "$type": "color" },
+      "400": { "$value": "oklch(0.746 0.16 232.661)", "$type": "color" },
+      "500": { "$value": "oklch(0.685 0.169 237.323)", "$type": "color" },
+      "600": { "$value": "oklch(0.588 0.158 241.966)", "$type": "color" },
+      "700": { "$value": "oklch(0.5 0.134 242.749)", "$type": "color" },
+      "900": { "$value": "oklch(0.391 0.09 240.876)", "$type": "color" }
     },
 
     "passkey": {

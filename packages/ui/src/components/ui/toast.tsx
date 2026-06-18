@@ -59,10 +59,10 @@ const TYPE_ICON: Record<ToastType, React.ElementType> = {
 }
 
 const TYPE_ACCENT: Record<ToastType, string> = {
-  info: "text-sky-500",
-  success: "text-emerald-500",
-  warning: "text-amber-500",
-  error: "text-rose-500",
+  info: "text-info",
+  success: "text-success",
+  warning: "text-warning",
+  error: "text-destructive",
 }
 
 function ToastList() {
@@ -76,7 +76,7 @@ function ToastList() {
         toast={item}
         data-slot="toast"
         className={cn(
-          "group relative flex w-full items-start gap-3 rounded-lg border bg-popover py-3 pe-9 ps-4 text-sm text-popover-foreground shadow-lg transition-all duration-200 ease-out",
+          "group relative flex w-full items-start gap-3 rounded-lg border bg-popover py-3 pe-9 ps-4 text-sm text-popover-foreground shadow-popover transition-all duration-200 ease-out",
           "data-ending-style:translate-x-[120%] data-ending-style:opacity-0 data-starting-style:translate-x-[120%] data-starting-style:opacity-0"
         )}
       >

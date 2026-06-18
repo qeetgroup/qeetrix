@@ -38,7 +38,7 @@ function NavigationMenu({
         >
           <NavigationMenuPrimitive.Popup
             data-slot="navigation-menu-popup"
-            className="relative origin-(--transform-origin) overflow-hidden rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 transition-[opacity,transform,width,height] duration-200 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95"
+            className="relative origin-(--transform-origin) overflow-hidden rounded-lg bg-popover text-popover-foreground shadow-popover ring-1 ring-foreground/10 transition-[opacity,transform,width,height] duration-200 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95"
           >
             <NavigationMenuPrimitive.Viewport className="relative h-full w-full" />
           </NavigationMenuPrimitive.Popup>
