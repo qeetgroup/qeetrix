@@ -1,5 +1,19 @@
 # @qeetrix/docs
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [c565778]
+- Updated dependencies [5882cdb]
+- Updated dependencies [c565778]
+- Updated dependencies [5882cdb]
+- Updated dependencies [5882cdb]
+- Updated dependencies [c565778]
+- Updated dependencies [5882cdb]
+  - @qeetrix/ui@0.3.0
+  - @qeetrix/tokens@0.1.0
+
 ## 0.0.2
 
 ### Patch Changes
