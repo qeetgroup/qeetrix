@@ -10,10 +10,10 @@ const bannerVariants = cva("flex w-full items-center gap-3 px-4 py-2.5 text-sm",
   variants: {
     variant: {
       default: "bg-foreground text-background",
-      info: "bg-sky-600 text-white",
-      success: "bg-emerald-600 text-white",
-      warning: "bg-amber-500 text-amber-950",
-      danger: "bg-rose-600 text-white",
+      info: "bg-info text-info-foreground",
+      success: "bg-success text-success-foreground",
+      warning: "bg-warning text-warning-foreground",
+      danger: "bg-destructive text-destructive-foreground",
     },
   },
   defaultVariants: {

@@ -78,7 +78,7 @@ function PricingTier({
               )}
             >
               {included ? (
-                <CheckIcon className="mt-0.5 size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <CheckIcon className="mt-0.5 size-4 shrink-0 text-success" />
               ) : (
                 <XIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground/60" />
               )}

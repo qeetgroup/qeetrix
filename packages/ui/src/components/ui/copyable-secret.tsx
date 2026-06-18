@@ -111,7 +111,7 @@ function CopyableSecret({
       >
         {copied ? (
           <>
-            <CheckIcon className="text-emerald-600 dark:text-emerald-400" />
+            <CheckIcon className="text-success" />
             <span className="hidden sm:inline">{copiedLabel}</span>
           </>
         ) : (
