@@ -1,12 +1,16 @@
 {
   "name": "@qeetrix/tokens",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "private": false,
   "description": "Qeetrix design tokens — single W3C source built to CSS + JSON via Style Dictionary.",
   "license": "UNLICENSED",
   "type": "module",
-  "sideEffects": ["*.css"],
-  "files": ["dist"],
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./qeetrix.css": "./dist/qeetrix.css",
     "./tokens.css": "./dist/qeetrix.tokens.css",

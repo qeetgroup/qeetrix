@@ -1,5 +1,29 @@
 # @qeetrix/ui
 
+## 0.3.0
+
+### Minor Changes
+
+- c565778: Add **DirectionProvider** (+ `useDirection`) for right-to-left support. It wraps Base UI's direction context (so menus, sliders, etc. flip) and sets the `dir` attribute on a `display: contents` wrapper, so CSS logical properties and Tailwind `rtl:` variants resolve for the subtree. The component library already uses logical utilities throughout (`ps-`/`pe-`, `ms-`/`me-`, `start-`/`end-`), so most layout flips automatically.
+- 5882cdb: Add an **elevation** and **motion-easing** scale to `@theme` and apply it consistently.
+  - Elevation utilities `shadow-rest` / `shadow-hover` / `shadow-popover` / `shadow-modal` (mirroring `@qeetrix/tokens` `shadow.json`). Overlays now use the ladder intentionally: menus/popovers/selects/tooltips/hover-cards/toasts → `shadow-popover`; dialogs/sheets/command-palette → `shadow-modal`; floating/inset sidebar → `shadow-rest` (replacing ad-hoc `shadow-md`/`shadow-lg`/`shadow-xl`).
+  - Easing utilities `ease-standard` / `ease-decelerate` / `ease-accelerate` / `ease-sharp` (mirroring `motion.json`) for consistent transition timing.
+
+- 5882cdb: Promote **success / warning / info** to real, themeable semantic colors.
+  - `@qeetrix/tokens`: the `success` (emerald), `warning` (amber), and `info` (sky) ramps are now real oklch palettes (were neutral placeholders); `danger` (red) is unchanged. New bridged runtime vars `--success`/`--warning`/`--info` (+ `-foreground`, + `--destructive-foreground`) are emitted per theme — dark shades in light mode, light shades in dark — all WCAG-AA on the page/card surfaces.
+  - `@qeetrix/ui`: maps `--color-success`/`-warning`/`-info`(+`-foreground`) in `@theme`, and refactors ~15 components (Alert, Badge, Banner, Toast, StatusPill, Meter, PasswordStrengthMeter, Stat, FileUpload, CopyableSecret, and the PricingTier block) off hardcoded `emerald`/`amber`/`rose`/`sky` onto the semantic utilities (`text-success`, `bg-warning/10`, …). Status colors now theme consistently and have proper dark-mode parity. Decorative gold (Rating stars) and syntax highlighting (CodeBlock/JSONTree) intentionally keep palette colors.
+
+  No API changes; status elements look equivalent but are now tokenized.
+
+### Patch Changes
+
+- c565778: Fix **Rating** accessibility: drop the `aria-readonly` / `aria-disabled` attributes from the read-only/disabled variant, which uses `role="img"` where those attributes aren't permitted (flagged by axe). The non-interactive state is already conveyed by the role, so no behaviour changes.
+- 5882cdb: **Skeleton** now uses a moving shimmer sweep (a highlight gradient over the muted base) instead of a flat pulse, for a more premium loading feel. The animation is defined on `[data-slot="skeleton"]` and is disabled under `prefers-reduced-motion`. Applies anywhere `Skeleton` is used (DataState, sidebar menu skeletons, etc.).
+- Updated dependencies [5882cdb]
+- Updated dependencies [c565778]
+- Updated dependencies [5882cdb]
+  - @qeetrix/tokens@0.1.0
+
 ## 0.2.0
 
 ### Minor Changes
