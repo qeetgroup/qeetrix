@@ -18,6 +18,6 @@ pnpm changeset        # record a version bump; pnpm release publishes changed pu
 
 ## Architecture
 
-Design-system pipeline: `@qeetrix/tokens` (W3C JSON → Style Dictionary → CSS/JSON, exported as `--qx-*`) feeds `@qeetrix/ui` (shadcn + Base UI components) and `@qeetrix/brand` (logos/icons). Consumers import `@qeetrix/ui/styles.css` and drive light/dark via the `.dark` class managed by `ThemeProvider`. The shared `pnpm-workspace.yaml` **catalog** pins React/Tailwind/TS versions — add shared deps there, reference with `catalog:`. `@qeetrix/ui` is already a live dependency of qeet-id (`qeetid-admin` + `qeetid-web`).
+Design-system pipeline: `@qeetrix/tokens` (W3C JSON → Style Dictionary → CSS/JSON, exported as `--qx-*`) feeds `@qeetrix/ui` (~88 shadcn + Base UI components under `packages/ui/src/components/ui/` — new components go there) and `@qeetrix/brand` (logos/icons). Consumers import `@qeetrix/ui/styles.css` and drive light/dark via the `.dark` class managed by `ThemeProvider`. The shared `pnpm-workspace.yaml` **catalog** pins React/Tailwind/TS versions — add shared deps there, reference with `catalog:`. `@qeetrix/ui` is already a live dependency of qeet-id (`qeetid-admin` + `qeetid-web`).
 
 Pins **pnpm@10.32.1** (qeet-id/frontend uses 9.15.4) — Corepack handles this from `packageManager`.
