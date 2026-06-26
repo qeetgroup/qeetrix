@@ -8,17 +8,20 @@ It is a pnpm + Turborepo monorepo of versioned, npm-publishable packages built o
 
 | Package | Scope | Status |
 | --- | --- | --- |
-| `@qeetrix/tokens` | Design tokens (W3C JSON → Style Dictionary → CSS/JSON) | ✅ Phase 1 |
-| `@qeetrix/ui` | React component library (shadcn + Base UI) | ✅ Phase 2 |
-| `@qeetrix/tsconfig` | Shared TypeScript configs | ✅ (added in Phase 2) |
-| `@qeetrix/brand` | Logos (theme-adaptive) + custom Qeet icons | ✅ Phase 3 |
-| `@qeetrix/eslint-config` | Shared ESLint flat config (base + react) | ✅ Phase 4 |
-| `apps/docs` | Storybook 10 workshop (private) — foundations + every component | ✅ Phase 5 |
+| `@qeetrix/ui` | React component library (shadcn + Base UI) **+ design tokens + brand** — the one package consumers install | ✅ |
+| `@qeetrix/tsconfig` | Shared TypeScript configs | ✅ |
+| `@qeetrix/eslint-config` | Shared ESLint flat config (base + react) | ✅ |
+| `apps/docs` | Storybook 10 workshop (private) — foundations + every component | ✅ |
+
+> Tokens and brand were previously separate packages (`@qeetrix/tokens`, `@qeetrix/brand`); they
+> are now folded into `@qeetrix/ui` so there's a single install. Tokens are exposed at
+> `@qeetrix/ui/tokens.css` / `@qeetrix/ui/tokens.json` (and `@qeetrix/ui/qeetrix.css` for the
+> semantic layer); brand at `@qeetrix/ui/brand` (and the root barrel).
 
 ## Install & use (consumers)
 
 ```bash
-pnpm add @qeetrix/ui @qeetrix/tokens @qeetrix/brand
+pnpm add @qeetrix/ui       # components + tokens + brand, all in one
 pnpm add react react-dom   # peers (>=19)
 ```
 
@@ -33,8 +36,7 @@ In your Tailwind v4 global stylesheet:
 Then wrap the app and use components:
 
 ```tsx
-import { ThemeProvider, Button } from "@qeetrix/ui";
-import { QeetLogo } from "@qeetrix/brand";
+import { ThemeProvider, Button, QeetLogo } from "@qeetrix/ui";
 
 export function App() {
   return (
@@ -48,14 +50,14 @@ export function App() {
 
 Tailwind v4 is a peer of the consumer build. Light/dark is driven by the `.dark` class on the
 root element (managed by `ThemeProvider`). Tokens can be consumed directly too —
-`@qeetrix/tokens/tokens.css` (the `--qx-` raw export) and `@qeetrix/tokens/tokens.json`.
+`@qeetrix/ui/tokens.css` (the `--qx-` raw export) and `@qeetrix/ui/tokens.json`.
 
 ## Develop
 
 ```bash
 pnpm install
-pnpm build           # turbo run build (token build runs first)
-pnpm tokens:build    # build only @qeetrix/tokens
+pnpm build           # turbo run build (@qeetrix/ui regenerates tokens first, then compiles)
+pnpm tokens:build    # regenerate only the @qeetrix/ui design tokens
 pnpm tokens:validate # WCAG-AA contrast check on generated semantic pairs
 pnpm lint
 pnpm typecheck

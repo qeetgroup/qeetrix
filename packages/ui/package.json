@@ -18,6 +18,14 @@
       "default": "./dist/index.js"
     },
     "./styles.css": "./dist/index.css",
+    "./qeetrix.css": "./dist/styles/tokens.css",
+    "./tokens.css": "./dist/styles/tokens.raw.css",
+    "./tokens.json": "./dist/styles/tokens.json",
+    "./brand": {
+      "types": "./dist/brand/index.d.ts",
+      "import": "./dist/brand/index.js",
+      "default": "./dist/brand/index.js"
+    },
     "./blocks": {
       "types": "./dist/blocks/index.d.ts",
       "import": "./dist/blocks/index.js",
@@ -46,16 +54,18 @@
     "./fonts/*": "./dist/fonts/*"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && node scripts/postbuild.mjs",
-    "dev": "tsc -p tsconfig.build.json --watch",
+    "build": "node scripts/build-tokens.mjs && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "build-tokens": "node scripts/build-tokens.mjs",
+    "validate-tokens": "node scripts/build-tokens.mjs && node scripts/validate-contrast.mjs",
+    "generate-logos": "node scripts/generate-logos.mjs",
+    "dev": "node scripts/build-tokens.mjs && tsc -p tsconfig.build.json --watch",
     "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "clean": "rm -rf dist .turbo"
+    "clean": "rm -rf dist build src/styles .turbo"
   },
   "dependencies": {
-    "@qeetrix/tokens": "workspace:^",
     "@base-ui/react": "catalog:",
     "@tanstack/react-table": "catalog:",
     "@tanstack/react-virtual": "catalog:",
@@ -80,6 +90,8 @@
   "devDependencies": {
     "@qeetrix/eslint-config": "workspace:*",
     "@qeetrix/tsconfig": "workspace:*",
+    "culori": "catalog:",
+    "style-dictionary": "catalog:",
     "@tailwindcss/vite": "catalog:",
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",

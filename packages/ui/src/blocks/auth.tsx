@@ -17,7 +17,7 @@ import { PasswordStrengthMeter } from "@/components/ui/password-strength-meter"
 import { Separator } from "@/components/ui/separator"
 
 interface AuthShellProps extends Omit<React.ComponentProps<"div">, "title"> {
-  /** Brand logo slot (pass a `@qeetrix/brand` logo or any node). */
+  /** Brand logo slot (pass a `@qeetrix/ui/brand` logo or any node). */
   logo?: React.ReactNode
   title: React.ReactNode
   description?: React.ReactNode

@@ -23,7 +23,7 @@ You are the **accessibility & QA engineer for Qeetrix**. For a component library
 ## Definition of done (run; must pass)
 ```
 pnpm --filter @qeetrix/ui test
-pnpm --filter @qeetrix/tokens validate     # WCAG-AA contrast gate
+pnpm --filter @qeetrix/ui validate-tokens     # WCAG-AA contrast gate
 ```
 Leave changes for review — **do not commit**. End with a coverage summary: what's tested (axe + keyboard + roles + states) and any gaps you're flagging.
 

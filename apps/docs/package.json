@@ -14,8 +14,6 @@
     "clean": "rm -rf storybook-static .turbo screenshots"
   },
   "dependencies": {
-    "@qeetrix/brand": "workspace:*",
-    "@qeetrix/tokens": "workspace:*",
     "@qeetrix/ui": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:",

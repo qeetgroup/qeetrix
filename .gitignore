@@ -10,8 +10,8 @@ storybook-static
 screenshots
 *.tsbuildinfo
 
-# Generated token artifacts
-packages/tokens/build
+# Generated token artifacts (built by packages/ui/scripts/build-tokens.mjs)
+packages/ui/src/styles
 
 # Logs
 *.log

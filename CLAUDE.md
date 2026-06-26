@@ -4,12 +4,12 @@
 
 ## Commands (`cd qeetrix`)
 
-**pnpm@10.32.1** + Turborepo. The token build must run before everything (`build` depends on `^build`).
+**pnpm@10.32.1** + Turborepo. `@qeetrix/ui`'s `build` regenerates tokens first (`build-tokens` → `tsc` → `tsc-alias` → `postbuild`).
 
 ```bash
 pnpm install
-pnpm build            # turbo run build (tokens build first, then ui/brand/etc.)
-pnpm tokens:build     # only @qeetrix/tokens
+pnpm build            # turbo run build (compiles @qeetrix/ui; tokens regenerated first)
+pnpm tokens:build     # regenerate @qeetrix/ui design tokens (Style Dictionary)
 pnpm tokens:validate  # WCAG-AA contrast check on generated semantic pairs
 pnpm lint typecheck
 pnpm --filter @qeetrix/docs storybook   # component workshop on :6006
@@ -18,6 +18,6 @@ pnpm changeset        # record a version bump; pnpm release publishes changed pu
 
 ## Architecture
 
-Design-system pipeline: `@qeetrix/tokens` (W3C JSON → Style Dictionary → CSS/JSON, exported as `--qx-*`) feeds `@qeetrix/ui` (~88 shadcn + Base UI components under `packages/ui/src/components/ui/` — new components go there) and `@qeetrix/brand` (logos/icons). Consumers import `@qeetrix/ui/styles.css` and drive light/dark via the `.dark` class managed by `ThemeProvider`. The shared `pnpm-workspace.yaml` **catalog** pins React/Tailwind/TS versions — add shared deps there, reference with `catalog:`. `@qeetrix/ui` is already a live dependency of qeet-id (`qeetid-admin` + `qeetid-web`).
+Single-package design system: **everything ships in `@qeetrix/ui`**. Design tokens (W3C JSON under `packages/ui/tokens/` → Style Dictionary via `packages/ui/scripts/build-tokens.mjs` → generated `src/styles/`, gitignored) are baked into `@qeetrix/ui/styles.css` and also exposed at `@qeetrix/ui/tokens.css` (raw `--qx-*`), `@qeetrix/ui/tokens.json`, and `@qeetrix/ui/qeetrix.css` (semantic). Components (~88 shadcn + Base UI under `packages/ui/src/components/ui/` — new components go there) and brand (logos/icons under `packages/ui/src/brand/`, exported from the root barrel and `@qeetrix/ui/brand`) round it out. The ui `build` runs `build-tokens` → `tsc` → `tsc-alias` → `postbuild` (postbuild copies fonts + `src/styles` into `dist`). Consumers import `@qeetrix/ui/styles.css` and drive light/dark via the `.dark` class managed by `ThemeProvider`. The shared `pnpm-workspace.yaml` **catalog** pins React/Tailwind/TS versions — add shared deps there, reference with `catalog:`. `@qeetrix/ui` is already a live dependency of qeet-id (`qeetid-admin` + `qeetid-web`). (Tokens/brand were once separate `@qeetrix/tokens` / `@qeetrix/brand` packages — now folded in.)
 
 Pins **pnpm@10.32.1** (qeet-id/frontend uses 9.15.4) — Corepack handles this from `packageManager`.

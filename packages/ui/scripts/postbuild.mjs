@@ -4,6 +4,8 @@
  *    COMPILED js (dist has no .tsx), so a consumer's Tailwind picks up the
  *    utility classes used by Qeetrix components.
  *  - dist/fonts/**   — self-hosted Cal Sans, referenced by @font-face in index.css.
+ *  - dist/styles/**  — generated design tokens (semantic + raw CSS, JSON), imported
+ *    by index.css and exposed via the ./qeetrix.css / ./tokens.* subpath exports.
  */
 import { cpSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -17,5 +19,10 @@ const css = readFileSync(join(ROOT, "src/index.css"), "utf8").replace(
 );
 writeFileSync(join(ROOT, "dist/index.css"), css);
 cpSync(join(ROOT, "src/fonts"), join(ROOT, "dist/fonts"), { recursive: true });
+// Generated token artifacts — the relative @import in index.css and the
+// ./qeetrix.css / ./tokens.* subpath exports resolve from dist/styles.
+cpSync(join(ROOT, "src/styles"), join(ROOT, "dist/styles"), { recursive: true });
 
-console.log("✔ postbuild: wrote dist/index.css (@source → *.js) and copied dist/fonts");
+console.log(
+  "✔ postbuild: wrote dist/index.css (@source → *.js), copied dist/fonts + dist/styles",
+);

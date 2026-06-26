@@ -8,12 +8,17 @@ import { Meta } from "@storybook/addon-docs/blocks";
 **Tailwind CSS v4** and **shadcn/ui with the Base UI registry**, and themed by a single,
 token-driven source of truth.
 
-## Packages
+## The package
 
-- **`@qeetrix/tokens`** — design tokens (W3C JSON → Style Dictionary → CSS + JSON). Generates the
-  `:root` / `.dark` runtime variables and a `--qx-`-prefixed raw export.
-- **`@qeetrix/ui`** — the React component library (this workshop).
-- **`@qeetrix/brand`** — the Qeet logo (theme-adaptive) and custom icons.
+Everything ships in **one** package — **`@qeetrix/ui`**. Install it and you get components,
+brand, and tokens with nothing else to wire up:
+
+- **Components** — the React component library (this workshop), at `@qeetrix/ui`.
+- **Tokens** — design tokens (W3C JSON → Style Dictionary → CSS + JSON) generate the
+  `:root` / `.dark` runtime variables (baked into `@qeetrix/ui/styles.css`), plus a
+  `--qx-`-prefixed raw export at `@qeetrix/ui/tokens.css` and resolved JSON at
+  `@qeetrix/ui/tokens.json`.
+- **Brand** — the Qeet logo (theme-adaptive) and custom icons, at `@qeetrix/ui/brand`.
 
 ## Using it
 
@@ -31,7 +36,7 @@ import "@qeetrix/ui/styles.css";
 Light and dark are first-class and driven by the `.dark` class on the root element — flip the
 **Theme** toolbar above to preview either. Colours are currently a neutral/greyscale ramp; the
 brand palette is a documented open decision (OD-DS-03) and drops in by editing only the primitive
-ramps in `@qeetrix/tokens`.
+ramps in the token source (`packages/ui/tokens`).
 
 See **Foundations → Colors / Typography / Spacing & Radius** for the token galleries, and
 **Primitives** / **Brand** for components.
