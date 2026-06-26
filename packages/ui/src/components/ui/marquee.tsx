@@ -33,7 +33,10 @@ function Marquee({
   return (
     <div
       data-slot="marquee"
-      className={cn("group relative flex w-full overflow-hidden", className)}
+      className={cn(
+        "group relative flex w-full overflow-hidden mask-[linear-gradient(to_right,transparent,#000_2rem,#000_calc(100%-2rem),transparent)]",
+        className
+      )}
       style={style}
       {...props}
     >

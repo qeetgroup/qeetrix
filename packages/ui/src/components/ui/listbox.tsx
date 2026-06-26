@@ -106,7 +106,7 @@ function Listbox({
       data-slot="listbox"
       onKeyDown={onKeyDown}
       className={cn(
-        "max-h-64 overflow-auto rounded-lg border border-input bg-popover p-1 text-sm text-popover-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+        "max-h-64 overflow-auto rounded-lg border border-input bg-popover p-1 text-sm text-popover-foreground shadow-rest outline-none focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30",
         className
       )}
       {...props}
@@ -128,7 +128,7 @@ function Listbox({
               toggle(o.value)
             }}
             className={cn(
-              "flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 select-none",
+              "flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 outline-hidden transition-colors select-none",
               isActive && "bg-accent text-accent-foreground",
               o.disabled && "pointer-events-none opacity-50"
             )}

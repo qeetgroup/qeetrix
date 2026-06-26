@@ -117,7 +117,7 @@ function AngleSlider({
       onPointerMove={onPointerMove}
       onKeyDown={onKeyDown}
       className={cn(
-        "relative rounded-full border border-border bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+        "group relative rounded-full border border-border bg-muted shadow-[inset_0_1px_3px_rgb(0_0_0/0.08)] outline-none focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30",
         disabled && "opacity-50",
         !disabled && !readOnly && "cursor-pointer",
         className
@@ -126,7 +126,7 @@ function AngleSlider({
     >
       <span
         aria-hidden
-        className="absolute rounded-full bg-primary shadow-sm"
+        className="absolute rounded-full bg-primary shadow-sm ring-2 ring-background transition-shadow group-hover:ring-[3px] group-focus-visible:ring-[3px]"
         style={{ width: thumb, height: thumb, left: tx - thumb / 2, top: ty - thumb / 2 }}
       />
     </div>
