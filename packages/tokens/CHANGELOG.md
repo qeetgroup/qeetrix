@@ -1,5 +1,11 @@
 # @qeetrix/tokens
 
+## 0.1.1
+
+### Patch Changes
+
+- 969f7f3: Updated
+
 ## 0.1.0
 
 ### Minor Changes

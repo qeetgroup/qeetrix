@@ -1,5 +1,13 @@
 # @qeetrix/ui
 
+## 0.3.1
+
+### Patch Changes
+
+- 969f7f3: Updated
+- Updated dependencies [969f7f3]
+  - @qeetrix/tokens@0.1.1
+
 ## 0.3.0
 
 ### Minor Changes
