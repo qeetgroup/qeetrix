@@ -184,6 +184,23 @@
   --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
   --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
   --ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+
+  /* Marquee (components/ui/marquee.tsx) — duration/gap supplied via inline vars. */
+  --animate-qx-marquee-left: qx-marquee-left var(--qx-marquee-duration, 20s) linear infinite;
+  --animate-qx-marquee-right: qx-marquee-right var(--qx-marquee-duration, 20s) linear infinite;
+  @keyframes qx-marquee-left {
+    to {
+      transform: translateX(calc(-100% - var(--qx-marquee-gap, 0px)));
+    }
+  }
+  @keyframes qx-marquee-right {
+    from {
+      transform: translateX(calc(-100% - var(--qx-marquee-gap, 0px)));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 }
 
 /* :root and .dark semantic variables come from ./styles/tokens.css (generated;
