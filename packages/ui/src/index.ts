@@ -30,6 +30,8 @@ export {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./components/ui/alert-dialog"
+export { AngleSlider } from "./components/ui/angle-slider"
+export type { AngleSliderProps } from "./components/ui/angle-slider"
 export {
   AppShell,
   AppShellContent,
@@ -38,6 +40,8 @@ export {
 } from "./components/ui/app-shell"
 export { AspectRatio } from "./components/ui/aspect-ratio"
 export type { AspectRatioProps } from "./components/ui/aspect-ratio"
+export { Autocomplete } from "./components/ui/autocomplete"
+export type { AutocompleteProps } from "./components/ui/autocomplete"
 export {
   Avatar,
   AvatarBadge,
@@ -49,6 +53,8 @@ export {
 export { Badge, badgeVariants } from "./components/ui/badge"
 export { Banner, bannerVariants } from "./components/ui/banner"
 export type { BannerProps } from "./components/ui/banner"
+export { Blockquote, blockquoteVariants } from "./components/ui/blockquote"
+export type { BlockquoteProps } from "./components/ui/blockquote"
 export {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -101,6 +107,8 @@ export type {
   SparklineProps,
 } from "./components/ui/chart-presets"
 export { Checkbox, CheckboxGroup } from "./components/ui/checkbox"
+export { Chip, ChipGroup, chipVariants } from "./components/ui/chip"
+export type { ChipGroupProps, ChipProps } from "./components/ui/chip"
 export { CodeBlock } from "./components/ui/code-block"
 export type { CodeBlockProps, CodeLanguage } from "./components/ui/code-block"
 export {
@@ -213,6 +221,8 @@ export type {
   FileUploadStatus,
 } from "./components/ui/file-upload"
 export type { EmptyStateProps } from "./components/ui/empty-state"
+export { Feed } from "./components/ui/feed"
+export type { FeedProps } from "./components/ui/feed"
 export {
   Field,
   FieldContent,
@@ -225,7 +235,11 @@ export {
   FieldSet,
   FieldTitle,
 } from "./components/ui/field"
+export { FloatingWindow, useFloatingWindow } from "./components/ui/floating-window"
+export type { FloatingWindowProps } from "./components/ui/floating-window"
 export { Form, FormActions } from "./components/ui/form"
+export { Highlight } from "./components/ui/highlight"
+export type { HighlightProps } from "./components/ui/highlight"
 export {
   HoverCard,
   HoverCardContent,
@@ -241,8 +255,12 @@ export { JSONTree } from "./components/ui/json-tree"
 export type { JSONTreeProps } from "./components/ui/json-tree"
 export { Kbd, KbdGroup } from "./components/ui/kbd"
 export { Label } from "./components/ui/label"
+export { Listbox } from "./components/ui/listbox"
+export type { ListboxOption, ListboxProps } from "./components/ui/listbox"
 export { LogoUploader } from "./components/ui/logo-uploader"
 export type { LogoUploaderProps } from "./components/ui/logo-uploader"
+export { Marquee } from "./components/ui/marquee"
+export type { MarqueeProps } from "./components/ui/marquee"
 export {
   Menubar,
   MenubarCheckboxItem,
@@ -271,9 +289,15 @@ export {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "./components/ui/navigation-menu"
+export { Notification, notificationVariants } from "./components/ui/notification"
+export type { NotificationProps } from "./components/ui/notification"
 export { NumberField } from "./components/ui/number-field"
+export { NumberFormatter } from "./components/ui/number-formatter"
+export type { NumberFormatterProps } from "./components/ui/number-formatter"
 export { OTPInput } from "./components/ui/otp-input"
 export type { OTPInputProps } from "./components/ui/otp-input"
+export { OverflowList } from "./components/ui/overflow-list"
+export type { OverflowListProps } from "./components/ui/overflow-list"
 export { PageHeader } from "./components/ui/page-header"
 export type { PageHeaderProps } from "./components/ui/page-header"
 export { PaginationBar } from "./components/ui/pagination-bar"
@@ -305,7 +329,11 @@ export {
 } from "./components/ui/resizable"
 export { RichTextEditor } from "./components/ui/rich-text-editor"
 export type { RichTextEditorProps } from "./components/ui/rich-text-editor"
+export { RollingNumber } from "./components/ui/rolling-number"
+export type { RollingNumberProps } from "./components/ui/rolling-number"
 export { ScrollArea, ScrollBar } from "./components/ui/scroll-area"
+export { SegmentedControl, SegmentedControlItem } from "./components/ui/segmented-control"
+export type { SegmentedControlItemProps, SegmentedControlProps } from "./components/ui/segmented-control"
 export {
   Select,
   SelectContent,
@@ -358,6 +386,8 @@ export {
 export { Skeleton } from "./components/ui/skeleton"
 export { Slider } from "./components/ui/slider"
 export { Spinner, spinnerVariants } from "./components/ui/spinner"
+export { Spoiler } from "./components/ui/spoiler"
+export type { SpoilerProps } from "./components/ui/spoiler"
 export { Stat, statDeltaVariants } from "./components/ui/stat"
 export type { StatProps, StatTrend } from "./components/ui/stat"
 export { StatusPill } from "./components/ui/status-pill"
@@ -375,6 +405,8 @@ export {
   TableHeader,
   TableRow,
 } from "./components/ui/table"
+export { TableOfContents, useScrollSpy } from "./components/ui/table-of-contents"
+export type { TableOfContentsProps, TocItem } from "./components/ui/table-of-contents"
 export {
   Tabs,
   TabsContent,
@@ -428,6 +460,7 @@ export type {
   TypographyVariant,
 } from "./components/ui/typography"
 export { useIsMobile } from "./hooks/use-mobile"
+export { usePrefersReducedMotion } from "./hooks/use-prefers-reduced-motion"
 export { cn } from "./lib/utils"
 
 // Brand — Qeet logos + custom icons (also available at the @qeetrix/ui/brand subpath).

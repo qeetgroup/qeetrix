@@ -58,7 +58,7 @@
     "build-tokens": "node scripts/build-tokens.mjs",
     "validate-tokens": "node scripts/build-tokens.mjs && node scripts/validate-contrast.mjs",
     "generate-logos": "node scripts/generate-logos.mjs",
-    "dev": "node scripts/build-tokens.mjs && tsc -p tsconfig.build.json --watch",
+    "dev": "node scripts/build-tokens.mjs && tsc -p tsconfig.build.json --watch --noEmit",
     "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
