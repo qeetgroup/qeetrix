@@ -13,6 +13,5 @@ Pick the affected packages and a bump (patch / minor / major), then commit the g
 with your PR. On merge to `main`, the release workflow opens a **Version Packages** PR; merging
 that PR publishes the changed packages to npm.
 
-Versioning is **independent** per package — `@qeetrix/tokens`, `@qeetrix/ui`, `@qeetrix/brand`,
-`@qeetrix/tsconfig` and `@qeetrix/eslint-config` each version on their own. `@qeetrix/docs` is
-private and never published.
+Versioning is **independent** per package — `@qeetrix/ui`, `@qeetrix/tsconfig` and
+`@qeetrix/eslint-config` each version on their own. `@qeetrix/docs` is private and never published.

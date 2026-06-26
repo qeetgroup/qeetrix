@@ -1,4 +1,0 @@
-{
-  "buildCommand": "pnpm turbo run build --filter=@qeetrix/docs && rm -rf storybook-static && cp -r apps/docs/storybook-static storybook-static",
-  "outputDirectory": "storybook-static"
-}

@@ -45,12 +45,12 @@ Open a session in `qeetrix/` and drive the agents in turn (no nested auto-orches
 > to build it, then **a11y-qa-engineer** for tests, then **storybook-docs-engineer**, then
 > **release-manager**. Stop before committing."
 
-Tokens-first matters: `design-token-engineer` runs before `component-engineer` if the component needs new tokens (turbo builds `@qeetrix/tokens` before `@qeetrix/ui` anyway).
+Tokens-first matters: `design-token-engineer` runs before `component-engineer` if the component needs new tokens (`@qeetrix/ui`'s build regenerates tokens before compiling anyway).
 
 ## Definition of done
 - `pnpm build` (tokens → ui) + `pnpm typecheck` + `pnpm lint` green
 - `pnpm --filter @qeetrix/ui test` (Vitest + vitest-axe) green; APG keyboard/roles covered
-- `pnpm --filter @qeetrix/tokens validate` (WCAG-AA contrast) green
+- `pnpm --filter @qeetrix/ui validate-tokens` (WCAG-AA contrast) green
 - `pnpm --filter @qeetrix/docs build-storybook` green; a story per variant/state exists
 - a `.changeset/*.md` added with the correct bump; **no unflagged breaking change** for qeet-id
 - **You** reviewed the diff — then commit (agents never commit/publish/push; publish is CI on `main`)

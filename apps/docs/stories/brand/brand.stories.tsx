@@ -12,7 +12,7 @@ import {
   IconTenant,
   IconWebhook,
   QeetLogo,
-} from "@qeetrix/brand";
+} from "@qeetrix/ui/brand";
 
 const meta: Meta = {
   title: "Brand/Logo & Icons",

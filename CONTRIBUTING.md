@@ -11,18 +11,18 @@ Node ≥ 20, pnpm 10 (pinned via `packageManager`).
 
 ## Add or change a token
 
-Tokens live in [`packages/tokens/tokens`](packages/tokens/tokens) as W3C Design Tokens JSON
+Tokens live in [`packages/ui/tokens`](packages/ui/tokens) as W3C Design Tokens JSON
 (`primitive/` → `theme/{light,dark}/{semantic,bridge}.json`). Edit those, then:
 
 ```bash
-pnpm --filter @qeetrix/tokens build      # regenerates dist/qeetrix.css + raw + json
-pnpm --filter @qeetrix/tokens validate   # WCAG-AA contrast guard
+pnpm --filter @qeetrix/ui build-tokens      # regenerates src/styles/tokens.{css,raw.css,json}
+pnpm --filter @qeetrix/ui validate-tokens   # WCAG-AA contrast guard
 ```
 
 - The neutral ramp is real; **brand / accent / status ramps are placeholders that alias neutral**
   until the palette is ratified (OD-DS-03). To introduce the real palette, edit only the primitive
   ramps in `primitive/color.json` — semantic, bridge and component layers are untouched.
-- Never hand-edit `:root` / `.dark` in `@qeetrix/ui` — those come from `@qeetrix/tokens/qeetrix.css`.
+- Never hand-edit `:root` / `.dark` in `@qeetrix/ui` — those come from the generated `src/styles/tokens.css`.
 
 ## Add a component
 
@@ -41,7 +41,7 @@ Then export it from `src/index.ts`, build (`pnpm --filter @qeetrix/ui build`), a
 
 ```bash
 pnpm turbo run lint typecheck build
-pnpm --filter @qeetrix/tokens validate
+pnpm --filter @qeetrix/ui validate-tokens
 pnpm --filter @qeetrix/docs build-storybook
 ```
 

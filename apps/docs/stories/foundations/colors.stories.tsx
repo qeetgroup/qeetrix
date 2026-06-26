@@ -4,7 +4,8 @@ import { Grid, Page, Section, Swatch } from "../_helpers";
 
 /**
  * Colour foundations. Swatches are driven by the live CSS variables generated
- * by @qeetrix/tokens, so they update with the Theme toolbar (light / dark).
+ * from the Qeetrix design tokens (now part of @qeetrix/ui), so they update with
+ * the Theme toolbar (light / dark).
  */
 const meta: Meta = {
   title: "Foundations/Colors",

@@ -429,3 +429,6 @@ export type {
 } from "./components/ui/typography"
 export { useIsMobile } from "./hooks/use-mobile"
 export { cn } from "./lib/utils"
+
+// Brand — Qeet logos + custom icons (also available at the @qeetrix/ui/brand subpath).
+export * from "./brand"
