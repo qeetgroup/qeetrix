@@ -1,0 +1,5 @@
+---
+"@qeetrix/ui": patch
+---
+
+Premium visual polish. Elevated the shared elevation system to **layered shadows** (stacked contact + ambient + hairline ring) across the whole ramp (`shadow-xs`…`xl` + `shadow-rest/hover/popover/modal`) and refined the text-selection colour — so every surface (cards, popovers, dialogs, dropdowns, selects) reads more refined automatically. Plus a per-component polish pass on the newest 16: marquee edge fade-masks, segmented-control sliding indicator, angle-slider ring-thumb, listbox/select parity, stronger `Highlight` mark, `Notification` tint, `Feed` depth + hover-lift, `Chip` dark-mode, `Spoiler` fade mask, autocomplete item states. Added tasteful **hover-lift micro-interactions** on interactive surfaces: `Card` now has soft depth (`shadow-rest`) that deepens on hover, and solid `Button` variants (default/secondary) carry a subtle shadow elevation that lifts on hover (press-down via the existing `active:translate-y-px`). List/menu items keep their accent-highlight affordance. Additive only — no API or token-name changes; honors `prefers-reduced-motion` (shadow-only, no layout shift).

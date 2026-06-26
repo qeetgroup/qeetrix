@@ -30,7 +30,10 @@ function Spoiler({
       <div
         id={contentId}
         data-slot="spoiler-content"
-        className={cn("relative", !expanded && "overflow-hidden")}
+        className={cn(
+          "relative",
+          !expanded && "overflow-hidden mask-[linear-gradient(to_bottom,#000_55%,transparent)]"
+        )}
         style={
           !expanded
             ? ({

@@ -7,7 +7,7 @@ import { XIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const chipVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full border font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center gap-1.5 rounded-full border font-medium whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       size: {
@@ -16,9 +16,9 @@ const chipVariants = cva(
         lg: "h-8 px-3.5 text-sm",
       },
       selected: {
-        true: "border-transparent bg-primary text-primary-foreground",
+        true: "border-transparent bg-primary text-primary-foreground shadow-xs",
         false:
-          "border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground",
+          "border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
       },
     },
     defaultVariants: { size: "md", selected: false },

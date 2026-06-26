@@ -18,10 +18,10 @@ const notificationVariants = cva(
   {
     variants: {
       variant: {
-        info: "border-info/30 bg-info/5 [--qx-noti-accent:var(--info)]",
-        success: "border-success/30 bg-success/5 [--qx-noti-accent:var(--success)]",
-        warning: "border-warning/30 bg-warning/5 [--qx-noti-accent:var(--warning)]",
-        error: "border-destructive/30 bg-destructive/5 [--qx-noti-accent:var(--destructive)]",
+        info: "border-info/30 bg-info/10 [--qx-noti-accent:var(--info)]",
+        success: "border-success/30 bg-success/10 [--qx-noti-accent:var(--success)]",
+        warning: "border-warning/30 bg-warning/10 [--qx-noti-accent:var(--warning)]",
+        error: "border-destructive/30 bg-destructive/10 [--qx-noti-accent:var(--destructive)]",
       },
     },
     defaultVariants: { variant: "info" },

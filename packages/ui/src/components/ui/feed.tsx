@@ -35,7 +35,7 @@ function Feed({ busy, className, children, "aria-label": ariaLabel, itemClassNam
           aria-setsize={items.length}
           tabIndex={0}
           className={cn(
-            "rounded-lg border border-border bg-card p-4 text-card-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+            "rounded-lg border border-border bg-card p-4 text-card-foreground shadow-rest transition-shadow outline-none hover:shadow-hover focus-visible:ring-3 focus-visible:ring-ring/50",
             itemClassName
           )}
         >

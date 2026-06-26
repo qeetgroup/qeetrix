@@ -120,7 +120,7 @@ function SegmentedControl({
         <span
           aria-hidden
           data-slot="segmented-control-indicator"
-          className="absolute inset-y-1 start-1 rounded-md bg-background shadow-sm transition-transform duration-200 ease-out motion-reduce:transition-none"
+          className="absolute inset-y-1 start-1 rounded-md bg-background shadow-sm ring-1 ring-foreground/5 transition-[transform,width,height] duration-200 ease-out motion-reduce:transition-none dark:bg-input/40"
           style={indicator}
         />
         {children}
@@ -156,7 +156,7 @@ function SegmentedControlItem({
       tabIndex={active ? 0 : -1}
       onClick={() => ctx?.setValue(value)}
       className={cn(
-        "relative z-10 inline-flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 font-medium whitespace-nowrap outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-active:text-foreground",
+        "relative z-10 inline-flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 font-medium whitespace-nowrap outline-none transition-colors hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-active:text-foreground",
         className
       )}
       {...props}
