@@ -15,7 +15,15 @@ import {
 const meta: Meta<typeof Form> = {
   title: "Primitives/Form",
   component: Form,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A `<form>` wrapper that provides consistent spacing between `FieldGroup` sections and a `FormActions` footer for submit/cancel controls. Used as the container for Qeet ID sign-up, passkey registration, and organization onboarding flows.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
@@ -26,14 +34,14 @@ export const Default: Story = {
     <Form className="w-80" onSubmit={(e) => e.preventDefault()}>
       <FieldGroup>
         <Field>
-          <FieldLabel htmlFor="form-email">Email</FieldLabel>
-          <Input id="form-email" type="email" placeholder="you@acme.com" />
-          <FieldDescription>We&apos;ll never share your email.</FieldDescription>
+          <FieldLabel htmlFor="form-email">Work email</FieldLabel>
+          <Input id="form-email" type="email" placeholder="ada.lovelace@acme.com" />
+          <FieldDescription>Used to log in and receive qeet-notify alerts.</FieldDescription>
         </Field>
         <Field>
           <FieldLabel htmlFor="form-password">Password</FieldLabel>
           <Input id="form-password" type="password" aria-invalid />
-          <FieldError>Password must be at least 8 characters.</FieldError>
+          <FieldError>Password must be at least 12 characters.</FieldError>
         </Field>
       </FieldGroup>
       <FormActions>

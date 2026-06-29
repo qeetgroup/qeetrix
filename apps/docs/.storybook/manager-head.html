@@ -1,0 +1,45 @@
+<!--
+  Loads the Qeet brand faces into the Storybook *chrome* (sidebar / toolbars),
+  which renders outside the preview iframe and so doesn't pick up the design
+  system's @font-face from @qeetrix/ui/styles.css. The woff2 are staged in
+  ./public/fonts and served from the static root. Falls back to system type if a
+  face fails to load — purely a cosmetic uplift, no behavioural dependency.
+-->
+<style>
+  @font-face {
+    font-family: "Cal Sans Display";
+    src: url("/fonts/CalSansUI-GeoRegular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cal Sans Display";
+    src: url("/fonts/CalSansUI-GeoSemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cal Sans Display";
+    src: url("/fonts/CalSansUI-GeoBold.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cal Sans Text";
+    src: url("/fonts/CalSansText-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cal Sans Text";
+    src: url("/fonts/CalSansText-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cal Sans Text";
+    src: url("/fonts/CalSansText-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+  }
+</style>

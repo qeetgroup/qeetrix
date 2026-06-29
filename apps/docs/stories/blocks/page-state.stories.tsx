@@ -5,7 +5,15 @@ import { NotFound, ServerError, Maintenance } from "@qeetrix/ui/blocks";
 
 const meta: Meta = {
   title: "Blocks/PageState",
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Full-page status screens for the moments between content: `NotFound` (404), `ServerError` (500) and `Maintenance`. Each centres an illustration, message and optional actions, giving every Qeet product a consistent, on-brand fallback instead of a raw error.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

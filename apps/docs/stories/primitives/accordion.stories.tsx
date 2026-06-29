@@ -10,7 +10,15 @@ import {
 const meta: Meta<typeof Accordion> = {
   title: "Primitives/Accordion",
   component: Accordion,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A vertically stacked set of collapsible sections. Use it for FAQ panels, settings groups, and any content hierarchy where only one (or a few) items need to be visible at a time — common in Qeet ID's connection and policy configuration flows.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
@@ -35,6 +43,7 @@ const ITEMS: Array<[string, string, string]> = [
 ];
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: "Single-open mode: expanding one item collapses the others — the default for FAQ and help content." } } },
   render: () => (
     <Accordion defaultValue={["passkeys"]} className="w-96">
       {ITEMS.map(([value, q, a]) => (
@@ -48,6 +57,7 @@ export const Default: Story = {
 };
 
 export const Multiple: Story = {
+  parameters: { docs: { description: { story: "Multi-open mode via the `multiple` prop — useful when users need to compare answers across sections simultaneously." } } },
   render: () => (
     <Accordion multiple defaultValue={["passkeys", "mfa"]} className="w-96">
       {ITEMS.map(([value, q, a]) => (

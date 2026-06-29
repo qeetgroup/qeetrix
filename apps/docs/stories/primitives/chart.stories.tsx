@@ -10,18 +10,27 @@ import {
 
 const meta: Meta = {
   title: "Primitives/Chart",
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Low-level Recharts integration primitives — `ChartContainer`, `ChartTooltip`, and `ChartTooltipContent` — that apply Qeetrix design tokens to any Recharts chart. Use these building blocks when a one-off chart shape isn't covered by the `ChartPresets`; for common patterns (area, bar, line, donut) use the preset components instead.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj;
 
 const data = [
-  { month: "Jan", logins: 420 },
-  { month: "Feb", logins: 510 },
-  { month: "Mar", logins: 680 },
-  { month: "Apr", logins: 590 },
-  { month: "May", logins: 740 },
+  { month: "Jan", logins: 14_200 },
+  { month: "Feb", logins: 18_900 },
+  { month: "Mar", logins: 27_400 },
+  { month: "Apr", logins: 31_100 },
+  { month: "May", logins: 38_750 },
+  { month: "Jun", logins: 44_320 },
 ];
 
 const config = {
@@ -30,7 +39,7 @@ const config = {
 
 export const Bars: Story = {
   render: () => (
-    <ChartContainer config={config} className="h-64 w-[28rem]">
+    <ChartContainer config={config} className="h-64 w-md">
       <BarChart data={data}>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />

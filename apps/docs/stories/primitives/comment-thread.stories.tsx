@@ -30,7 +30,15 @@ const SEED: CommentNode[] = [
 const meta: Meta<typeof CommentThread> = {
   title: "Primitives/CommentThread",
   component: CommentThread,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Threaded discussion widget used in Qeet collaboration surfaces. Renders a list of `CommentNode` objects with nested replies, emoji reactions, and an inline reply composer. Pass `currentUser` and `onSubmit` to make it interactive; omit `onSubmit` for a read-only view.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

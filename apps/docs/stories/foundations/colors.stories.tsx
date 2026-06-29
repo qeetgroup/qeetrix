@@ -9,7 +9,15 @@ import { Grid, Page, Section, Swatch } from "../_helpers";
  */
 const meta: Meta = {
   title: "Foundations/Colors",
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "The Qeetrix colour system, in two tiers. Semantic runtime variables (`--background`, `--primary`, `--border`, …) are what components consume and what flips between light and dark; the primitive `--qx-color-*` ramps beneath them are the raw palette the semantics alias. Every swatch reads a live CSS variable, so the grid reacts to the Theme toolbar. The brand ramp aliases neutral until the brand-colour decision (OD-DS-03) lands.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

@@ -11,7 +11,15 @@ import {
 const meta: Meta<typeof Alert> = {
   title: "Primitives/Alert",
   component: Alert,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Contextual inline feedback for the current page — security notices in Qeet ID, quota warnings in qeet-logs, or payment failures in qeet-pay. Use `variant` (`info` | `success` | `warning` | `danger`) to signal intent. For page-level announcements that span the full viewport, use `Banner` instead.",
+      },
+    },
+  },
   tags: ["autodocs"],
   argTypes: {
     variant: {
@@ -34,9 +42,19 @@ export const Default: Story = {
       </AlertDescription>
     </Alert>
   ),
+  parameters: {
+    docs: {
+      description: { story: "Default info alert — use for non-critical notices that don't require immediate action." },
+    },
+  },
 };
 
 export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: { story: "All four semantic variants side-by-side — use the appropriate one to match the urgency of the message." },
+    },
+  },
   render: () => (
     <div className="flex max-w-md flex-col gap-3">
       <Alert variant="info">
@@ -70,6 +88,11 @@ export const Variants: Story = {
 };
 
 export const TitleOnly: Story = {
+  parameters: {
+    docs: {
+      description: { story: "Title-only alert for brief, scannable warnings where a full description would be redundant." },
+    },
+  },
   render: () => (
     <Alert variant="warning" className="max-w-md">
       <TriangleAlertIcon />

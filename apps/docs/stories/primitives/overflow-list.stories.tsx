@@ -5,21 +5,39 @@ import { Badge, OverflowList } from "@qeetrix/ui";
 const meta: Meta<typeof OverflowList> = {
   title: "Primitives/OverflowList",
   component: OverflowList,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Renders a list of items that gracefully collapses to a `+N more` overflow badge when they don't fit the container. Use it for tag lists on Qeet ID user profiles, filter chip rows in qeet-logs, or team-member avatars in qeet-people — wherever horizontal space is finite and a full count still needs to be communicated.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof OverflowList>;
 
-const TAGS = ["design", "engineering", "product", "marketing", "sales", "support", "finance", "legal"];
+const SCOPES = [
+  "openid", "profile", "email", "org:read", "org:write", "audit:read",
+  "billing:read", "webhooks:write", "sessions:manage",
+];
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "OAuth scope badges collapse as the container narrows — drag the right edge to see the overflow badge appear.",
+      },
+    },
+  },
   render: () => (
     <div className="w-80 resize-x overflow-auto rounded-md border p-2">
       <OverflowList
-        items={TAGS.map((t) => (
-          <Badge key={t} variant="secondary">
-            {t}
+        items={SCOPES.map((s) => (
+          <Badge key={s} variant="secondary">
+            {s}
           </Badge>
         ))}
       />
@@ -29,11 +47,18 @@ export const Default: Story = {
 };
 
 export const CollapseFromStart: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "`collapseFrom=\"start\"` is useful for breadcrumb-style paths where the current page (rightmost item) should always remain visible.",
+      },
+    },
+  },
   render: () => (
     <div className="w-64 rounded-md border p-2">
       <OverflowList
         collapseFrom="start"
-        items={["Home", "Workspace", "Projects", "Qeet ID", "Settings"].map((t) => (
+        items={["Home", "Organisations", "Qeet Engineering", "Members", "Permissions"].map((t) => (
           <span key={t} className="text-sm text-muted-foreground">
             {t}
           </span>

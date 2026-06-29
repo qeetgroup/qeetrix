@@ -5,15 +5,40 @@ import { FileTypeIcon } from "@qeetrix/ui";
 const meta: Meta<typeof FileTypeIcon> = {
   title: "Primitives/FileTypeIcon",
   component: FileTypeIcon,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Extension-aware file icon used in qeet-pay attachment surfaces and any Qeet file-picker. Pass a filename or bare extension to `type` and the component derives the appropriate icon — PDF, image, video, audio, spreadsheet, code, archive, or a generic fallback for unknown types.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof FileTypeIcon>;
 
-const TYPES = ["doc.pdf", "photo.png", "clip.mp4", "song.mp3", "data.csv", "app.ts", "archive.zip", "notes.txt", "unknown.xyz"];
+const TYPES = [
+  "invoice_Q3.pdf",
+  "company_logo.png",
+  "onboarding_demo.mp4",
+  "meeting_notes.mp3",
+  "payroll_June.csv",
+  "webhook_handler.ts",
+  "release_assets.zip",
+  "policy_draft.txt",
+  "contract.unknown",
+];
 
 export const Types: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "Full extension matrix — PDF, image, video, audio, CSV, TypeScript, ZIP, plain text, and the generic fallback for unrecognised file types.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       {TYPES.map((t) => (

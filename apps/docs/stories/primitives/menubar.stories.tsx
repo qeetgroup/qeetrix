@@ -13,42 +13,55 @@ import {
 const meta: Meta<typeof Menubar> = {
   title: "Primitives/Menubar",
   component: Menubar,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A horizontal bar of trigger menus — the desktop application equivalent of a native menu bar. Use it in rich tooling surfaces like the qeet-logs query editor or the Qeet ID admin rule builder where multiple top-level command groups need to be always visible.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Menubar>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: "Query editor menubar for qeet-logs — groups stream, query, and view actions into top-level menus with keyboard shortcuts." } } },
   render: () => (
     <Menubar>
       <MenubarMenu>
-        <MenubarTrigger>File</MenubarTrigger>
+        <MenubarTrigger>Stream</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
-            New <MenubarShortcut>⌘N</MenubarShortcut>
+            New stream <MenubarShortcut>⌘N</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
-            Open… <MenubarShortcut>⌘O</MenubarShortcut>
+            Open saved query… <MenubarShortcut>⌘O</MenubarShortcut>
           </MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
-            Print <MenubarShortcut>⌘P</MenubarShortcut>
+            Export results <MenubarShortcut>⌘⇧E</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Edit</MenubarTrigger>
+        <MenubarTrigger>Query</MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>Undo</MenubarItem>
-          <MenubarItem>Redo</MenubarItem>
+          <MenubarItem>
+            Run <MenubarShortcut>⌘↵</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>Format SQL</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>View</MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>Zoom in</MenubarItem>
-          <MenubarItem>Zoom out</MenubarItem>
+          <MenubarItem>
+            Toggle sidebar <MenubarShortcut>⌘B</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>Full screen</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>

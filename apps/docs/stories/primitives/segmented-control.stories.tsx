@@ -6,7 +6,15 @@ import { SegmentedControl, SegmentedControlItem } from "@qeetrix/ui";
 const meta: Meta<typeof SegmentedControl> = {
   title: "Primitives/SegmentedControl",
   component: SegmentedControl,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A mutually exclusive option picker rendered as a connected button group — semantically a radio group with a compact visual style. Use it for view-mode toggles and short option sets where a full `Select` would be oversized: switching between List / Board / Calendar views in qeet-people, or toggling a qeet-logs chart between Day / Week / Month.",
+      },
+    },
+  },
   tags: ["autodocs"],
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
@@ -16,6 +24,7 @@ export default meta;
 type Story = StoryObj<typeof SegmentedControl>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: "View-mode switcher for a qeet-people employee directory — List, Board, or Calendar layout." } } },
   render: (args) => {
     const [value, setValue] = React.useState("list");
     return (
@@ -29,6 +38,7 @@ export const Default: Story = {
 };
 
 export const FullWidth: Story = {
+  parameters: { docs: { description: { story: "`fullWidth` stretches each segment equally — ideal for time-range toggles above a qeet-logs chart." } } },
   render: () => {
     const [value, setValue] = React.useState("day");
     return (

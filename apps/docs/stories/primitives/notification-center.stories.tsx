@@ -12,7 +12,15 @@ const SEED: NotificationItem[] = [
 const meta: Meta<typeof NotificationCenter> = {
   title: "Primitives/NotificationCenter",
   component: NotificationCenter,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Bell-menu notification panel delivered by qeet-notify. Renders a list of `NotificationItem` objects with `variant` severity colouring (`warning`, `success`, `info`, `error`), individual dismiss controls, and a 'Mark all read' action. Typically mounted in the product top-bar next to the user avatar.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

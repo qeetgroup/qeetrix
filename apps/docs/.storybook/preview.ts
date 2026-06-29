@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
 
+import { qeetrixTheme } from "./theme";
 import "./styles.css";
 
 /**
@@ -11,6 +12,9 @@ const preview: Preview = {
     controls: { expanded: true },
     backgrounds: { disable: true },
     layout: "centered",
+    // Autodocs pages adopt the shared brand theme (typography + accent) so the
+    // docs read as Qeet product docs, not stock Storybook.
+    docs: { theme: qeetrixTheme },
     a11y: {
       // A story renders a single component into #storybook-root — not a full
       // document — so axe's "region" rule (every bit of page content must sit

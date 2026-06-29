@@ -18,7 +18,15 @@ const CATEGORIES = [
 const meta: Meta<typeof NotificationPreferenceMatrix> = {
   title: "Primitives/NotificationPreferenceMatrix",
   component: NotificationPreferenceMatrix,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Channel × category toggle matrix from qeet-notify's user preferences screen. Rows map to notification categories (Security, Billing, Product updates) and columns to delivery channels (In-app, Email, Push, SMS). The `value` prop is a nested `PreferenceMatrix` record keyed by `category → channel → boolean`.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

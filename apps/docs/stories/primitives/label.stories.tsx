@@ -5,7 +5,15 @@ import { Input, Label } from "@qeetrix/ui";
 const meta: Meta<typeof Label> = {
   title: "Primitives/Label",
   component: Label,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "An accessible `<label>` element that links to its control via `htmlFor`. Always pair with an `Input`, `Select`, or other form primitive — never use a bare placeholder as a substitute for a label.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

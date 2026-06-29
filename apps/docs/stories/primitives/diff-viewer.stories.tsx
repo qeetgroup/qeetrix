@@ -17,12 +17,39 @@ const AFTER = `{
 const meta: Meta<typeof DiffViewer> = {
   title: "Primitives/DiffViewer",
   component: DiffViewer,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Side-by-side or unified text diff viewer used in qeet-logs and qeet-id to surface configuration changes and audit diffs. Switch between `mode=\"unified\"` (single-column inline ±) and `mode=\"split\"` (before/after columns) via the `argTypes` control above.",
+      },
+    },
+  },
   tags: ["autodocs"],
   argTypes: { mode: { control: "inline-radio", options: ["unified", "split"] } },
 };
 export default meta;
 type Story = StoryObj<typeof DiffViewer>;
 
-export const Unified: Story = { args: { before: BEFORE, after: AFTER, mode: "unified" } };
-export const Split: Story = { args: { before: BEFORE, after: AFTER, mode: "split" } };
+export const Unified: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "Unified diff — added/removed lines interleaved in a single column; preferred for narrow panels in the qeet-logs sidebar.",
+      },
+    },
+  },
+  args: { before: BEFORE, after: AFTER, mode: "unified" },
+};
+
+export const Split: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "Split diff — before on the left, after on the right; preferred for full-width audit-detail views where the reader needs to scan both states in parallel.",
+      },
+    },
+  },
+  args: { before: BEFORE, after: AFTER, mode: "split" },
+};

@@ -11,7 +11,15 @@ import {
 
 const meta: Meta = {
   title: "Blocks/Auth",
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "A complete authentication surface composed from primitives: `AuthShell` provides the centred, branded card frame, and `LoginForm` / `SignupForm` / `ForgotPasswordForm` / `OtpForm` drop into it. This is the reference layout for Qeet ID's hosted sign-in — passkeys-first, with social/passkey buttons and footer links wired through props.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

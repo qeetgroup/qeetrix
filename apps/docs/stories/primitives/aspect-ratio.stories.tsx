@@ -5,7 +5,15 @@ import { AspectRatio } from "@qeetrix/ui";
 const meta: Meta<typeof AspectRatio> = {
   title: "Primitives/AspectRatio",
   component: AspectRatio,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Constrains its child to a fixed width-to-height ratio using CSS `padding-top` hack — prevents layout shift while images or embedded charts load. Use it for product-screenshot thumbnails in qeet-docs, chart cells in qeet-logs dashboards, or org-logo placeholders in Qeet ID's branding settings.",
+      },
+    },
+  },
   tags: ["autodocs"],
   argTypes: {
     ratio: { control: { type: "number" }, description: "Width / height ratio" },
