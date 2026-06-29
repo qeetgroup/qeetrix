@@ -8,3 +8,136 @@
  * those swatches resolve instead of rendering empty/white. */
 @import "@qeetrix/ui/tokens.css";
 @source "../stories";
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * Premium autodocs typography.
+ *
+ * The Docs pages render inside the preview iframe (where @qeetrix/ui/styles.css
+ * above has already loaded the Cal Sans faces + tokens), so we can dress the
+ * generated DocBlocks with the real design-system type, spacing and accent —
+ * turning stock Storybook docs into something that reads like Qeet product docs.
+ * Scoped under .sbdocs so it never leaks into the rendered stories themselves.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+.sbdocs.sbdocs-content {
+  max-width: 56rem;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+}
+
+.sbdocs.sbdocs-content :is(h1, h2, h3, h4, .sbdocs-title, .sbdocs-subtitle) {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.sbdocs.sbdocs-content .sbdocs-h1,
+.sbdocs.sbdocs-content .sbdocs-title {
+  font-weight: 600;
+}
+
+/* Section rule under H2s for a calmer, documentation-grade rhythm. */
+.sbdocs.sbdocs-content .sbdocs-h2 {
+  margin-top: 2.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sbdocs.sbdocs-content .sbdocs-p,
+.sbdocs.sbdocs-content .sbdocs-li {
+  font-family: var(--font-sans);
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.sbdocs.sbdocs-content a.sbdocs-a {
+  color: var(--qeet-brand, #f26d0e);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.sbdocs.sbdocs-content a.sbdocs-a:hover {
+  text-decoration-color: currentcolor;
+}
+
+/* Inline + block code → design-system mono (Fira Code) with a hairline-tinted chip.
+ * The explicit family on pre / .docblock-source also overrides the syntax
+ * highlighter, whose source blocks otherwise set their own monospace stack. */
+.sbdocs.sbdocs-content code,
+.sbdocs.sbdocs-content pre,
+.sbdocs.sbdocs-content .docblock-source,
+.sbdocs.sbdocs-content .docblock-source code,
+.sbdocs.sbdocs-content .docblock-source span {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+.sbdocs.sbdocs-content code {
+  border-radius: 0.375rem;
+}
+
+.sbdocs.sbdocs-content :not(pre) > code {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
+}
+
+.sbdocs.sbdocs-content .docblock-source {
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 0.75rem);
+  box-shadow: var(--shadow-rest, 0 1px 2px rgb(0 0 0 / 0.04));
+}
+
+/* Args/controls table — hairline borders, brand-tinted header. */
+.sbdocs.sbdocs-content .docblock-argstable th {
+  font-family: var(--font-ui);
+}
+
+.sbdocs.sbdocs-content .docblock-argstable tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+/* Story preview blocks — match the design-system card elevation. */
+.sbdocs.sbdocs-content .docblock-preview {
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 0.75rem);
+  box-shadow: var(--shadow-rest, 0 1px 2px rgb(0 0 0 / 0.04));
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * Light/dark: make the surfaces Storybook owns follow the active theme.
+ *
+ * `.dark` is toggled on the iframe <html> by preview.ts (channel + decorator),
+ * and @qeetrix/ui/styles.css defines all the semantic vars for both themes — so
+ * everything below resolves automatically. Without this, the story canvas and the
+ * autodocs DocBlock chrome stay pinned to the static light Storybook theme while
+ * the rendered components flip, which is the "themes don't apply everywhere" bug.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+/* The story canvas — so centered components don't render on a white box in dark. */
+html,
+body.sb-show-main,
+#storybook-root {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Autodocs page chrome — the backdrop, preview frames and table header are painted
+ * by the static (light) docs theme; flip them under .dark to match the content. */
+.dark .sbdocs-wrapper,
+.dark .docs-story,
+.dark .docblock-preview {
+  background-color: var(--background);
+}
+
+.dark .sbdocs.sbdocs-content .docblock-argstable thead tr,
+.dark .sbdocs.sbdocs-content .docblock-argstable th {
+  background-color: var(--muted);
+}

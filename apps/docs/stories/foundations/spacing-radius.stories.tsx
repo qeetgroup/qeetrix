@@ -4,7 +4,15 @@ import { Page, Section } from "../_helpers";
 
 const meta: Meta = {
   title: "Foundations/Spacing & Radius",
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "The spatial tokens that give Qeetrix its rhythm: a 4px-based spacing scale (`--qx-space-*`) for padding, gaps and layout, and a radius scale (`--qx-radii-*`) for consistent corner rounding. Components reference these tokens rather than hard-coded pixels, so density and roundness stay uniform and are tunable from one place.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

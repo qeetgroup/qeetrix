@@ -12,7 +12,15 @@ import { DashboardShell } from "@qeetrix/ui/blocks";
 const meta: Meta<typeof DashboardShell> = {
   title: "Blocks/DashboardShell",
   component: DashboardShell,
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "The app frame for product dashboards — a responsive sidebar + header + scrollable content region. Compose it with `PageHeader`, `Stat`, charts and tables to build an admin home like the Qeet ID console; the shell only owns layout, so the navigation and content are entirely yours.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

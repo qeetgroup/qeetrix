@@ -1,42 +1,167 @@
 import { Meta } from "@storybook/addon-docs/blocks";
+import { QeetLogo, IconPasskey, IconApiKey, IconWebhook, IconTenant } from "@qeetrix/ui/brand";
+import { Button, Badge, Input, Label, Switch, Separator } from "@qeetrix/ui";
 
 <Meta title="Foundations/Introduction" />
 
-# Qeetrix
+<div className="flex flex-col items-start gap-6 rounded-2xl border border-border bg-card p-8 shadow-rest sm:p-10">
+  <QeetLogo size={56} />
 
-**Qeetrix** is the shared design system for **Qeet Group** products. It is built on
-**Tailwind CSS v4** and **shadcn/ui with the Base UI registry**, and themed by a single,
-token-driven source of truth.
+  <div className="flex flex-col gap-3">
+    <h1 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">Qeetrix</h1>
+    <p className="max-w-2xl text-lg text-muted-foreground">
+      The shared design system for <strong className="text-foreground">Qeet Group</strong> products —
+      one package of accessible, token-driven React components powering Qeet ID, qeet-logs, qeet-pay,
+      qeet-notify and qeet-people.
+    </p>
+  </div>
 
-## The package
+  <div className="flex flex-wrap items-center gap-2">
+    <Badge variant="secondary">Single package · @qeetrix/ui</Badge>
+    <Badge variant="secondary">~127 components</Badge>
+    <Badge variant="secondary">Tailwind v4</Badge>
+    <Badge variant="secondary">Base UI</Badge>
+    <Badge variant="success">WCAG-AA</Badge>
+    <Badge variant="outline">Light + dark</Badge>
+  </div>
+</div>
 
-Everything ships in **one** package — **`@qeetrix/ui`**. Install it and you get components,
-brand, and tokens with nothing else to wire up:
+## See it in motion
 
-- **Components** — the React component library (this workshop), at `@qeetrix/ui`.
-- **Tokens** — design tokens (W3C JSON → Style Dictionary → CSS + JSON) generate the
-  `:root` / `.dark` runtime variables (baked into `@qeetrix/ui/styles.css`), plus a
-  `--qx-`-prefixed raw export at `@qeetrix/ui/tokens.css` and resolved JSON at
-  `@qeetrix/ui/tokens.json`.
-- **Brand** — the Qeet logo (theme-adaptive) and custom icons, at `@qeetrix/ui/brand`.
+A handful of primitives, rendered live from the package. Flip the **Theme** toolbar above to preview light or dark — exactly what your app gets.
 
-## Using it
+<div className="flex flex-col gap-6 rounded-xl border border-border bg-card p-6 shadow-rest">
+  <div className="flex flex-wrap items-center gap-3">
+    <Button>Authenticate with Qeet</Button>
+    <Button variant="secondary">Invite member</Button>
+    <Button variant="outline">View audit log</Button>
+    <Button variant="ghost">Cancel</Button>
+    <Button variant="destructive">Revoke key</Button>
+  </div>
+
+  <Separator />
+
+  <div className="flex flex-wrap items-center gap-2">
+    <Badge variant="success">Active</Badge>
+    <Badge variant="warning">Pending verification</Badge>
+    <Badge variant="destructive">Revoked</Badge>
+    <Badge variant="secondary">SCIM synced</Badge>
+    <Badge variant="muted">Draft</Badge>
+  </div>
+
+  <Separator />
+
+  <div className="flex flex-wrap items-end gap-6">
+    <div className="flex w-64 flex-col gap-2">
+      <Label htmlFor="intro-org">Organization</Label>
+      <Input id="intro-org" placeholder="acme-corp" defaultValue="acme-corp" />
+    </div>
+    <div className="flex items-center gap-3">
+      <Switch id="intro-mfa" defaultChecked />
+      <Label htmlFor="intro-mfa">Require passkeys</Label>
+    </div>
+  </div>
+</div>
+
+## One package
+
+Everything ships in **`@qeetrix/ui`** — components, brand and tokens. Install it and there is nothing
+else to wire up:
+
+```bash
+pnpm add @qeetrix/ui
+```
 
 ```tsx
 import { ThemeProvider, Button } from "@qeetrix/ui";
 import "@qeetrix/ui/styles.css";
 
-<ThemeProvider defaultTheme="system">
-  <Button>Authenticate with Qeet</Button>
-</ThemeProvider>;
+export function App() {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <Button>Authenticate with Qeet</Button>
+    </ThemeProvider>
+  );
+}
 ```
+
+What's in the box:
+
+- **Components** — the React library you're browsing in this workshop, at `@qeetrix/ui`.
+- **Tokens** — design tokens authored as W3C JSON, compiled by Style Dictionary into the `:root` / `.dark`
+  runtime variables baked into `@qeetrix/ui/styles.css`, plus a raw `--qx-`-prefixed export at
+  `@qeetrix/ui/tokens.css` and resolved JSON at `@qeetrix/ui/tokens.json`.
+- **Brand** — the theme-adaptive Qeet logo and product icons, at `@qeetrix/ui/brand`.
+
+## Principles
+
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+  <div className="flex flex-col gap-2 rounded-xl border border-border bg-card p-5 shadow-rest">
+    <IconTenant className="size-5 text-muted-foreground" />
+    <h3 className="font-heading text-base font-semibold">Token-driven</h3>
+    <p className="text-sm text-muted-foreground">
+      A single source of truth. Colour, type, spacing, radius and elevation all resolve from tokens, so a
+      change ripples to every component and every consuming app at once.
+    </p>
+  </div>
+  <div className="flex flex-col gap-2 rounded-xl border border-border bg-card p-5 shadow-rest">
+    <IconPasskey className="size-5 text-muted-foreground" />
+    <h3 className="font-heading text-base font-semibold">Accessible by default</h3>
+    <p className="text-sm text-muted-foreground">
+      Built on Base UI primitives with correct roles, focus management and keyboard support, and verified
+      against WCAG-AA contrast — accessibility you inherit rather than retrofit.
+    </p>
+  </div>
+  <div className="flex flex-col gap-2 rounded-xl border border-border bg-card p-5 shadow-rest">
+    <IconApiKey className="size-5 text-muted-foreground" />
+    <h3 className="font-heading text-base font-semibold">Composable</h3>
+    <p className="text-sm text-muted-foreground">
+      Small, predictable parts that snap together. Higher-level patterns in <strong className="text-foreground">Blocks</strong>{" "}
+      are assembled entirely from the same primitives you use directly.
+    </p>
+  </div>
+  <div className="flex flex-col gap-2 rounded-xl border border-border bg-card p-5 shadow-rest">
+    <IconWebhook className="size-5 text-muted-foreground" />
+    <h3 className="font-heading text-base font-semibold">Premium by default</h3>
+    <p className="text-sm text-muted-foreground">
+      Layered elevation, considered motion and light/dark parity ship in the box, so products look polished
+      without per-screen design work.
+    </p>
+  </div>
+</div>
 
 ## Theming
 
-Light and dark are first-class and driven by the `.dark` class on the root element — flip the
-**Theme** toolbar above to preview either. Colours are currently a neutral/greyscale ramp; the
-brand palette is a documented open decision (OD-DS-03) and drops in by editing only the primitive
-ramps in the token source (`packages/ui/tokens`).
+Light and dark are first-class, driven by the `.dark` class on the root element — the same strategy the
+Qeetrix `ThemeProvider` uses in production, so this workshop renders identically to your app. Colours are
+currently a neutral / greyscale ramp; the Qeet brand palette is a documented open decision (`OD-DS-03`)
+and drops in by editing only the primitive ramps in the token source (`packages/ui/tokens`).
 
-See **Foundations → Colors / Typography / Spacing & Radius** for the token galleries, and
-**Primitives** / **Brand** for components.
+## Explore
+
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+  <a className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 no-underline shadow-rest transition-shadow hover:shadow-hover" href="?path=/docs/foundations-colors--docs">
+    <span className="font-heading text-base font-semibold text-foreground">Colors</span>
+    <span className="text-sm text-muted-foreground">The semantic + primitive ramps, theme-reactive.</span>
+  </a>
+  <a className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 no-underline shadow-rest transition-shadow hover:shadow-hover" href="?path=/docs/foundations-typography--docs">
+    <span className="font-heading text-base font-semibold text-foreground">Typography</span>
+    <span className="text-sm text-muted-foreground">The Cal Sans type scale and weights.</span>
+  </a>
+  <a className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 no-underline shadow-rest transition-shadow hover:shadow-hover" href="?path=/docs/foundations-spacing-radius--docs">
+    <span className="font-heading text-base font-semibold text-foreground">Spacing & Radius</span>
+    <span className="text-sm text-muted-foreground">The spacing scale and corner radii.</span>
+  </a>
+  <a className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 no-underline shadow-rest transition-shadow hover:shadow-hover" href="?path=/docs/primitives-button--docs">
+    <span className="font-heading text-base font-semibold text-foreground">Primitives</span>
+    <span className="text-sm text-muted-foreground">~117 building-block components.</span>
+  </a>
+  <a className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 no-underline shadow-rest transition-shadow hover:shadow-hover" href="?path=/docs/blocks-dashboardshell--docs">
+    <span className="font-heading text-base font-semibold text-foreground">Blocks</span>
+    <span className="text-sm text-muted-foreground">Composed page-level patterns.</span>
+  </a>
+  <a className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 no-underline shadow-rest transition-shadow hover:shadow-hover" href="?path=/docs/brand-logo-icons--docs">
+    <span className="font-heading text-base font-semibold text-foreground">Brand</span>
+    <span className="text-sm text-muted-foreground">The Qeet logo and product icons.</span>
+  </a>
+</div>

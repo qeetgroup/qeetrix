@@ -42,6 +42,8 @@ export { AspectRatio } from "./components/ui/aspect-ratio"
 export type { AspectRatioProps } from "./components/ui/aspect-ratio"
 export { Autocomplete } from "./components/ui/autocomplete"
 export type { AutocompleteProps } from "./components/ui/autocomplete"
+export { AvailabilityGrid } from "./components/ui/availability-grid"
+export type { AvailabilityGridProps } from "./components/ui/availability-grid"
 export {
   Avatar,
   AvatarBadge,
@@ -129,6 +131,8 @@ export type {
   CommandPaletteItem,
   CommandPaletteProps,
 } from "./components/ui/command-palette"
+export { CommentThread } from "./components/ui/comment-thread"
+export type { CommentAuthor, CommentNode, CommentThreadProps } from "./components/ui/comment-thread"
 export {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -149,6 +153,8 @@ export { CopyableSecret } from "./components/ui/copyable-secret"
 export type { CopyableSecretProps } from "./components/ui/copyable-secret"
 export { COUNTRY_CODES, CountryPicker } from "./components/ui/country-picker"
 export type { CountryPickerProps } from "./components/ui/country-picker"
+export { CurrencyInput } from "./components/ui/currency-input"
+export type { CurrencyInputProps } from "./components/ui/currency-input"
 export { DataState } from "./components/ui/data-state"
 export type { DataStateProps } from "./components/ui/data-state"
 export { DataTable } from "./components/ui/data-table"
@@ -178,6 +184,8 @@ export {
   DialogTitle,
   DialogTrigger,
 } from "./components/ui/dialog"
+export { DiffViewer } from "./components/ui/diff-viewer"
+export type { DiffViewerProps } from "./components/ui/diff-viewer"
 export {
   Drawer,
   DrawerClose,
@@ -235,6 +243,12 @@ export {
   FieldSet,
   FieldTitle,
 } from "./components/ui/field"
+export { FileCard } from "./components/ui/file-card"
+export type { FileCardProps } from "./components/ui/file-card"
+export { FileTypeIcon } from "./components/ui/file-type-icon"
+export type { FileTypeIconProps } from "./components/ui/file-type-icon"
+export { FilterBar } from "./components/ui/filter-bar"
+export type { ActiveFilter, FilterBarProps, FilterField } from "./components/ui/filter-bar"
 export { FloatingWindow, useFloatingWindow } from "./components/ui/floating-window"
 export type { FloatingWindowProps } from "./components/ui/floating-window"
 export { Form, FormActions } from "./components/ui/form"
@@ -261,6 +275,10 @@ export { LogoUploader } from "./components/ui/logo-uploader"
 export type { LogoUploaderProps } from "./components/ui/logo-uploader"
 export { Marquee } from "./components/ui/marquee"
 export type { MarqueeProps } from "./components/ui/marquee"
+export { MasterDetail } from "./components/ui/master-detail"
+export type { MasterDetailProps } from "./components/ui/master-detail"
+export { MentionInput } from "./components/ui/mention-input"
+export type { MentionInputProps, MentionPerson } from "./components/ui/mention-input"
 export {
   Menubar,
   MenubarCheckboxItem,
@@ -291,9 +309,20 @@ export {
 } from "./components/ui/navigation-menu"
 export { Notification, notificationVariants } from "./components/ui/notification"
 export type { NotificationProps } from "./components/ui/notification"
+export { NotificationCenter } from "./components/ui/notification-center"
+export type { NotificationCenterProps, NotificationItem } from "./components/ui/notification-center"
+export { NotificationPreferenceMatrix } from "./components/ui/notification-preference-matrix"
+export type {
+  NotificationPreferenceMatrixProps,
+  PrefCategory,
+  PrefChannel,
+  PreferenceMatrix,
+} from "./components/ui/notification-preference-matrix"
 export { NumberField } from "./components/ui/number-field"
 export { NumberFormatter } from "./components/ui/number-formatter"
 export type { NumberFormatterProps } from "./components/ui/number-formatter"
+export { OrgChart } from "./components/ui/org-chart"
+export type { OrgChartProps, OrgNode } from "./components/ui/org-chart"
 export { OTPInput } from "./components/ui/otp-input"
 export type { OTPInputProps } from "./components/ui/otp-input"
 export { OverflowList } from "./components/ui/overflow-list"
@@ -318,10 +347,14 @@ export {
   PopoverTitle,
   PopoverTrigger,
 } from "./components/ui/popover"
+export { PresenceIndicator, presenceVariants } from "./components/ui/presence-indicator"
+export type { PresenceIndicatorProps } from "./components/ui/presence-indicator"
 export { Progress } from "./components/ui/progress"
 export { Radio, RadioGroup } from "./components/ui/radio-group"
 export { Rating } from "./components/ui/rating"
 export type { RatingProps } from "./components/ui/rating"
+export { ReactionBar } from "./components/ui/reaction-bar"
+export type { Reaction, ReactionBarProps } from "./components/ui/reaction-bar"
 export {
   ResizableHandle,
   ResizablePanel,
@@ -427,6 +460,8 @@ export {
 } from "./components/ui/timeline"
 export { parseTime, TimePicker } from "./components/ui/time-picker"
 export type { TimePickerProps } from "./components/ui/time-picker"
+export { TimeRangePicker } from "./components/ui/time-range-picker"
+export type { TimeRangePickerProps, TimeRangePreset, TimeRangeValue } from "./components/ui/time-range-picker"
 export { TimeSince } from "./components/ui/time-since"
 export type { TimeSinceProps } from "./components/ui/time-since"
 export { getTimezones, TimezonePicker } from "./components/ui/timezone-picker"

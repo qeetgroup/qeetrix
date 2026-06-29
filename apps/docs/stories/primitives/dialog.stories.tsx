@@ -18,13 +18,22 @@ import {
 const meta: Meta<typeof Dialog> = {
   title: "Primitives/Dialog",
   component: Dialog,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A modal dialog that overlays the page and traps focus until dismissed. Use it for forms and confirmations that require user input before continuing — editing a profile, creating an API key, or configuring an SSO connection in Qeet ID. For irreversible destructive actions, prefer `AlertDialog` instead.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Dialog>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: "Standard form dialog — edit display name and save, with Cancel and Save actions in the footer." } } },
   render: () => (
     <Dialog>
       <DialogTrigger render={<Button>Edit profile</Button>} />
@@ -49,6 +58,7 @@ export const Default: Story = {
 };
 
 export const WithoutCloseButton: Story = {
+  parameters: { docs: { description: { story: "`showCloseButton={false}` removes the corner ✕ — force the user to make an explicit choice via the footer action." } } },
   render: () => (
     <Dialog>
       <DialogTrigger render={<Button variant="outline">Open</Button>} />

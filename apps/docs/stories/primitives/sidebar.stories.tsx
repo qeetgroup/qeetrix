@@ -18,7 +18,15 @@ import {
 
 const meta: Meta = {
   title: "Primitives/Sidebar",
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "The collapsible product sidebar used across all Qeet applications. Built on the shadcn Sidebar primitive, it composes `SidebarProvider`, `SidebarGroup`, and `SidebarMenu` into a responsive rail that collapses to an icon strip on narrower viewports. `SidebarTrigger` gives users manual control over the open/closed state.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

@@ -55,7 +55,15 @@ const columns: ColumnDef<Member>[] = [
 const meta: Meta<typeof DataTable> = {
   title: "Primitives/DataTable",
   component: DataTable,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "A full-featured data grid built on TanStack Table v8. Ships with pagination, column sorting, global search, faceted filters, row selection, bulk actions, column resizing and pinning, density control, CSV export, expandable sub-rows, and opt-in virtualisation for large datasets. Use it as the primary table primitive on Qeet ID member management, audit-log, and API-key screens.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

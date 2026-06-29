@@ -5,7 +5,15 @@ import { StatusPill } from "@qeetrix/ui";
 const meta: Meta<typeof StatusPill> = {
   title: "Primitives/StatusPill",
   component: StatusPill,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A compact inline badge for conveying record or entity status at a glance. Supports six semantic colour variants (`kind`) or a convenience `status` string prop that resolves both colour and label from a curated lookup table — ideal for rendering API-returned status values without a mapping layer in consumer code.",
+      },
+    },
+  },
   argTypes: {
     kind: {
       control: "select",
@@ -34,4 +42,27 @@ export const FromStatusString: Story = {
       },
     },
   },
+};
+
+export const AllStatuses: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "All common Qeet entity states rendered via the `status` prop in a single view. Use this as a visual reference when wiring status values returned by the Qeet ID or qeet-people APIs into list/table UIs.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-wrap gap-2">
+      <StatusPill status="active" />
+      <StatusPill status="pending" />
+      <StatusPill status="revoked" />
+      <StatusPill status="suspended" />
+      <StatusPill status="expired" />
+      <StatusPill status="archived" />
+      <StatusPill status="draft" />
+      <StatusPill status="verified" />
+    </div>
+  ),
 };

@@ -1,61 +1,198 @@
-# @qeetrix/ui
+<div align="center">
 
-Qeetrix UI — the Qeet Group React component library. Built on **shadcn/ui with the Base UI
-registry** and **Tailwind CSS v4**. ESM-only, ships compiled JS + types + the Tailwind entry +
-self-hosted Cal Sans fonts + design tokens + brand (logos/icons) — everything in one package.
+# 🎨 Qeetrix
 
-## Install
+### The Qeet Group design system — one package, every surface
 
-```bash
-pnpm add @qeetrix/ui   # components + tokens + brand
-# peers
-pnpm add react react-dom
+*Premium · Accessible · Token-driven · Built on Base UI + Tailwind v4*
+
+<br>
+
+[![CI](https://github.com/qeetgroup/qeetrix/actions/workflows/ci.yml/badge.svg)](./.github/workflows/ci.yml)
+[![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Base UI](https://img.shields.io/badge/Base_UI-1.x-111?logo=radixui&logoColor=white)](https://base-ui.com)
+[![Storybook 10](https://img.shields.io/badge/Storybook-10-FF4785?logo=storybook&logoColor=white)](https://storybook.js.org)
+[![pnpm + Turborepo](https://img.shields.io/badge/pnpm_10-Turborepo-F69220?logo=pnpm&logoColor=white)](https://pnpm.io)
+
+**[🚀 Install](#-install--use)** · **[🏗 Architecture](#-architecture)** · **[🧩 Components](#-whats-inside)** · **[🎨 Tokens](#-design-tokens)** · **[📖 Storybook](#-develop)** · **[🚢 Release](#-release)**
+
+</div>
+
+---
+
+<div align="center">
+
+| 🧩 99 components | 📦 1 install | 🎨 WCAG-AA tokens | 🌗 Light + dark | ⚛️ React 19 |
+|:---:|:---:|:---:|:---:|:---:|
+| shadcn + Base UI | `@qeetrix/ui` | OKLCH · Style Dictionary | `.dark` class | Tailwind v4 |
+
+</div>
+
+> **Status — pre-1.0 (next publish: `@qeetrix/ui@0.4.0`).** Tokens + brand are now folded into a single `@qeetrix/ui` package; the component set, premium-elevation pass, and Cal Sans typography are in. Already a live dependency of **Qeet ID** (admin · login · website) and **qeet-docs**.
+
+---
+
+## ✨ Why Qeetrix
+
+|  |  |
+|:--|:--|
+| 📦 **One install, everything in it** | `@qeetrix/ui` ships components **+ design tokens + brand** — no peer packages to wire up |
+| ♿ **Accessible by construction** | Built on **Base UI** (WAI-ARIA APG behavior) + axe-tested stories; visible focus, reduced-motion, AA contrast |
+| 🎨 **Token-driven theming** | W3C DTCG JSON → Style Dictionary → CSS + JSON; OKLCH colour, light/dark via the `.dark` class |
+| 💎 **Premium by default** | Layered elevation, refined focus rings, tasteful hover-lift micro-interactions, self-hosted Cal Sans |
+| 🌗 **First-class dark mode** | Every component themed through semantic tokens — no hard-coded greys |
+| 🏢 **Enterprise breadth** | Data tables, command palette, rich-text editor, charts, sidebar shells, date/time pickers, and more |
+| 🧱 **Consistent foundation** | Shared `cva` + `cn()` conventions, `data-slot` hooks, tree-shakeable named exports |
+| 🔒 **Quality-gated** | Typecheck + ESLint + Vitest/axe + WCAG contrast + Storybook build run in CI on every PR |
+
+---
+
+## 🏗 Architecture
+
+A **pnpm + Turborepo** monorepo that publishes a single consumable package. Tokens are the source of truth; everything downstream is generated or composed from them.
+
+```mermaid
+flowchart TB
+    subgraph src["packages/ui — @qeetrix/ui"]
+        direction LR
+        tokens["Design tokens<br/>W3C DTCG JSON · OKLCH<br/>packages/ui/tokens/"]
+        sd["Style Dictionary<br/>scripts/build-tokens.mjs<br/>→ semantic + raw --qx-* CSS + JSON"]
+        comps["99 components<br/>shadcn + Base UI<br/>src/components/ui/"]
+        brand["Brand<br/>QeetLogo + 10 icons<br/>src/brand/"]
+        tokens --> sd --> comps
+        brand --> comps
+    end
+
+    consumers["Qeet ID — admin · login · website<br/>qeet-docs · future Qeet products"]
+    workshop["apps/docs — Storybook 10 workshop"]
+
+    comps --> consumers
+    comps --> workshop
 ```
 
-## Setup (Tailwind v4 consumer)
+**Build pipeline (`@qeetrix/ui`):** `build-tokens` (Style Dictionary) → `tsc` → `tsc-alias` → `postbuild` (inlines the token CSS, copies fonts). The shared `pnpm-workspace.yaml` **catalog** pins React / Tailwind / TS across the repo.
 
-1. Import the stylesheet in your global CSS (this pulls in the tokens, fonts and base layer):
+### Packages
 
-   ```css
-   @import "@qeetrix/ui/styles.css";
-   /* Let Tailwind scan the compiled component classes: */
-   @source "../node_modules/@qeetrix/ui/dist/**/*.js";
-   ```
+| Package | What it is | Published |
+|:--|:--|:--:|
+| **`@qeetrix/ui`** | The component library **+ tokens + brand** — the one package consumers install | ✅ |
+| `@qeetrix/tsconfig` | Shared TypeScript presets | ✅ |
+| `@qeetrix/eslint-config` | Shared ESLint flat config (base + React) | ✅ |
+| `apps/docs` | Storybook 10 workshop — foundations + a story per component | private |
 
-2. Wrap your app in the theme provider:
+> `@qeetrix/tokens` and `@qeetrix/brand` were once separate packages; they're now **folded into `@qeetrix/ui`** and exposed as subpaths (`@qeetrix/ui/tokens.css`, `/tokens.json`, `/qeetrix.css`, `/brand`).
 
-   ```tsx
-   import { ThemeProvider } from "@qeetrix/ui";
+---
 
-   export default function App({ children }) {
-     return <ThemeProvider defaultTheme="system">{children}</ThemeProvider>;
-   }
-   ```
-
-3. Use components:
-
-   ```tsx
-   import { Button, Badge, cn } from "@qeetrix/ui";
-
-   <Button variant="default" size="sm">Save</Button>;
-   ```
-
-Client components ship with their `"use client"` directive preserved, so they work in
-React Server Component setups (Next.js App Router) out of the box.
-
-## Imports
-
-- Barrel: `import { Button, QeetLogo, ... } from "@qeetrix/ui"`
-- Subpath: `import { Button } from "@qeetrix/ui/components/ui/button"`
-- Utils/hooks: `@qeetrix/ui/lib/utils`, `@qeetrix/ui/hooks/use-mobile`
-- Brand: `import { QeetLogo, IconPasskey } from "@qeetrix/ui/brand"`
-- Styles: `@qeetrix/ui/styles.css` (design tokens baked in)
-- Raw tokens: `@qeetrix/ui/tokens.css` (`--qx-*`), `@qeetrix/ui/tokens.json`, `@qeetrix/ui/qeetrix.css` (semantic only)
-
-## Develop
+## 🚀 Install & use
 
 ```bash
-pnpm --filter @qeetrix/ui build       # tsc → dist (preserves "use client"), tsc-alias adds .js, copies css+fonts
-pnpm --filter @qeetrix/ui typecheck
-npx shadcn@latest add <component>    # adds Base UI variants into src/components/ui (components.json)
+pnpm add @qeetrix/ui        # components + tokens + brand, all in one
+pnpm add react react-dom    # peers (>= 19)
 ```
+
+In your Tailwind v4 global stylesheet:
+
+```css
+@import "@qeetrix/ui/styles.css";              /* tokens + fonts + base layer */
+@source "../node_modules/@qeetrix/ui/dist/**/*.js";   /* let Tailwind see component classes */
+```
+
+Then wrap the app and compose:
+
+```tsx
+import { ThemeProvider, Button, Card, CardContent } from "@qeetrix/ui";
+import { QeetLogo } from "@qeetrix/ui/brand";
+
+export function App() {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <Card>
+        <CardContent className="flex items-center gap-3">
+          <QeetLogo size={28} />
+          <Button>Authenticate with Qeet</Button>
+        </CardContent>
+      </Card>
+    </ThemeProvider>
+  );
+}
+```
+
+Light/dark is driven by the `.dark` class (managed by `ThemeProvider`). Need raw values? `@qeetrix/ui/tokens.css` (the `--qx-*` ramp) and `@qeetrix/ui/tokens.json`.
+
+**Import surfaces:** barrel `@qeetrix/ui` · per-component `@qeetrix/ui/components/ui/button` · brand `@qeetrix/ui/brand` · utils `@qeetrix/ui/lib/utils` · hooks `@qeetrix/ui/hooks/*`.
+
+---
+
+## 🧩 What's inside
+
+> 99 React components across the full enterprise surface — every one with a Storybook story; interactive ones with Vitest + axe tests.
+
+- **Overlays** — Dialog · Sheet · Drawer · Popover · DropdownMenu · ContextMenu · Menubar · HoverCard · Tooltip · CommandPalette · NavigationMenu
+- **Inputs & controls** — Button · Input · Textarea · Select · Combobox · MultiSelect · Autocomplete · Checkbox · Radio · Switch · Toggle · Slider · AngleSlider · OTPInput · NumberField · Field / Form · Chip · SegmentedControl · ColorPicker · Date / Time / Timezone pickers
+- **Data & navigation** — Table · DataTable · Tabs · Breadcrumb · Pagination · Sidebar · Tree · Timeline · Accordion · Collapsible · Listbox · TableOfContents · Carousel · Charts
+- **Feedback & surfaces** — Card · Alert · Banner · Notification · Toast · Stat · Badge · StatusPill · Skeleton · Progress · Meter · EmptyState · Feed · Spoiler · Marquee
+- **Content & typography** — Typography / Prose · Blockquote · Highlight · Kbd · CodeBlock · JSONTree · RichTextEditor · NumberFormatter · RollingNumber
+- **Brand** — `QeetLogo` (theme-adaptive) + 10 custom Qeet icons, at `@qeetrix/ui/brand`
+- **Blocks** — auth, dashboard shell, settings layout, onboarding wizard, pricing table
+
+---
+
+## 🎨 Design tokens
+
+The single source of truth lives in [`packages/ui/tokens/`](packages/ui/tokens/) as **W3C DTCG JSON** (primitives → light/dark semantic + shadcn bridge). [Style Dictionary](packages/ui/scripts/build-tokens.mjs) compiles them to:
+
+- `@qeetrix/ui/styles.css` — the full entry (semantic `:root` / `.dark` vars, baked in)
+- `@qeetrix/ui/tokens.css` — the raw `--qx-*` ramp · `@qeetrix/ui/tokens.json` — resolved per theme
+- `@qeetrix/ui/qeetrix.css` — semantic layer only
+
+Colour is authored in **OKLCH**; elevation uses a **layered shadow ladder** (rest · hover · popover · modal). Every semantic text/surface pair is held to **WCAG-AA contrast** by a build gate (`pnpm tokens:validate`).
+
+> The brand palette (`OD-DS-03`) is a documented open decision — tokens stay neutral until it lands; the Qeet orange (`#F26D0E`) is the leading candidate.
+
+---
+
+## 🛠 Develop
+
+**Toolchain:** Node ≥ 20.9 (`nvm use node`) · **pnpm@10.32.1** (Corepack) · Turborepo.
+
+```bash
+pnpm install
+pnpm build            # turbo run build (@qeetrix/ui regenerates tokens, then compiles)
+pnpm tokens:build     # regenerate only the design tokens (Style Dictionary)
+pnpm tokens:validate  # WCAG-AA contrast gate on the generated semantic pairs
+pnpm lint typecheck
+pnpm --filter @qeetrix/ui test           # Vitest + vitest-axe
+pnpm --filter @qeetrix/docs storybook    # component workshop on :6006
+```
+
+Adding a component? Drop it in [`packages/ui/src/components/ui/`](packages/ui/src/components/ui/) (one flat file, `cva` + `cn()`, `data-slot`, Base UI for anything interactive), export it from `src/index.ts`, add a story + a Vitest/axe test, and record a changeset. The competitive backlog lives in [`qeet-files/qeetrix/COMPONENT-PROPOSALS.md`](../qeet-files/qeetrix/COMPONENT-PROPOSALS.md); the delivery pipeline + agents in [`.claude/PIPELINE.md`](.claude/PIPELINE.md). See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+---
+
+## 🚢 Release
+
+Versioning + npm publishing run on [Changesets](.changeset/README.md):
+
+```bash
+pnpm changeset          # record a change (pick packages + bump)
+pnpm version-packages   # apply bumps + changelogs (usually CI)
+pnpm release            # build all, then publish changed public packages
+```
+
+CI runs lint + typecheck + build + token contrast + Storybook on every PR; merging the **Version Packages** PR publishes to the `@qeetrix` npm org (needs `NPM_TOKEN`).
+
+---
+
+## 📚 Documentation · 🤝 Contributing · 📄 License
+
+| Topic | Where |
+|:--|:--|
+| 🧱 Component workshop | `pnpm --filter @qeetrix/docs storybook` → <http://localhost:6006> |
+| 🤖 For AI assistants | [CLAUDE.md](./CLAUDE.md) — commands, architecture, gotchas |
+| 🗺 Component backlog | [qeet-files/qeetrix/COMPONENT-PROPOSALS.md](../qeet-files/qeetrix/COMPONENT-PROPOSALS.md) |
+| 🔧 Contributing | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+
+Part of the **Qeet Group** workspace alongside [Qeet ID](../qeet-id/). Licensed **UNLICENSED** (private to Qeet Group) pending the public-release decision.

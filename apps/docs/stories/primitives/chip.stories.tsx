@@ -6,46 +6,79 @@ import { Chip, ChipGroup } from "@qeetrix/ui";
 const meta: Meta<typeof Chip> = {
   title: "Primitives/Chip",
   component: Chip,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A compact selection control for filter bars, tag inputs, and scope pickers. Use `ChipGroup` to manage single or multi-select state; use `Chip` with `onRemove` for dismissible token lists. Three sizes (`sm` / `md` / `lg`) let Chips sit comfortably inside toolbars, drawers, and full-page filter panels.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Chip>;
 
 export const SingleSelect: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single-select filter bar for a qeet-logs log stream. Exactly one chip is active at a time — clicking a new chip deselects the previous one. Stateful via `React.useState`; pass `value` + `onValueChange` to `ChipGroup`.",
+      },
+    },
+  },
   render: () => {
     const [value, setValue] = React.useState("all");
     return (
       <ChipGroup value={value} onValueChange={(v) => setValue(v as string)}>
-        <Chip value="all">All</Chip>
-        <Chip value="active">Active</Chip>
-        <Chip value="archived">Archived</Chip>
+        <Chip value="all">All logs</Chip>
+        <Chip value="errors">Errors</Chip>
+        <Chip value="warnings">Warnings</Chip>
       </ChipGroup>
     );
   },
 };
 
 export const MultiSelect: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-select team/scope filter for a qeet-people people directory. Multiple chips can be active simultaneously. Pass the `multiple` prop to `ChipGroup` and manage an array of selected values.",
+      },
+    },
+  },
   render: () => {
-    const [value, setValue] = React.useState<string[]>(["design"]);
+    const [value, setValue] = React.useState<string[]>(["engineering"]);
     return (
       <ChipGroup multiple value={value} onValueChange={(v) => setValue(v as string[])}>
+        <Chip value="engineering">Engineering</Chip>
+        <Chip value="product">Product</Chip>
         <Chip value="design">Design</Chip>
-        <Chip value="eng">Engineering</Chip>
-        <Chip value="pm">Product</Chip>
+        <Chip value="leadership">Leadership</Chip>
       </ChipGroup>
     );
   },
 };
 
 export const Removable: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dismissible OAuth scope chips for a Qeet ID API key. Each chip renders an ×-button via `onRemove`; removing all chips leaves an empty grant set. Wire to your form state to track the active scope list.",
+      },
+    },
+  },
   render: () => {
-    const [tags, setTags] = React.useState(["alpha", "beta", "gamma"]);
+    const [scopes, setScopes] = React.useState(["openid", "profile", "email"]);
     return (
       <div className="flex gap-2">
-        {tags.map((t) => (
-          <Chip key={t} onRemove={() => setTags((cur) => cur.filter((x) => x !== t))}>
-            {t}
+        {scopes.map((s) => (
+          <Chip key={s} onRemove={() => setScopes((cur) => cur.filter((x) => x !== s))}>
+            {s}
           </Chip>
         ))}
       </div>

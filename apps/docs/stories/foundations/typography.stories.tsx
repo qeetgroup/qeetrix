@@ -4,7 +4,15 @@ import { Page, Section } from "../_helpers";
 
 const meta: Meta = {
   title: "Foundations/Typography",
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "The Qeetrix type system, built on the Cal Sans family in three optical cuts — Display for headlines, Text for body copy, and UI for interface labels — paired with an eleven-step size scale from `display-lg` down to `micro`. Sizes resolve from the `--qx-font-size-*` tokens, so headings and body stay in proportion across every Qeet product.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

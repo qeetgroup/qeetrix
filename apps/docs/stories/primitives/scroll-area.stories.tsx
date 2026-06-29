@@ -5,7 +5,15 @@ import { ScrollArea, Separator } from "@qeetrix/ui";
 const meta: Meta<typeof ScrollArea> = {
   title: "Primitives/Scroll Area",
   component: ScrollArea,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Cross-browser scrollable container with a styled, always-visible-on-hover scrollbar — ideal for audit-event feeds in qeet-logs, member lists in qeet-people, and notification histories in qeet-notify. Supports both vertical and horizontal scrolling; set a fixed `height` or `width` to constrain the scroll viewport.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
@@ -14,6 +22,11 @@ type Story = StoryObj<typeof ScrollArea>;
 const TAGS = Array.from({ length: 40 }, (_, i) => `audit-event-${1000 + i}`);
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: { story: "Vertical scroll area listing 40 audit events — the styled scrollbar appears on hover." },
+    },
+  },
   render: () => (
     <ScrollArea className="h-56 w-64 rounded-lg border">
       <div className="p-3">
@@ -30,6 +43,11 @@ export const Default: Story = {
 };
 
 export const Horizontal: Story = {
+  parameters: {
+    docs: {
+      description: { story: "Horizontal scroll area for wide content such as a time-series chart thumbnail strip or a media carousel." },
+    },
+  },
   render: () => (
     <ScrollArea className="w-72 rounded-lg border whitespace-nowrap">
       <div className="flex gap-3 p-3">

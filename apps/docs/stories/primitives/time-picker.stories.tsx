@@ -6,13 +6,26 @@ import { TimePicker } from "@qeetrix/ui";
 const meta: Meta<typeof TimePicker> = {
   title: "Primitives/TimePicker",
   component: TimePicker,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Standalone time input for scheduling recurring jobs, notification quiet hours in qeet-notify, and report delivery times. Supports 24-hour and 12-hour (`hourCycle`) modes, optional seconds via `withSeconds`, and stepped increments via `minuteStep` — useful for booking slots in availability grids.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof TimePicker>;
 
 export const TwentyFourHour: Story = {
+  parameters: {
+    docs: {
+      description: { story: "24-hour time input — default for server-side scheduling fields where locale ambiguity must be avoided." },
+    },
+  },
   render: () => {
     const [value, setValue] = React.useState<string>("09:30");
     return (
@@ -25,6 +38,11 @@ export const TwentyFourHour: Story = {
 };
 
 export const TwelveHour: Story = {
+  parameters: {
+    docs: {
+      description: { story: "12-hour AM/PM picker for consumer-facing notification quiet-hours settings." },
+    },
+  },
   render: () => {
     const [value, setValue] = React.useState<string>("14:15");
     return (
@@ -49,6 +67,11 @@ export const WithSeconds: Story = {
 };
 
 export const FiveMinuteSteps: Story = {
+  parameters: {
+    docs: {
+      description: { story: "5-minute stepping for availability or booking grids where freeform minute entry would produce impractical slot times." },
+    },
+  },
   render: () => {
     const [value, setValue] = React.useState<string>("");
     return (

@@ -9,6 +9,12 @@ const meta: Meta<typeof Button> = {
   component: Button,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component:
+          "The foundational action primitive used throughout Qeet products. Use `variant` to communicate intent — `default` for primary actions (e.g. signing in via Qeet ID), `destructive` for irreversible operations (revoking an API key), `outline`/`ghost` for secondary actions, and `link` for inline navigation.",
+      },
+    },
   },
   argTypes: {
     variant: {

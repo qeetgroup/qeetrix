@@ -11,7 +11,15 @@ import { SettingsLayout, SettingsSection } from "@qeetrix/ui/blocks";
 
 const meta: Meta = {
   title: "Blocks/SettingsLayout",
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "A two-column settings page: a sticky title/description rail beside stacked `SettingsSection` cards, each with its own heading, body and footer actions. The standard pattern for account, workspace and security settings — including a conventional danger zone — across Qeet products.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

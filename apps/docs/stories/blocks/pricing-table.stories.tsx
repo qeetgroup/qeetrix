@@ -6,7 +6,15 @@ import { PricingTable, PricingTier } from "@qeetrix/ui/blocks";
 const meta: Meta<typeof PricingTable> = {
   title: "Blocks/PricingTable",
   component: PricingTable,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "A responsive pricing grid built from `PricingTier` cards — name, price, feature list (with included / excluded states), an optional featured highlight and a CTA slot. Used for plan-selection and upgrade screens across the Qeet suite.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

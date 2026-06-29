@@ -12,7 +12,15 @@ import { OnboardingWizard } from "@qeetrix/ui/blocks";
 const meta: Meta<typeof OnboardingWizard> = {
   title: "Blocks/OnboardingWizard",
   component: OnboardingWizard,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "A guided multi-step flow with a progress header and back / next controls. Pass an array of `steps` (label, description, content) and an `onComplete` handler — ideal for first-run setup such as creating a workspace and inviting a team in Qeet ID or qeet-people.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;

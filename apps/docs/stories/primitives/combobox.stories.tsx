@@ -16,13 +16,22 @@ const timezones: ComboboxOption[] = [
 const meta: Meta<typeof Combobox> = {
   title: "Primitives/Combobox",
   component: Combobox,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          "A searchable single-select that filters a static list as the user types. Unlike `Autocomplete`, the typed value must resolve to a valid option. Use for long but bounded lists such as time zones in Qeet ID user profiles, log stream regions in qeet-logs, and country codes in qeet-pay.",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: "Time-zone picker for a Qeet ID user profile — type to filter the full IANA list." } } },
   render: () => (
     <div className="w-72">
       <Combobox items={timezones} placeholder="Search time zones…" />
@@ -31,9 +40,10 @@ export const Default: Story = {
 };
 
 export const Preselected: Story = {
+  parameters: { docs: { description: { story: "IST pre-selected for an Acme Inc. org based in India — the default for new qeet-pay merchants." } } },
   render: () => (
     <div className="w-72">
-      <Combobox items={timezones} defaultValue="utc" />
+      <Combobox items={timezones} defaultValue="ist" />
     </div>
   ),
 };

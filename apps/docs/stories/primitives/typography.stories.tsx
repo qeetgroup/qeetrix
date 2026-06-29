@@ -5,66 +5,99 @@ import { Typography, Prose } from "@qeetrix/ui";
 const meta: Meta<typeof Typography> = {
   title: "Primitives/Typography",
   component: Typography,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Consistent text styling for discrete pieces of copy — headings, lead paragraphs, blockquotes, inline code, and muted captions. Use `variant` to pick the right semantic element and visual weight; switch to `Prose` when rendering long-form MDX or rich-text output (e.g. qeet-docs articles).",
+      },
+    },
+  },
   tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Typography>;
 
 export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "All `variant` values rendered together — a quick visual reference for the Qeet type scale.",
+      },
+    },
+  },
   render: () => (
     <div className="flex max-w-2xl flex-col gap-4">
-      <Typography variant="h1">The quick brown fox</Typography>
-      <Typography variant="h2">The quick brown fox</Typography>
-      <Typography variant="h3">The quick brown fox</Typography>
-      <Typography variant="h4">The quick brown fox</Typography>
+      <Typography variant="h1">Qeet ID — passkeys-first identity</Typography>
+      <Typography variant="h2">Authenticate without passwords</Typography>
+      <Typography variant="h3">Developer quick-start</Typography>
+      <Typography variant="h4">Environment variables</Typography>
       <Typography variant="lead">
-        A lead paragraph introduces the section with a slightly larger, muted tone.
+        Qeet ID ships a hosted login UI, passkey registration, and a full OIDC/OAuth 2.0 server
+        — ready to drop into any stack in under 15 minutes.
       </Typography>
       <Typography variant="p">
-        A regular body paragraph. Jackdaws love my big sphinx of quartz, and the
-        five boxing wizards jump quickly.
+        Every Qeet product — from qeet-logs real-time log streams to qeet-pay India-first checkout
+        — uses Qeet ID tokens for authentication. A single JWT carries org membership, roles, and
+        custom claims.
       </Typography>
       <Typography variant="blockquote">
-        “Design is not just what it looks like and feels like. Design is how it works.”
+        Passkeys eliminate the password as an attack surface — and Qeet ID makes them the default,
+        not an afterthought.
       </Typography>
-      <Typography variant="large">Large emphasis text</Typography>
-      <Typography variant="small">Small medium text</Typography>
-      <Typography variant="muted">Muted caption text</Typography>
+      <Typography variant="large">99.97% uptime · 42 ms median token issuance</Typography>
+      <Typography variant="small">Last rotated: 14 Jun 2026</Typography>
+      <Typography variant="muted">Token expires in 3,600 seconds · issued by id.qeet.in</Typography>
       <Typography variant="p">
-        Inline <Typography as="code" variant="inlineCode">npm install @qeetrix/ui</Typography> code.
+        Install with{" "}
+        <Typography as="code" variant="inlineCode">
+          pnpm add @qeetrix/ui
+        </Typography>{" "}
+        and import the stylesheet.
       </Typography>
     </div>
   ),
 };
 
 export const ProseBlock: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "`Prose` styles raw HTML or MDX output — used by qeet-docs to render product documentation without a `@tailwindcss/typography` dependency.",
+      },
+    },
+  },
   render: () => (
     <Prose className="max-w-2xl">
-      <h1>Getting started</h1>
+      <h1>Getting started with Qeet ID</h1>
       <p>
-        This block of rendered HTML is styled by <code>Prose</code> with no
-        <code>@tailwindcss/typography</code> dependency.
+        Qeet ID is the identity platform for the Qeet suite. It provides passkey-first
+        authentication, OIDC/OAuth 2.0 token issuance, and a hosted login UI — all under the{" "}
+        <code>id.qeet.in</code> domain.
       </p>
       <h2>Installation</h2>
-      <p>Install the package and import the styles:</p>
+      <p>Add the SDK and import styles in your entry file:</p>
       <pre>
         <code>pnpm add @qeetrix/ui</code>
       </pre>
-      <h3>Features</h3>
+      <h3>What you get</h3>
       <ul>
-        <li>Headings, paragraphs, and lists</li>
+        <li>Passkey registration and assertion — no passwords stored</li>
         <li>
-          Links like <a href="#">this one</a>, plus <strong>bold</strong> and{" "}
-          <em>italic</em>
+          Org-scoped JWTs with <strong>custom claims</strong> and{" "}
+          <em>refresh token rotation</em>
         </li>
-        <li>Blockquotes and code</li>
+        <li>Magic-link and OTP fallback for devices without passkey support</li>
       </ul>
-      <blockquote>Long-form editorial content reads comfortably.</blockquote>
+      <blockquote>
+        Passkeys are phishing-resistant by design — the private key never leaves the device.
+      </blockquote>
       <hr />
+      <h3>Supported grant types</h3>
       <ol>
-        <li>First</li>
-        <li>Second</li>
+        <li>Authorization Code + PKCE</li>
+        <li>Client Credentials (machine-to-machine)</li>
       </ol>
     </Prose>
   ),

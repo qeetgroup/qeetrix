@@ -19,6 +19,7 @@ const config: StorybookConfig = {
     options: {},
   },
   core: { disableTelemetry: true },
+  staticDirs: ["./public"],
   async viteFinal(cfg) {
     cfg.plugins ??= [];
     cfg.plugins.push(tailwindcss());
