@@ -1,5 +1,16 @@
 # @qeetrix/docs
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [42e3b8c]
+- Updated dependencies [a4bd2da]
+- Updated dependencies [4ec7f1f]
+- Updated dependencies [7006c91]
+- Updated dependencies [42e3b8c]
+  - @qeetrix/ui@0.5.0
+
 ## 0.0.5
 
 ### Patch Changes
