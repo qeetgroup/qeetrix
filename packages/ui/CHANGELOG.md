@@ -1,5 +1,32 @@
 # @qeetrix/ui
 
+## 0.5.0
+
+### Minor Changes
+
+- 42e3b8c: The monospace font is now bundled **Fira Code** (SIL OFL 1.1), replacing the previous Cal Sans Text mono fallback. This repoints the `--font-mono` token, so every monospace surface picks it up automatically — code blocks, `<kbd>`, copyable secrets, JSON trees, diff viewers, OTP inputs, the color-picker hex value, and chart axis numbers. No API changes; purely a typographic upgrade for code-like content.
+- a4bd2da: Add 16 new components from the competitive backlog (`COMPONENT-PROPOSALS.md`), each with a Storybook story and Vitest/axe tests:
+  - **Inputs & selection:** `Autocomplete` (free-text + suggestions, Base UI), `Chip` / `ChipGroup` (single/multi-select, removable), `SegmentedControl` (animated indicator), `Listbox` (standalone APG listbox), `AngleSlider` (0–360°).
+  - **Feedback & data:** `Notification` (inline card), `Feed` (APG feed pattern), `NumberFormatter`, `RollingNumber`, `OverflowList` (collapse-to-overflow).
+  - **Content & layout:** `Blockquote`, `Highlight` (search emphasis), `Spoiler` (truncate + expand), `TableOfContents` (+ `useScrollSpy`), `Marquee`, `FloatingWindow` (+ `useFloatingWindow`).
+
+  Also exports a `usePrefersReducedMotion` hook. All additive — no breaking changes, no new runtime dependencies. Built on existing semantic tokens (no token changes).
+
+- 4ec7f1f: Add 15 PRD-driven reusable components, distilled from the Qeet product PRDs — each with a Storybook story and Vitest/axe tests, composed from existing primitives (no new runtime dependencies):
+  - **Filtering & analytics:** `TimeRangePicker`, `FilterBar`
+  - **Payments & files:** `CurrencyInput`, `FileTypeIcon`, `FileCard`
+  - **Notifications:** `NotificationCenter`, `NotificationPreferenceMatrix`
+  - **Collaboration:** `PresenceIndicator`, `ReactionBar`, `MentionInput`, `CommentThread`
+  - **Layout & data:** `MasterDetail`, `DiffViewer`, `OrgChart`, `AvailabilityGrid`
+
+  Product-specific UI (mail compose, Pay checkout/invoice, People payroll, ReBAC editor, LogQL/live-tail, News story-clustering, Meet captions) intentionally stays in the product apps. `KanbanBoard` and `ScheduleCalendar` remain deferred pending a drag-and-drop / scheduling dependency.
+
+- 42e3b8c: Add the full Tailwind v4 color palette (21 ramps × 50–950) as `--qx-color-<name>-<step>` primitive tokens — red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose, slate, gray, zinc, stone. Exposed in `@qeetrix/ui/tokens.css` (raw) and `@qeetrix/ui/tokens.json`, and documented in Foundations → Colors as a palette gallery. Purely additive: existing ramps (`neutral`, the semantic `success`/`warning`/`info`/`danger` status ramps, brand placeholders) and all semantic mappings are unchanged.
+
+### Patch Changes
+
+- 7006c91: Premium visual polish. Elevated the shared elevation system to **layered shadows** (stacked contact + ambient + hairline ring) across the whole ramp (`shadow-xs`…`xl` + `shadow-rest/hover/popover/modal`) and refined the text-selection colour — so every surface (cards, popovers, dialogs, dropdowns, selects) reads more refined automatically. Plus a per-component polish pass on the newest 16: marquee edge fade-masks, segmented-control sliding indicator, angle-slider ring-thumb, listbox/select parity, stronger `Highlight` mark, `Notification` tint, `Feed` depth + hover-lift, `Chip` dark-mode, `Spoiler` fade mask, autocomplete item states. Added tasteful **hover-lift micro-interactions** on interactive surfaces: `Card` now has soft depth (`shadow-rest`) that deepens on hover, and solid `Button` variants (default/secondary) carry a subtle shadow elevation that lifts on hover (press-down via the existing `active:translate-y-px`). List/menu items keep their accent-highlight affordance. Additive only — no API or token-name changes; honors `prefers-reduced-motion` (shadow-only, no layout shift).
+
 ## 0.4.0
 
 ### Minor Changes
