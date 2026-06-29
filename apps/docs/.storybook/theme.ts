@@ -30,7 +30,7 @@ export const qeetrixTheme = create({
 
   // Typography from the design tokens (packages/ui/src/index.css @theme).
   fontBase: '"Cal Sans Text", "Cal Sans UI", ui-sans-serif, system-ui, sans-serif',
-  fontCode: '"Cal Sans Text", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace',
+  fontCode: '"Fira Code", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace',
 
   textColor: "#1a1a19",
   textMutedColor: "#6b6b68",

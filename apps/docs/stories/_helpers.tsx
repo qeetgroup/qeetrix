@@ -20,6 +20,44 @@ export function Grid({ children }: { children: ReactNode }) {
   return <div className="flex flex-wrap gap-4">{children}</div>;
 }
 
+/**
+ * A Tailwind-style colour ramp: a labelled row of swatches for one palette,
+ * each driven by `var(--qx-color-<name>-<step>)` (theme-reactive) and annotated
+ * with its shade number and resolved value.
+ */
+export function Ramp({
+  name,
+  steps,
+  values,
+}: {
+  name: string;
+  steps: Array<number | string>;
+  values?: Record<string, string>;
+}) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="font-medium text-sm capitalize">{name}</div>
+      <div className="grid grid-cols-11 gap-1.5">
+        {steps.map((s) => {
+          const value = values?.[String(s)];
+          return (
+            <div key={s} className="flex flex-col gap-1" title={value ? `${name}-${s} · ${value}` : `${name}-${s}`}>
+              <div
+                className="h-12 rounded-md border border-border"
+                style={{ background: `var(--qx-color-${name}-${s})` }}
+              />
+              <div className="text-[10px] leading-tight">
+                <div className="font-medium">{s}</div>
+                {value ? <code className="block truncate text-muted-foreground">{value}</code> : null}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-4">
